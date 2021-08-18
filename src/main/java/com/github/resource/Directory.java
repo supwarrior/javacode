@@ -34,7 +34,7 @@ public class Directory {
         for (File item : file.listFiles()) {
             if (item.isDirectory()) {
                 list.getDirs().add(item);
-                list.addAll(get(item, regex));
+                 list.addAll(get(item, regex));
             } else {
                 if (item.getName().matches(regex)) {
                     list.getFiles().add(item);

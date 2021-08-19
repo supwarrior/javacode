@@ -33,7 +33,9 @@ public class Beans {
         for (Class clazz : set) {
             try {
                 Object bean = clazz.getDeclaredConstructor().newInstance();
-                result.put(clazz.getSimpleName(), bean);
+                if (clazz.isAssignableFrom(beanClass)) {
+                    result.put(clazz.getSimpleName(), clazz.cast(bean));
+                }
             } catch (Exception exception) {
                 throw new RuntimeException(exception);
             }

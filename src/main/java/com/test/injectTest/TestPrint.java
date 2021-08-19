@@ -1,4 +1,4 @@
-package com.test;
+package com.test.injectTest;
 
 /**
  * @author 康盼Java开发工程师

@@ -2,8 +2,6 @@ package com.test.injectTest;
 
 import com.github.annotation.Inject;
 import com.github.javabean.BeanAop;
-import com.test.DemoTest;
-import com.test.TestPrint;
 import org.junit.Test;
 
 /**

@@ -36,8 +36,7 @@ public class BeanInject {
                 } else {
                     char[] chars = beanName.toCharArray();
                     chars[0] -= 32;
-                    String newBeanName = String.valueOf(chars);
-                    value = beans.get(newBeanName);
+                    value = beans.get(String.valueOf(chars));
                 }
                 try {
                     if (value != null) {

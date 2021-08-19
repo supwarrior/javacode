@@ -1,8 +1,6 @@
 package com.github.javabean;
 
 
-import com.github.resource.ClassScanner;
-
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -30,7 +28,7 @@ public class Beans {
                 result.put(obj.getClass().getSimpleName(), obj);
             }
         }
-        ClassScanner classScanner = new ClassScanner("bean.xml");
+        BeanClassScanner classScanner = new BeanClassScanner("bean.xml");
         Set<Class> set = classScanner.scan();
         for (Class clazz : set) {
             try {

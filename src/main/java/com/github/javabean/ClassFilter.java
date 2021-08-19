@@ -1,6 +1,9 @@
-package com.github.resource;
+package com.github.javabean;
 
 
+/**
+ * @author 康盼Java开发工程师
+ */
 @FunctionalInterface
 public interface ClassFilter<T> {
     /**

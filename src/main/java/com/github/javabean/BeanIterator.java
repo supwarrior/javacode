@@ -64,7 +64,7 @@ public class BeanIterator<T> implements Iterator<T> {
     @Override
     public boolean hasNext() {
         try {
-            if (beans == null || !iterator.hasNext()) {
+            if (beans == null || iterator == null || !iterator.hasNext()) {
                 return false;
             }
             nextBean = iterator.next();

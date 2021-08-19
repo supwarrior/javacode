@@ -22,9 +22,6 @@ public class BeanInject {
         for (Field field : fields) {
             if (field.isAnnotationPresent(Inject.class)) {
                 Class fieldType = field.getType();
-                if (!field.getType().isInterface()) {
-                    throw new RuntimeException("Inject field must be declared as an interface:" + field.getName() + "@Class" + clazz.getName());
-                }
                 Map<String, Object> beans = Beans.get(fieldType);
                 if (beans.isEmpty()) {
                     throw new RuntimeException("META-INF.services not fond bean");

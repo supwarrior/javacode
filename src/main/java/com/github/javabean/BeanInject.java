@@ -24,7 +24,7 @@ public class BeanInject {
                 Class fieldType = field.getType();
                 Map<String, Object> beans = Beans.get(fieldType);
                 if (beans.isEmpty()) {
-                    throw new RuntimeException("META-INF.services not fond bean");
+                    throw new RuntimeException("not fond bean");
                 }
                 String beanName = field.getAnnotation(Inject.class).value();
                 Object value;

@@ -13,7 +13,24 @@ import java.util.Set;
  */
 public class Beans {
     /**
-     * META-INF.services
+     * getByType
+     *
+     * @param type
+     * @return Object
+     */
+    public static Object getByType(Class type) {
+        Map<String, Object> map = get(type.getInterfaces()[0]);
+        if (map.isEmpty()) {
+            return null;
+        }
+        if (map.size() > 1) {
+            throw new RuntimeException("required a single bean, but 2 were found");
+        }
+        return map.get(type.getSimpleName());
+    }
+
+    /**
+     * get bean Map
      *
      * @param beanClass beanClass
      * @return Map<String, Object>
@@ -25,6 +42,7 @@ public class Beans {
         while (iterator.hasNext()) {
             Object obj = beanClass.cast(iterator.next());
             if (Objects.nonNull(obj)) {
+                BeanInject.set(obj);
                 result.put(obj.getClass().getSimpleName(), obj);
             }
         }
@@ -33,7 +51,8 @@ public class Beans {
         for (Class clazz : set) {
             try {
                 Object bean = clazz.getDeclaredConstructor().newInstance();
-                if (clazz.isAssignableFrom(beanClass)) {
+                if (clazz.isAssignableFrom(beanClass) && Objects.nonNull(bean)) {
+                    BeanInject.set(bean);
                     result.put(clazz.getSimpleName(), clazz.cast(bean));
                 }
             } catch (Exception exception) {

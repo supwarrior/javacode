@@ -41,20 +41,18 @@ public class BeanClassScanner {
             Set<Class> set = new LinkedHashSet<>();
             for (URL url : ResourceUtil.getResourcesIterator(packagePath)) {
                 File file = new File(URLDecoder.decode(url.toString(), StandardCharsets.UTF_8.name()).substring(6));
-                FileList list = Directory.get(file, ".*");
+                FileList list = Directory.get(file, ".class");
                 list.getFiles().forEach(ele -> {
                     String fileName = ele.getName();
-                    if (fileName.endsWith(".class")) {
-                        String className = scanPath + "." + fileName.substring(0, fileName.lastIndexOf("."));
-                        try {
-                            Class clazz = Class.forName(className, false, classLoader);
-                            ClassFilter<Class<?>> filter = cla -> cla.isAnnotationPresent(Component.class);
-                            if (filter.accept(clazz)) {
-                                set.add(clazz);
-                            }
-                        } catch (ClassNotFoundException exception) {
-                            throw new RuntimeException(exception);
+                    String className = scanPath + "." + fileName.substring(0, fileName.lastIndexOf("."));
+                    try {
+                        Class clazz = Class.forName(className, false, classLoader);
+                        ClassFilter<Class<?>> filter = cla -> cla.isAnnotationPresent(Component.class);
+                        if (filter.accept(clazz)) {
+                            set.add(clazz);
                         }
+                    } catch (ClassNotFoundException exception) {
+                        throw new RuntimeException(exception);
                     }
                 });
             }

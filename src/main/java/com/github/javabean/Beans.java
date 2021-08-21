@@ -19,13 +19,22 @@ public class Beans {
      * @return Object
      */
     public static Object getByType(Class type) {
-        Map<String, Object> map = get(type.getInterfaces()[0]);
-        if (map.isEmpty()) {
-            return null;
+        if (type.isInterface()) {
+            Map<String, Object> map = get(type);
+            if (map.isEmpty()) {
+                return null;
+            }
+            if (map.size() > 1) {
+                throw new RuntimeException("required a single bean, but 2 were found");
+            }
+            return map.entrySet().iterator().next();
         }
-        if (map.size() > 1) {
-            throw new RuntimeException("required a single bean, but 2 were found");
+        Class<?>[] clazz = type.getInterfaces();
+        if (clazz != null && clazz.length == 1) {
+            Map<String, Object> map = get(clazz[0]);
+            return map.get(type.getSimpleName());
         }
+        Map<String, Object> map = get(type);
         return map.get(type.getSimpleName());
     }
 

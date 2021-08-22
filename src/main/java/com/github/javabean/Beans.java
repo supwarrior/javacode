@@ -61,8 +61,8 @@ public class Beans {
             try {
                 Object bean = clazz.getDeclaredConstructor().newInstance();
                 BeanInitialize beanInitialize = new BeanInitialize(classScanner);
-                beanInitialize.initialize(clazz,bean);
                 if (clazz.isAssignableFrom(beanClass) && Objects.nonNull(bean)) {
+                    beanInitialize.initialize(clazz,bean);
                     BeanInject.set(bean);
                     result.put(clazz.getSimpleName(), clazz.cast(bean));
                 }

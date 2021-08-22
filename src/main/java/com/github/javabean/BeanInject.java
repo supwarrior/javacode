@@ -3,6 +3,7 @@ package com.github.javabean;
 import com.github.annotation.Inject;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.Map;
 
 /**
@@ -20,7 +21,7 @@ public class BeanInject {
         Class clazz = bean.getClass();
         Field[] fields = clazz.getDeclaredFields();
         for (Field field : fields) {
-            if (field.isAnnotationPresent(Inject.class)) {
+            if (field.isAnnotationPresent(Inject.class) && !Modifier.isFinal(field.getModifiers())) {
                 Class fieldType = field.getType();
                 Map<String, Object> beans = Beans.get(fieldType);
                 if (beans.isEmpty()) {

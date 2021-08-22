@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bean>
+<beans>
     <component-scan base-package="com.github.model">
     </component-scan>
-</bean>
+    <bean id="user" class="com.github.model.User" >
+        <property name="id" value="1"></property>
+        <property name="name" value="康盼"></property>
+        <property name="age" value="18"></property>
+        <property name="sex" value="男"></property>
+    </bean>
+</beans>

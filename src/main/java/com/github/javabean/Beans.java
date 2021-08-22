@@ -27,7 +27,7 @@ public class Beans {
             if (map.size() > 1) {
                 throw new RuntimeException("required a single bean, but 2 were found");
             }
-            return map.entrySet().iterator().next();
+            return map.values().iterator().next();
         }
         Class<?>[] clazz = type.getInterfaces();
         if (clazz != null && clazz.length == 1) {
@@ -60,6 +60,8 @@ public class Beans {
         for (Class clazz : set) {
             try {
                 Object bean = clazz.getDeclaredConstructor().newInstance();
+                BeanInitialize beanInitialize = new BeanInitialize(classScanner);
+                beanInitialize.initialize(clazz,bean);
                 if (clazz.isAssignableFrom(beanClass) && Objects.nonNull(bean)) {
                     BeanInject.set(bean);
                     result.put(clazz.getSimpleName(), clazz.cast(bean));

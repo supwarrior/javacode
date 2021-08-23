@@ -1,5 +1,6 @@
 package com.github.model;
 
+import com.github.annotation.Alias;
 import com.github.annotation.Component;
 
 /**
@@ -7,6 +8,7 @@ import com.github.annotation.Component;
  */
 @Component
 public class User {
+    @Alias("userId")
     private Long id;
     private String name;
     private int age;

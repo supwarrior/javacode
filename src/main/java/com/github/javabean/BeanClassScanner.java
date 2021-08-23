@@ -48,11 +48,23 @@ public class BeanClassScanner {
                 for (Element property : properties) {
                     String name = property.attributeValue("name");
                     String value = property.attributeValue("value");
-                    BeanProperty beanProperty = new BeanProperty(name, value);
+                    String ref = property.attributeValue("ref");
+                    Class valueType = Class.forName(property.attributeValue("class"));
+                    BeanProperty beanProperty;
+                    if (valueType == Long.class) {
+                        beanProperty = new BeanProperty(name, Long.valueOf(value));
+                    } else if (valueType == Integer.class) {
+                        beanProperty = new BeanProperty(name, Integer.valueOf(value));
+                    } else {
+                        beanProperty = new BeanProperty(name, value);
+                    }
+                    if (!(ref == null || ref == "")) {
+                        beanProperty = new BeanProperty(name, new BeanRef(ref));
+                    }
                     beanProperties.add(beanProperty);
                 }
-                BeanDefinition beanDefinition = new BeanDefinition(beanClass,beanProperties);
-                beanDefinitionMap.put(id,beanDefinition);
+                BeanDefinition beanDefinition = new BeanDefinition(beanClass, beanProperties);
+                beanDefinitionMap.put(id, beanDefinition);
             }
             Element componentScan = root.element("component-scan");
             Set<Class> set = new LinkedHashSet<>();

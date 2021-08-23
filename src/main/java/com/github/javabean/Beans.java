@@ -45,22 +45,13 @@ public class Beans {
      * @return Map<String, Object>
      */
     public static Map<String, Object> get(Class beanClass) {
-        Map<String, Object> result = new HashMap<>(64);
-        BeanLoader beanLoader = BeanLoader.load(beanClass);
-        Iterator iterator = beanLoader.iterator();
-        while (iterator.hasNext()) {
-            Object obj = beanClass.cast(iterator.next());
-            if (Objects.nonNull(obj)) {
-                BeanInject.set(obj);
-                result.put(obj.getClass().getSimpleName(), obj);
-            }
-        }
         BeanClassScanner classScanner = new BeanClassScanner("bean.xml");
+        BeanInitialize beanInitialize = new BeanInitialize(classScanner);
+        Map<String, Object> result = new HashMap<>(64);
         Set<Class> set = classScanner.scan();
         for (Class clazz : set) {
             try {
                 Object bean = clazz.getDeclaredConstructor().newInstance();
-                BeanInitialize beanInitialize = new BeanInitialize(classScanner);
                 if (clazz.isAssignableFrom(beanClass) && Objects.nonNull(bean)) {
                     beanInitialize.initialize(clazz,bean);
                     BeanInject.set(bean);
@@ -68,6 +59,16 @@ public class Beans {
                 }
             } catch (Exception exception) {
                 throw new RuntimeException(exception);
+            }
+        }
+        BeanLoader beanLoader = BeanLoader.load(beanClass);
+        Iterator iterator = beanLoader.iterator();
+        while (iterator.hasNext()) {
+            Object obj = beanClass.cast(iterator.next());
+            if (Objects.nonNull(obj)) {
+                beanInitialize.initialize(obj.getClass(),obj);
+                BeanInject.set(obj);
+                result.put(obj.getClass().getSimpleName(), obj);
             }
         }
         return result;

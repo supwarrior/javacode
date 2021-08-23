@@ -2,10 +2,13 @@
 <beans>
     <component-scan base-package="com.github.model">
     </component-scan>
-    <bean id="user" class="com.github.model.User" >
-        <property name="id" value="1"></property>
-        <property name="name" value="康盼"></property>
-        <property name="age" value="18"></property>
-        <property name="sex" value="男"></property>
+    <bean id="user" class="com.github.model.User">
+        <property name="userId" value="1" class="java.lang.Long"></property>
+        <property name="name" value="康盼" class="java.lang.String"></property>
+        <property name="age" value="18" class="java.lang.Integer"></property>
+        <property name="sex" value="男" class="java.lang.String"></property>
+    </bean>
+    <bean id="vipUserServiceImpl" class="com.github.model.VipUserServiceImpl">
+        <property name="user" class="com.github.model.User" ref="user"></property>
     </bean>
 </beans>

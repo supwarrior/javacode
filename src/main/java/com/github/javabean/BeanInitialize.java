@@ -12,7 +12,7 @@ import java.util.Map;
  *
  * @author 康盼Java开发工程师
  */
-public class BeanInitialize {
+public class BeanInitialize extends BeanMap{
 
     private BeanClassScanner beanClassScanner;
 
@@ -21,7 +21,9 @@ public class BeanInitialize {
     }
 
     public void initialize(Class clazz, Object bean) {
-        String id = clazz.getSimpleName().toLowerCase(Locale.getDefault());
+        char[] chars = clazz.getSimpleName().toCharArray();
+        chars[0] -= 32;
+        String id = new String(chars);
         BeanDefinition beanDefinition = beanClassScanner.beanDefinitionMap.get(id);
         if (beanDefinition != null) {
             BeanProperties beanProperties = beanDefinition.getProperties();
@@ -42,6 +44,7 @@ public class BeanInitialize {
                 if (value instanceof BeanRef) {
                     BeanRef beanRef = (BeanRef) value;
                     String beanId = beanRef.getId();
+                    value = beans.getOrDefault(beanId,null);
                 }
                 final Class fieldType = field.getType();
                 if (value == null) {
@@ -79,6 +82,7 @@ public class BeanInitialize {
                     }
                     try {
                         field.set(bean, value);
+                        beans.put(id,bean);
                     } catch (Exception exception) {
                         throw new RuntimeException(exception);
                     }

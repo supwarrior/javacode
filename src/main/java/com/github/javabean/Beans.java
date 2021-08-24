@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @author 康盼Java开发工程师
@@ -25,14 +26,24 @@ public class Beans {
     public static Object getByName(String name) {
         Object result = cache.get(name);
         if (result == null) {
-            for (Class clazz : set) {
-                char[] chars = clazz.getSimpleName().toCharArray();
+            String names = set.stream().map(e -> {
+                char[] chars =  e.getSimpleName().toCharArray();
                 chars[0] += 32;
-                String className = new String(chars);
-                if (className.equals(name)) {
-                    return initialize(clazz);
+                return new String(chars);
+            }).collect(Collectors.joining(","));
+            if (names.contains(name)) {
+                for (Class clazz : set) {
+                    char[] chars = clazz.getSimpleName().toCharArray();
+                    chars[0] += 32;
+                    String className = new String(chars);
+                    if (className.equals(name)) {
+                        return initialize(clazz);
+                    }
                 }
+            } else {
+                // todo
             }
+
         }
         return result;
     }
@@ -48,11 +59,27 @@ public class Beans {
         chars[0] += 32;
         String name = new String(chars);
         Object result = cache.get(name);
-        for (Class clazz : set) {
-            if (clazz.isAssignableFrom(beanClass)) {
-                return initialize(clazz);
+        if (set.contains(beanClass)) {
+            for (Class clazz : set) {
+                if (clazz.isAssignableFrom(beanClass)) {
+                    return initialize(clazz);
+                }
+            }
+        } else {
+            Class[] classes = beanClass.getInterfaces();
+            for (Class clazz : classes) {
+                BeanLoader beanLoader = BeanLoader.load(clazz);
+                Iterator iterator = beanLoader.iterator();
+                while (iterator.hasNext()) {
+                    Object obj = clazz.cast(iterator.next());
+                    if (obj.getClass().isAssignableFrom(beanClass)) {
+                        initialize(obj);
+                        return obj;
+                    }
+                }
             }
         }
+
         return result;
     }
 
@@ -63,15 +90,6 @@ public class Beans {
             return bean;
         } catch (Exception exception) {
             throw new RuntimeException(exception);
-        }
-    }
-
-    private static void setSpiBean(Class clazz) {
-        BeanLoader beanLoader = BeanLoader.load(clazz);
-        Iterator iterator = beanLoader.iterator();
-        while (iterator.hasNext()) {
-            Object obj = clazz.cast(iterator.next());
-            initialize(obj);
         }
     }
 

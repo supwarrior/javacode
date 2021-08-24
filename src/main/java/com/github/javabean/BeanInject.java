@@ -23,18 +23,12 @@ public class BeanInject {
         for (Field field : fields) {
             if (field.isAnnotationPresent(Inject.class) && !Modifier.isFinal(field.getModifiers())) {
                 Class fieldType = field.getType();
-                Map<String, Object> beans = Beans.get(fieldType);
-                if (beans.isEmpty()) {
-                    throw new RuntimeException("not fond bean");
-                }
                 String beanName = field.getAnnotation(Inject.class).value();
                 Object value;
                 if (beanName == null || "".equals(beanName)) {
-                    value = beans.values().iterator().next();
+                    value = Beans.getByType(fieldType);
                 } else {
-                    char[] chars = beanName.toCharArray();
-                    chars[0] -= 32;
-                    value = beans.get(String.valueOf(chars));
+                    value = Beans.getByName(beanName);
                 }
                 try {
                     if (value != null) {
@@ -44,7 +38,7 @@ public class BeanInject {
                         throw new NullPointerException("no bean fond,check @Inject value");
                     }
                 } catch (IllegalAccessException exception) {
-                    throw new RuntimeException("Inject error");
+                    throw new RuntimeException(exception);
                 }
             }
         }

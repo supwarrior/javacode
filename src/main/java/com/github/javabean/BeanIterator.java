@@ -104,7 +104,9 @@ public class BeanIterator<T> implements Iterator<T> {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in, "utf-8"));
         String line;
         while ((line = bufferedReader.readLine()) != null) {
-            beans.add(line);
+            if (line != "") {
+                beans.add(line);
+            }
         }
         iterator = beans.iterator();
     }

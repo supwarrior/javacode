@@ -4,7 +4,6 @@ package com.github.javabean;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -12,30 +11,30 @@ import java.util.Set;
  * @description 获取bean
  */
 public class Beans {
+    private static BeanClassScanner classScanner = new BeanClassScanner("bean.xml");
+    private static BeanInitialize beanInitialize = new BeanInitialize(classScanner);
+    protected static final Map<String, Object> cache = new HashMap<>();
+    private static Set<Class> set = classScanner.scan();
+
     /**
-     * getByType
+     * getByName 必须加 @Component 注解
      *
-     * @param type
-     * @return Object
+     * @param name
+     * @return
      */
-    public static Object getByType(Class type) {
-        if (type.isInterface()) {
-            Map<String, Object> map = get(type);
-            if (map.isEmpty()) {
-                return null;
+    public static Object getByName(String name) {
+        Object result = cache.get(name);
+        if (result == null) {
+            for (Class clazz : set) {
+                char[] chars = clazz.getSimpleName().toCharArray();
+                chars[0] += 32;
+                String className = new String(chars);
+                if (className.equals(name)) {
+                    return initialize(clazz);
+                }
             }
-            if (map.size() > 1) {
-                throw new RuntimeException("required a single bean, but 2 were found");
-            }
-            return map.values().iterator().next();
         }
-        Class<?>[] clazz = type.getInterfaces();
-        if (clazz != null && clazz.length == 1) {
-            Map<String, Object> map = get(clazz[0]);
-            return map.get(type.getSimpleName());
-        }
-        Map<String, Object> map = get(type);
-        return map.get(type.getSimpleName());
+        return result;
     }
 
     /**
@@ -44,33 +43,48 @@ public class Beans {
      * @param beanClass beanClass
      * @return Map<String, Object>
      */
-    public static Map<String, Object> get(Class beanClass) {
-        BeanClassScanner classScanner = new BeanClassScanner("bean.xml");
-        BeanInitialize beanInitialize = new BeanInitialize(classScanner);
-        Map<String, Object> result = new HashMap<>(64);
-        Set<Class> set = classScanner.scan();
+    public static Object getByType(Class beanClass) {
+        char[] chars = beanClass.getSimpleName().toCharArray();
+        chars[0] += 32;
+        String name = new String(chars);
+        Object result = cache.get(name);
         for (Class clazz : set) {
-            try {
-                Object bean = clazz.getDeclaredConstructor().newInstance();
-                if (clazz.isAssignableFrom(beanClass) && Objects.nonNull(bean)) {
-                    beanInitialize.initialize(clazz,bean);
-                    BeanInject.set(bean);
-                    result.put(clazz.getSimpleName(), clazz.cast(bean));
-                }
-            } catch (Exception exception) {
-                throw new RuntimeException(exception);
-            }
-        }
-        BeanLoader beanLoader = BeanLoader.load(beanClass);
-        Iterator iterator = beanLoader.iterator();
-        while (iterator.hasNext()) {
-            Object obj = beanClass.cast(iterator.next());
-            if (Objects.nonNull(obj)) {
-                beanInitialize.initialize(obj.getClass(),obj);
-                BeanInject.set(obj);
-                result.put(obj.getClass().getSimpleName(), obj);
+            if (clazz.isAssignableFrom(beanClass)) {
+                return initialize(clazz);
             }
         }
         return result;
+    }
+
+    private static Object initialize(Class clazz) {
+        try {
+            Object bean = clazz.getDeclaredConstructor().newInstance();
+            initialize(clazz.cast(bean));
+            return bean;
+        } catch (Exception exception) {
+            throw new RuntimeException(exception);
+        }
+    }
+
+    private static void setSpiBean(Class clazz) {
+        BeanLoader beanLoader = BeanLoader.load(clazz);
+        Iterator iterator = beanLoader.iterator();
+        while (iterator.hasNext()) {
+            Object obj = clazz.cast(iterator.next());
+            initialize(obj);
+        }
+    }
+
+    private static void putCache(Object obj) {
+        char[] chars = obj.getClass().getSimpleName().toCharArray();
+        chars[0] += 32;
+        String name = new String(chars);
+        cache.put(name, obj);
+    }
+
+    private static void initialize(Object bean) {
+        beanInitialize.initialize(bean);
+        BeanInject.set(bean);
+        putCache(bean);
     }
 }

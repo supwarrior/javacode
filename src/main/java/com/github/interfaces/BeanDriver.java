@@ -9,5 +9,5 @@ import java.util.Map;
  * @description Bean缓存
  */
 public interface BeanDriver {
-     Map<String, Object> cache = new BeanCache<>(2);
+     Map<String, Object> cache = new BeanCache<>(3);
 }

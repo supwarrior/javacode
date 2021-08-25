@@ -6,6 +6,7 @@ import com.github.model.IUserService;
 import com.github.model.User;
 import com.github.model.UserServiceImpl;
 import com.github.model.VipUserServiceImpl;
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -61,12 +62,12 @@ public class AllTest {
     public void classForNameTest() throws Exception {
         Class.forName("com.github.javabean.BeanDriverManager");
         BeanDriverManager manager = (BeanDriverManager) Beans.cache.get("beanDriverManager");
-        Beans.getByType(IUserService.class);
         Beans.getByType(UserServiceImpl.class);
         Beans.getByType(VipUserServiceImpl.class);
         Beans.getByType(User.class);
-        Beans.cache.get("userServiceImpl");
         manager.printAllBean();
+        manager = (BeanDriverManager) Beans.cache.get("beanDriverManager");
+        Assert.assertNull(manager);
     }
 
 }

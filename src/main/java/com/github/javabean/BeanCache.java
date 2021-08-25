@@ -16,7 +16,6 @@ public class BeanCache<K, V> extends LinkedHashMap<K, V> {
     }
 
     /**
-     * map中的数据量大于指定的缓存个数的时候，就自动删除最老的数据
      * LRU原理
      *
      * @param eldest
@@ -24,7 +23,13 @@ public class BeanCache<K, V> extends LinkedHashMap<K, V> {
      */
     @Override
     protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {
-        System.out.println(eldest.getKey());
-        return size() > CACHE_SIZE;
+        boolean flag = size() > CACHE_SIZE;
+        Object key = eldest.getKey();
+        if (flag) {
+            System.out.println("清除边界：" + key);
+        } else {
+            System.out.println("不清除边：" + key);
+        }
+        return flag;
     }
 }

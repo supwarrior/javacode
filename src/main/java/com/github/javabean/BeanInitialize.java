@@ -4,7 +4,6 @@ import com.github.annotation.Alias;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -23,9 +22,7 @@ public class BeanInitialize {
 
     public void initialize(Object bean) {
         Class clazz = bean.getClass();
-        char[] chars = clazz.getSimpleName().toCharArray();
-        chars[0] += 32;
-        String id = new String(chars);
+        String id = Beans.getName(clazz);
         BeanDefinition beanDefinition = beanClassScanner.beanDefinitionMap.get(id);
         if (beanDefinition != null) {
             BeanProperties beanProperties = beanDefinition.getProperties();

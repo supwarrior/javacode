@@ -1,5 +1,7 @@
 package com.github.javabean;
 
+import com.github.interfaces.BeanDriver;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -12,7 +14,7 @@ import java.util.Iterator;
  * @author 康盼Java开发工程师
  * @description bean迭代器
  */
-public class BeanIterator<T> implements Iterator<T> {
+public class BeanIterator<T> implements Iterator<T>, BeanDriver {
     /**
      * bean存放的位置
      * eg:文件名：com.github.service.接口名 -> 内容：com.github.service.实现类
@@ -102,10 +104,16 @@ public class BeanIterator<T> implements Iterator<T> {
     private void parse(URL url) throws Exception {
         InputStream in = url.openStream();
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in, "utf-8"));
-        String line;
-        while ((line = bufferedReader.readLine()) != null) {
-            if (line != "") {
-                beans.add(line);
+        String beanName;
+        while ((beanName = bufferedReader.readLine()) != null) {
+            if (beanName != "") {
+                beans.add(beanName);
+                Class<?> beanClass = Class.forName(beanName, false, classLoader);
+                String name = Beans.getName(beanClass);
+                if (name.equals("beanDriverManager")) {
+                    Object bean = beanClass.getDeclaredConstructor().newInstance();
+                    cache.put(name,bean);
+                }
             }
         }
         iterator = beans.iterator();

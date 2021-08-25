@@ -1,4 +1,4 @@
-package com.github.javabean;
+package com.github.interfaces;
 
 
 /**

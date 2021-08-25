@@ -1,9 +1,9 @@
 package com.github.javabean;
 
 
-import java.util.HashMap;
+import com.github.interfaces.BeanDriver;
+
 import java.util.Iterator;
-import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -11,41 +11,37 @@ import java.util.stream.Collectors;
  * @author 康盼Java开发工程师
  * @description 获取bean
  */
-public class Beans {
+public class Beans implements BeanDriver {
     private static BeanClassScanner classScanner = new BeanClassScanner("bean.xml");
     private static BeanInitialize beanInitialize = new BeanInitialize(classScanner);
-    protected static final Map<String, Object> cache = new HashMap<>();
     private static Set<Class> set = classScanner.scan();
 
     /**
-     * getByName 必须加 @Component 注解
-     *
      * @param name
      * @return
      */
     public static Object getByName(String name) {
         Object result = cache.get(name);
         if (result == null) {
-            String names = set.stream().map(e -> {
-                char[] chars =  e.getSimpleName().toCharArray();
-                chars[0] += 32;
-                return new String(chars);
-            }).collect(Collectors.joining(","));
+            String names = set.stream().map(clazz -> getName(clazz)).collect(Collectors.joining(","));
             if (names.contains(name)) {
                 for (Class clazz : set) {
-                    char[] chars = clazz.getSimpleName().toCharArray();
-                    chars[0] += 32;
-                    String className = new String(chars);
+                    String className = getName(clazz);
                     if (className.equals(name)) {
                         return initialize(clazz);
                     }
                 }
             } else {
-                // todo
+                throw new RuntimeException("no @Component");
             }
-
         }
         return result;
+    }
+
+    protected static String getName(Class clazz) {
+        char[] chars = clazz.getSimpleName().toCharArray();
+        chars[0] += 32;
+        return new String(chars);
     }
 
     /**
@@ -55,9 +51,7 @@ public class Beans {
      * @return Map<String, Object>
      */
     public static Object getByType(Class beanClass) {
-        char[] chars = beanClass.getSimpleName().toCharArray();
-        chars[0] += 32;
-        String name = new String(chars);
+        String name = getName(beanClass);
         Object result = cache.get(name);
         if (set.contains(beanClass)) {
             for (Class clazz : set) {
@@ -66,13 +60,18 @@ public class Beans {
                 }
             }
         } else {
-            Class[] classes = beanClass.getInterfaces();
+            Class[] classes;
+            if (beanClass.isInterface()) {
+                classes = new Class[]{beanClass};
+            } else {
+                classes = beanClass.getInterfaces();
+            }
             for (Class clazz : classes) {
                 BeanLoader beanLoader = BeanLoader.load(clazz);
                 Iterator iterator = beanLoader.iterator();
                 while (iterator.hasNext()) {
                     Object obj = clazz.cast(iterator.next());
-                    if (obj.getClass().isAssignableFrom(beanClass)) {
+                    if (beanClass.isAssignableFrom(obj.getClass())) {
                         initialize(obj);
                         return obj;
                     }
@@ -94,9 +93,7 @@ public class Beans {
     }
 
     private static void putCache(Object obj) {
-        char[] chars = obj.getClass().getSimpleName().toCharArray();
-        chars[0] += 32;
-        String name = new String(chars);
+        String name = getName(obj.getClass());
         cache.put(name, obj);
     }
 

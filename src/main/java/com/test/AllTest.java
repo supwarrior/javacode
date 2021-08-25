@@ -1,5 +1,6 @@
 package com.test;
 
+import com.github.javabean.BeanDriverManager;
 import com.github.javabean.Beans;
 import com.github.model.IUserService;
 import com.github.model.User;
@@ -10,7 +11,7 @@ import org.junit.Test;
 /**
  * @author 康盼Java开发工程师
  */
-public class UserTest {
+public class AllTest {
 
 
     @Test
@@ -55,4 +56,17 @@ public class UserTest {
         IUserService userService = (IUserService) Beans.getByType(IUserService.class);
         System.out.println(userService.getUser());
     }
+
+    @Test
+    public void classForNameTest() throws Exception {
+        Class.forName("com.github.javabean.BeanDriverManager");
+        BeanDriverManager manager = (BeanDriverManager) Beans.cache.get("beanDriverManager");
+        Beans.getByType(IUserService.class);
+        Beans.getByType(UserServiceImpl.class);
+        Beans.getByType(VipUserServiceImpl.class);
+        Beans.getByType(User.class);
+        Beans.cache.get("userServiceImpl");
+        manager.printAllBean();
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.github.javabean;
 
 import com.github.annotation.Component;
+import com.github.interfaces.ClassFilter;
 import com.github.resource.Directory;
 import com.github.resource.FileList;
 import com.github.resource.ResourceUtil;

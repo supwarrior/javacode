@@ -1,10 +1,9 @@
-package com.test;
+package test;
 
-import com.github.javabean.BeanDriverManager;
 import com.github.javabean.BeanIterator;
-import com.github.model.IUserService;
+import com.github.service.IUserService;
 import com.github.model.User;
-import com.github.model.UserServiceImpl;
+import com.github.service.impl.UserServiceImpl;
 import com.github.resource.EnumerationIter;
 import com.github.resource.ResourceUtil;
 import org.junit.Assert;
@@ -17,18 +16,10 @@ import org.powermock.api.support.membermodification.MemberModifier;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.LinkedList;
-import java.util.List;
-
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyObject;
 import static org.mockito.ArgumentMatchers.anyString;
 
 /**
@@ -74,13 +65,5 @@ public class PowerMockTest {
     public void field() throws Exception {
         BeanIterator beanIterator = PowerMockito.mock(BeanIterator.class);
         MemberModifier.field(BeanIterator.class,"beans").set(beanIterator,new ArrayList());
-    }
-
-    @Test
-    public void spy() {
-        List<Integer> list = new ArrayList();
-        list.add(100);
-        List<Integer> spyList = PowerMockito.spy(list);
-        PowerMockito.doCallRealMethod().when(spyList).get(0);
     }
 }

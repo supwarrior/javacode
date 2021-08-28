@@ -32,7 +32,7 @@ public class Beans implements BeanDriver {
                     }
                 }
             } else {
-                throw new RuntimeException("no @Component");
+                throw new RuntimeException("not model");
             }
         }
         return result;
@@ -53,32 +53,33 @@ public class Beans implements BeanDriver {
     public static Object getByType(Class beanClass) {
         String name = getName(beanClass);
         Object result = cache.get(name);
-        if (set.contains(beanClass)) {
-            for (Class clazz : set) {
-                if (clazz.isAssignableFrom(beanClass)) {
-                    return initialize(clazz);
+        if (result == null) {
+            if (set.contains(beanClass)) {
+                for (Class clazz : set) {
+                    if (clazz.isAssignableFrom(beanClass)) {
+                        return initialize(clazz);
+                    }
                 }
-            }
-        } else {
-            Class[] classes;
-            if (beanClass.isInterface()) {
-                classes = new Class[]{beanClass};
             } else {
-                classes = beanClass.getInterfaces();
-            }
-            for (Class clazz : classes) {
-                BeanLoader beanLoader = BeanLoader.load(clazz);
-                Iterator iterator = beanLoader.iterator();
-                while (iterator.hasNext()) {
-                    Object obj = clazz.cast(iterator.next());
-                    if (beanClass.isAssignableFrom(obj.getClass())) {
-                        initialize(obj);
-                        return obj;
+                Class[] classes;
+                if (beanClass.isInterface()) {
+                    classes = new Class[]{beanClass};
+                } else {
+                    classes = beanClass.getInterfaces();
+                }
+                for (Class clazz : classes) {
+                    BeanLoader beanLoader = BeanLoader.load(clazz);
+                    Iterator iterator = beanLoader.iterator();
+                    while (iterator.hasNext()) {
+                        Object obj = clazz.cast(iterator.next());
+                        if (beanClass.isAssignableFrom(obj.getClass())) {
+                            initialize(obj);
+                            return obj;
+                        }
                     }
                 }
             }
         }
-
         return result;
     }
 

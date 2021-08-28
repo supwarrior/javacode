@@ -1,11 +1,11 @@
-package com.test;
+package test;
 
 import com.github.javabean.BeanDriverManager;
 import com.github.javabean.Beans;
-import com.github.model.IUserService;
+import com.github.service.IUserService;
 import com.github.model.User;
-import com.github.model.UserServiceImpl;
-import com.github.model.VipUserServiceImpl;
+import com.github.service.impl.UserServiceImpl;
+import com.github.service.impl.VipUserServiceImpl;
 import org.junit.Assert;
 import org.junit.Test;
 

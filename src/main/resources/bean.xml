@@ -8,7 +8,7 @@
         <property name="age" value="18" class="java.lang.Integer"></property>
         <property name="sex" value="男" class="java.lang.String"></property>
     </bean>
-    <bean id="vipUserServiceImpl" class="com.github.model.VipUserServiceImpl">
+    <bean id="vipUserServiceImpl" class="com.github.service.impl.VipUserServiceImpl">
         <property name="user" class="com.github.model.User" ref="user"></property>
     </bean>
 </beans>

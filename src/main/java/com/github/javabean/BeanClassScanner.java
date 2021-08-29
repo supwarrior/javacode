@@ -70,24 +70,27 @@ public class BeanClassScanner {
             Element componentScan = root.element("component-scan");
             Set<Class> set = new LinkedHashSet<>();
             if (componentScan != null) {
-                String scanPath = componentScan.attributeValue("base-package");
-                String packagePath = scanPath.replace(".", "/");
-                for (URL url : ResourceUtil.getResourcesIterator(packagePath)) {
-                    File file = new File(URLDecoder.decode(url.toString(), StandardCharsets.UTF_8.name()).substring(6));
-                    FileList list = Directory.get(file, ".class");
-                    list.getFiles().forEach(ele -> {
-                        String fileName = ele.getName();
-                        String className = scanPath + "." + fileName.substring(0, fileName.lastIndexOf("."));
-                        try {
-                            Class clazz = Class.forName(className, false, classLoader);
-                            ClassFilter<Class<?>> filter = cla -> cla.isAnnotationPresent(Component.class);
-                            if (filter.accept(clazz)) {
-                                set.add(clazz);
+                String scanPaths = componentScan.attributeValue("base-package");
+                String[] packagePaths = scanPaths.split(",");
+                for (String scanPath : packagePaths) {
+                    String packagePath = scanPath.replace(".", "/");
+                    for (URL url : ResourceUtil.getResourcesIterator(packagePath)) {
+                        File file = new File(URLDecoder.decode(url.toString(), StandardCharsets.UTF_8.name()).substring(6));
+                        FileList list = Directory.get(file, ".class");
+                        list.getFiles().forEach(ele -> {
+                            String fileName = ele.getName();
+                            String className = scanPath + "." + fileName.substring(0, fileName.lastIndexOf("."));
+                            try {
+                                Class clazz = Class.forName(className, false, classLoader);
+                                ClassFilter<Class<?>> filter = cla -> cla.isAnnotationPresent(Component.class);
+                                if (filter.accept(clazz)) {
+                                    set.add(clazz);
+                                }
+                            } catch (ClassNotFoundException exception) {
+                                throw new RuntimeException(exception);
                             }
-                        } catch (ClassNotFoundException exception) {
-                            throw new RuntimeException(exception);
-                        }
-                    });
+                        });
+                    }
                 }
             }
             return set;

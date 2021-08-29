@@ -31,8 +31,6 @@ public class Beans implements BeanDriver {
                         return initialize(clazz);
                     }
                 }
-            } else {
-                throw new RuntimeException("not model");
             }
         }
         return result;

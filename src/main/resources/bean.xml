@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans>
-    <component-scan base-package="com.github.model">
+    <component-scan base-package="com.github.model,com.github.service.impl">
     </component-scan>
     <bean id="user" class="com.github.model.User">
         <property name="userId" value="1" class="java.lang.Long"></property>

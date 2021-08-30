@@ -16,4 +16,13 @@ public class VipUserServiceImpl implements IUserService {
     public User getUser() {
         return user;
     }
+
+
+    public void initDataMethod(){
+        System.out.println("执行：init-method");
+    }
+
+    public void destroyDataMethod(){
+        System.out.println("执行：destroy-method");
+    }
 }

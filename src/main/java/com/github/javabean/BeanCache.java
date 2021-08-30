@@ -28,7 +28,7 @@ public class BeanCache<K, V> extends LinkedHashMap<K, V> {
         if (flag) {
             System.out.println("清除边界：" + key);
         } else {
-            System.out.println("不清除边：" + key);
+            System.out.println("不清除边界：" + key);
         }
         return flag;
     }

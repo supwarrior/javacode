@@ -43,6 +43,8 @@ public class BeanClassScanner {
             for (Element bean : beans) {
                 String id = bean.attributeValue("id");
                 String clazz = bean.attributeValue("class");
+                String initMethod = bean.attributeValue("init-method");
+                String destroyMethodName = bean.attributeValue("destroy-method");
                 Class beanClass = Class.forName(clazz);
                 List<Element> properties = bean.elements("property");
                 BeanProperties beanProperties = new BeanProperties();
@@ -65,6 +67,8 @@ public class BeanClassScanner {
                     beanProperties.add(beanProperty);
                 }
                 BeanDefinition beanDefinition = new BeanDefinition(beanClass, beanProperties);
+                beanDefinition.setInitMethodName(initMethod);
+                beanDefinition.setDestroyMethodName(destroyMethodName);
                 beanDefinitionMap.put(id, beanDefinition);
             }
             Element componentScan = root.element("component-scan");

@@ -11,10 +11,10 @@ import java.util.stream.Collectors;
  * @author 康盼Java开发工程师
  * @description 获取bean
  */
-public class Beans implements BeanDriver {
-    private static BeanClassScanner classScanner = new BeanClassScanner("bean.xml");
-    private static BeanInitialize beanInitialize = new BeanInitialize(classScanner);
-    private static Set<Class> set = classScanner.scan();
+public class Beans extends BeanDestroy implements BeanDriver {
+    protected static BeanClassScanner classScanner = new BeanClassScanner("bean.xml");
+    protected static BeanInitialize beanInitialize = new BeanInitialize(classScanner);
+    protected static Set<Class> set = classScanner.scan();
 
     /**
      * @param name
@@ -91,14 +91,10 @@ public class Beans implements BeanDriver {
         }
     }
 
-    private static void putCache(Object obj) {
-        String name = getName(obj.getClass());
-        cache.put(name, obj);
-    }
-
     private static void initialize(Object bean) {
         beanInitialize.initialize(bean);
         BeanInject.set(bean);
-        putCache(bean);
+        String name = getName(bean.getClass());
+        cache.put(name, bean);
     }
 }

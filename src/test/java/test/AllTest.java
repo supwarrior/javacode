@@ -94,4 +94,16 @@ public class AllTest {
         Assert.assertNull(hashMap.get("3"));
     }
 
+    @Test
+    public void destroyBeanTest() throws Exception{
+        User user = (User) Beans.getByName("user");
+        IUserService userService = (VipUserServiceImpl) Beans.getByName("vipUserServiceImpl");
+        System.out.println(userService.getUser());
+        Beans.destroy();
+        Beans.init("vipUserServiceImpl");
+        Class.forName("com.github.javabean.BeanDriverManager");
+        BeanDriverManager manager = (BeanDriverManager) Beans.cache.get("beanDriverManager");
+        manager.printAllBean();
+    }
+
 }

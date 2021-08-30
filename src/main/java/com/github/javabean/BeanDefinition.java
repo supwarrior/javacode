@@ -9,6 +9,10 @@ public class BeanDefinition {
 
     private BeanProperties properties;
 
+    private String initMethodName;
+
+    private String destroyMethodName;
+
     public BeanDefinition(Class beanClass, BeanProperties properties) {
         this.beanClass = beanClass;
         this.properties = properties != null ? properties : new BeanProperties();
@@ -33,5 +37,21 @@ public class BeanDefinition {
 
     public void setProperties(BeanProperties properties) {
         this.properties = properties;
+    }
+
+    public String getInitMethodName() {
+        return initMethodName;
+    }
+
+    public void setInitMethodName(String initMethodName) {
+        this.initMethodName = initMethodName;
+    }
+
+    public String getDestroyMethodName() {
+        return destroyMethodName;
+    }
+
+    public void setDestroyMethodName(String destroyMethodName) {
+        this.destroyMethodName = destroyMethodName;
     }
 }

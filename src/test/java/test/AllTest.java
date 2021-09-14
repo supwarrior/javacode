@@ -3,6 +3,7 @@ package test;
 import com.github.collections.Entry;
 import com.github.collections.HashMap;
 import com.github.javabean.BeanDriverManager;
+import com.github.javabean.BeanLoader;
 import com.github.javabean.Beans;
 import com.github.service.IUserService;
 import com.github.model.User;
@@ -12,6 +13,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -104,6 +107,14 @@ public class AllTest {
         Class.forName("com.github.javabean.BeanDriverManager");
         BeanDriverManager manager = (BeanDriverManager) Beans.cache.get("beanDriverManager");
         manager.printAllBean();
+    }
+
+    @Test
+    public void loadSpringFactoriesTest() {
+        Map<String, List<String>> map =  BeanLoader.loadSpringFactories();
+        for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + ":" + entry.getValue());
+        }
     }
 
 }

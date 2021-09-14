@@ -1,5 +1,6 @@
 package test;
 
+import com.github.model.TestObject;
 import org.openjdk.jol.info.ClassLayout;
 import org.openjdk.jol.vm.VM;
 
@@ -10,22 +11,12 @@ public class MemoryLayoutTest {
 
     public static void main(String[] args){
         System.out.println(VM.current().details());
-        System.out.println(ClassLayout.parseClass(A.class).toPrintable());
+        System.out.println(ClassLayout.parseClass(TestObject.class).toPrintable());
     }
 }
 
-/**
- * java对象由三部分组成：对象头，实例数据，对齐填充
- */
-class A{
-    A a;
-    long i;
-    long ii;
-    long iii;
-    int j;
-    boolean k;
-//    char l;
-}
+
+
 /**
  * test.A object internals:
  *  OFFSET  SIZE   TYPE DESCRIPTION                               VALUE

@@ -21,22 +21,18 @@ public class SaveAndResultServiceImpl {
         String code = saveService.getCode(1);
         // 调用次数限制
         AtomicInteger atomicInteger = new AtomicInteger(0);
-        ThreadLocal<String> threadLocal = new ThreadLocal<>();
-        String str = threadLocal.get();
-        System.out.println(str);
-        while (atomicInteger.incrementAndGet() < 5 || str.equals("S")) {
+        String state = "";
+        while (atomicInteger.incrementAndGet() < 6 && !state.equals("S")) {
             ResultInfo resultInfo = resultService.callback(code);
-            String state = resultInfo.getState();
+            state = resultInfo.getState();
             if ("E".equals(state)) {
                 throw new RuntimeException(resultInfo.getMessage());
             }
-            if (atomicInteger.get() == 4) {
+            if (atomicInteger.get() == 5) {
                 throw new RuntimeException("查询超时");
             }
-            threadLocal.set(state);
-
         }
-        return threadLocal.get();
+        return state;
     }
 
     /**
@@ -45,15 +41,12 @@ public class SaveAndResultServiceImpl {
      * @throws Exception
      */
     private void nativeHandle() throws Exception {
-        Thread.sleep(1000);
         String state = rpcService();
         System.out.println(state);
     }
 
     public static void main(String[] args) throws Exception {
-        while (true) {
-            SaveAndResultServiceImpl saveAndResultService = (SaveAndResultServiceImpl) Beans.getByType(SaveAndResultServiceImpl.class);
-            saveAndResultService.nativeHandle();
-        }
+        SaveAndResultServiceImpl saveAndResultService = (SaveAndResultServiceImpl) Beans.getByType(SaveAndResultServiceImpl.class);
+        saveAndResultService.nativeHandle();
     }
 }

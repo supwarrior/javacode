@@ -20,11 +20,10 @@ public class ResultServiceImpl {
      * @return
      */
     public ResultInfo callback(String code) throws Exception {
-        Thread.sleep(1000);
         System.out.println("根据标识：" + code + "查询结果");
         ResultInfo result = new ResultInfo();
-        String[] state = new String[]{"V", "S", "S" ,"E", "O"};
-        String[] info = new String[]{"正在处理中", "保存成功", "保存成功", "保存失败,code不满足条件", "未开始"};
+        String[] state = new String[]{"V", "V","V","V","V","V","S", "S","E", "O"};
+        String[] info = new String[]{"正在处理中","正在处理中","正在处理中","正在处理中","正在处理中","正在处理中", "保存成功", "保存成功","保存失败,code不满足条件", "未开始"};
 //        SplittableRandom random = new SplittableRandom();
         Random random = new Random(System.currentTimeMillis());
         int n = random.nextInt(state.length);

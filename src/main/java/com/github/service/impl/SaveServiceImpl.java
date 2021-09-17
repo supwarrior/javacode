@@ -1,12 +1,13 @@
 package com.github.service.impl;
 
 import com.github.annotation.Component;
+import com.github.service.ISaveAndResultService;
 
 /**
  * @author 康盼Java开发工程师
  */
 @Component
-public class SaveServiceImpl {
+public class SaveServiceImpl implements ISaveAndResultService {
 
     /**
      * 模拟调用外部服务
@@ -15,6 +16,7 @@ public class SaveServiceImpl {
      * @return
      * @throws Exception
      */
+    @Override
     public String getCode(int code) throws Exception {
         Thread.sleep(1000);
         if (code == 1) {
@@ -23,4 +25,5 @@ public class SaveServiceImpl {
             return "a-s-d-f-g-h-j-k-l";
         }
     }
+
 }

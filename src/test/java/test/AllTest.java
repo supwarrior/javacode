@@ -7,10 +7,13 @@ import com.github.javabean.BeanLoader;
 import com.github.javabean.Beans;
 import com.github.service.IUserService;
 import com.github.model.User;
+import com.github.service.impl.SaveServiceImpl;
 import com.github.service.impl.UserServiceImpl;
 import com.github.service.impl.VipUserServiceImpl;
 import org.junit.Assert;
 import org.junit.Test;
+import org.openjdk.jol.info.ClassLayout;
+import org.openjdk.jol.vm.VM;
 
 import java.util.Iterator;
 import java.util.List;
@@ -21,6 +24,12 @@ import java.util.Map;
  * @author 康盼Java开发工程师
  */
 public class AllTest {
+
+    @Test
+    public void getByTypeForSaveServiceImpl() {
+        SaveServiceImpl saveService = (SaveServiceImpl) Beans.getByType(SaveServiceImpl.class);
+        System.out.println(saveService);
+    }
 
 
     @Test
@@ -115,6 +124,25 @@ public class AllTest {
         for (Map.Entry<String, List<String>> entry : map.entrySet()) {
             System.out.println(entry.getKey() + ":" + entry.getValue());
         }
+    }
+
+//    对象头(Object Header):
+//
+//    从图片上得知对象头分为两部分：Mark Word 与 Class Pointer(类型指针)。
+//
+//    Mark Word存储了对象的hashCode、GC信息、锁信息三部分，Class Pointer存储了指向类对象信息的指针。
+//    在32位JVM上对象头占用的大小是8字节，64位JVM则是16字节，两种类型的Mark Word 和 Class Pointer各占一半空间大小。
+//
+//    在64位JVM上有一个压缩指针选项-XX:+UseCompressedOops，默认是开启的。
+//    开启之后Class Pointer部分就会压缩为4字节，此时对象头大小就会缩小到12字节。
+
+    /**
+     * 测试对象占多少字节
+     */
+    @Test
+    public void memoryLayoutTest() {
+        System.out.println(VM.current().details());
+        System.out.println(ClassLayout.parseClass(User.class).toPrintable());
     }
 
 }

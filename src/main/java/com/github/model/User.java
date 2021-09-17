@@ -4,6 +4,7 @@ import com.github.annotation.Alias;
 import com.github.annotation.Component;
 
 /**
+ * java对象由三部分组成：对象头，实例数据，对齐填充
  * @author 康盼Java开发工程师
  */
 @Component

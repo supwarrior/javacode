@@ -7,8 +7,12 @@ import java.io.InputStream;
  * @author 康盼Java开发工程师
  */
 public interface InputStreamSource {
+
     /**
-     * Return an {@link InputStream} for the content of an underlying resource.
+     * getInputStream
+     *
+     * @return
+     * @throws IOException
      */
     InputStream getInputStream() throws IOException;
 }

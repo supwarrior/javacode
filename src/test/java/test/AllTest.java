@@ -5,12 +5,16 @@ import com.github.collections.HashMap;
 import com.github.javabean.BeanDriverManager;
 import com.github.javabean.BeanLoader;
 import com.github.javabean.Beans;
+import com.github.model.ProxyRetryer;
+import com.github.model.ResultInfo;
 import com.github.service.IUserService;
 import com.github.model.User;
+import com.github.service.impl.ResultServiceImpl;
 import com.github.service.impl.SaveServiceImpl;
 import com.github.service.impl.UserServiceImpl;
 import com.github.service.impl.VipUserServiceImpl;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.openjdk.jol.info.ClassLayout;
 import org.openjdk.jol.vm.VM;
@@ -24,6 +28,16 @@ import java.util.Map;
  * @author 康盼Java开发工程师
  */
 public class AllTest {
+
+    protected ResultServiceImpl resultService;
+    protected SaveServiceImpl saveService;
+
+
+    @Before
+    public void init() throws Exception {
+        resultService = (ResultServiceImpl) Beans.getByType(ResultServiceImpl.class);
+        saveService = (SaveServiceImpl) Beans.getByType(SaveServiceImpl.class);
+    }
 
     @Test
     public void getByTypeForSaveServiceImpl() {
@@ -89,25 +103,25 @@ public class AllTest {
 
     @Test
     public void hashMapTest() {
-        HashMap hashMap = new HashMap(16,100);
-        hashMap.put("8","a");
-        hashMap.put("9","b");
-        hashMap.put("3","c");
+        HashMap hashMap = new HashMap(16, 100);
+        hashMap.put("8", "a");
+        hashMap.put("9", "b");
+        hashMap.put("3", "c");
         Iterator iterator = hashMap.iterator();
         while (iterator.hasNext()) {
-            Entry<String,String> entry = (Entry<String,String>) iterator.next();
+            Entry<String, String> entry = (Entry<String, String>) iterator.next();
             System.out.println(entry.getKey() + ":" + entry.getValue());
         }
-        Assert.assertEquals(hashMap.get("3"),"c");
+        Assert.assertEquals(hashMap.get("3"), "c");
         Assert.assertTrue(hashMap.containsKey("3"));
         hashMap.clear();
         Assert.assertTrue(hashMap.isEmpty());
-        Assert.assertEquals(hashMap.size(),0);
+        Assert.assertEquals(hashMap.size(), 0);
         Assert.assertNull(hashMap.get("3"));
     }
 
     @Test
-    public void destroyBeanTest() throws Exception{
+    public void destroyBeanTest() throws Exception {
         User user = (User) Beans.getByName("user");
         IUserService userService = (VipUserServiceImpl) Beans.getByName("vipUserServiceImpl");
         System.out.println(userService.getUser());
@@ -120,7 +134,7 @@ public class AllTest {
 
     @Test
     public void loadSpringFactoriesTest() {
-        Map<String, List<String>> map =  BeanLoader.loadSpringFactories();
+        Map<String, List<String>> map = BeanLoader.loadSpringFactories();
         for (Map.Entry<String, List<String>> entry : map.entrySet()) {
             System.out.println(entry.getKey() + ":" + entry.getValue());
         }
@@ -143,6 +157,20 @@ public class AllTest {
     public void memoryLayoutTest() {
         System.out.println(VM.current().details());
         System.out.println(ClassLayout.parseClass(User.class).toPrintable());
+    }
+
+    /**
+     * 重试机制调用模拟
+     * @throws Exception
+     */
+    @Test
+    public void retryerTest() throws Exception {
+        ProxyRetryer proxyRetryer = (ProxyRetryer) Beans.getByType(ProxyRetryer.class);
+        ResultServiceImpl proxy = proxyRetryer.getProxy();
+        String code = saveService.getCode(1);
+        ResultInfo resultInfo = proxy.callback(code);
+        System.out.println(resultInfo.getState());
+        System.out.println(resultInfo.getMessage());
     }
 
 }

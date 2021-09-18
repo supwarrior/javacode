@@ -1,4 +1,4 @@
-package com.github.juc;
+package com.github.niuke;
 
 
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;

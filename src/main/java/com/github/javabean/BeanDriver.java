@@ -1,4 +1,4 @@
-package com.github.interfaces;
+package com.github.javabean;
 
 import com.github.javabean.BeanCache;
 

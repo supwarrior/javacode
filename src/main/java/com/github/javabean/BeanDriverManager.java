@@ -1,7 +1,5 @@
 package com.github.javabean;
 
-import com.github.interfaces.BeanDriver;
-
 import java.io.PrintStream;
 import java.io.PrintWriter;
 

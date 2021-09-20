@@ -1,6 +1,5 @@
 package com.github.javabean;
 
-import com.github.javabean.BeanCache;
 
 import java.util.Map;
 

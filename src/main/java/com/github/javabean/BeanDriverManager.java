@@ -2,6 +2,7 @@ package com.github.javabean;
 
 import java.io.PrintStream;
 import java.io.PrintWriter;
+import java.util.Map;
 
 /**
  * @author 康盼Java开发工程师
@@ -31,11 +32,12 @@ public class BeanDriverManager implements BeanDriver {
         }
     }
 
-    public void printAllBean() {
+    public Map<String, Object> printAllBean() {
         cache.forEach((k, v) -> {
             logWriter.println(k + ": " + v);
             logWriter.flush();
         });
+        return cache;
     }
 
 }

@@ -1,0 +1,3 @@
+com.github.mvc.service.IUserService=\
+com.github.mvc.service.impl.UserService
+

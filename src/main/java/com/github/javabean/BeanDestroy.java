@@ -9,8 +9,12 @@ import java.util.Set;
  */
 public class BeanDestroy extends BeanInit implements BeanDriver {
 
-    public static  void destroy() {
+    /**
+     *  Runtime.getRuntime().addShutdownHook JVM退出的时候调用
+     */
+    public static void destroy() {
         Runtime.getRuntime().addShutdownHook(new Thread(BeanDestroy::close));
+        new Thread(BeanDestroy::close).start();
     }
 
     private static void close() {

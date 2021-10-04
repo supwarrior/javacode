@@ -6,6 +6,8 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.github.common.util.StringUtil.getName;
+
 /**
  * bean 初始化属性
  *
@@ -22,7 +24,7 @@ public class BeanInitialize {
 
     public void initialize(Object bean) {
         Class clazz = bean.getClass();
-        String id = Beans.getName(clazz);
+        String id = getName(clazz);
         BeanDefinition beanDefinition = beanClassScanner.beanDefinitionMap.get(id);
         if (beanDefinition != null) {
             BeanProperties beanProperties = beanDefinition.getProperties();
@@ -75,14 +77,16 @@ public class BeanInitialize {
                         }
                     }
                 }
-                if (fieldType.isAssignableFrom(value.getClass())) {
-                    if (false == field.isAccessible()) {
-                        field.setAccessible(true);
-                    }
-                    try {
-                        field.set(bean, value);
-                    } catch (Exception exception) {
-                        throw new RuntimeException(exception);
+                if (value != null) {
+                    if (fieldType.isAssignableFrom(value.getClass())) {
+                        if (false == field.isAccessible()) {
+                            field.setAccessible(true);
+                        }
+                        try {
+                            field.set(bean, value);
+                        } catch (Exception exception) {
+                            throw new RuntimeException(exception);
+                        }
                     }
                 }
             }

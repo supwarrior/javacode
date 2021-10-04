@@ -8,16 +8,15 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
 
+import static com.github.common.Constant.PREFIX;
+
+
 /**
  * @author 康盼Java开发工程师
  * @description bean迭代器
  */
 public class BeanIterator<T> implements Iterator<T>, BeanDriver {
-    /**
-     * bean存放的位置
-     * eg:文件名：com.github.service.接口名 -> 内容：com.github.service.实现类
-     */
-    private static final String PREFIX = "META-INF/services/";
+
     /**
      * 类型
      */
@@ -106,12 +105,6 @@ public class BeanIterator<T> implements Iterator<T>, BeanDriver {
         while ((beanName = bufferedReader.readLine()) != null) {
             if (beanName != "") {
                 beans.add(beanName);
-                Class<?> beanClass = Class.forName(beanName, false, classLoader);
-                String name = Beans.getName(beanClass);
-                if (name.equals("beanDriverManager")) {
-                    Object bean = beanClass.getDeclaredConstructor().newInstance();
-                    cache.put(name,bean);
-                }
             }
         }
         iterator = beans.iterator();

@@ -1,9 +1,12 @@
 package com.github.javabean;
 
 
+
 import java.util.Iterator;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import static com.github.common.util.StringUtil.getName;
 
 /**
  * @author 康盼Java开发工程师
@@ -34,11 +37,7 @@ public class Beans extends BeanDestroy implements BeanDriver {
         return result;
     }
 
-    protected static String getName(Class clazz) {
-        char[] chars = clazz.getSimpleName().toCharArray();
-        chars[0] += 32;
-        return new String(chars);
-    }
+
 
     /**
      * get bean Map

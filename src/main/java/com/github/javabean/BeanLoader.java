@@ -16,9 +16,12 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 
+import static com.github.common.Constant.FACTORIES_RESOURCE_LOCATION;
+
 /**
+ * Javabean 的加载器 SPI机制
+ *
  * @author 康盼Java开发工程师
- * @description Javabean 的加载器 类似SPI机制
  */
 public class BeanLoader<T> implements Iterable<T> {
     /**
@@ -63,11 +66,6 @@ public class BeanLoader<T> implements Iterable<T> {
         return beanIterator;
     }
 
-    /**
-     * The location to look for factories.
-     * <p>Can be present in multiple JAR files.
-     */
-    public static final String FACTORIES_RESOURCE_LOCATION = "META-INF/spring.factories";
 
     /**
      * @return

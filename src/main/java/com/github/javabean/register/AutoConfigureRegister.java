@@ -29,7 +29,7 @@ public class AutoConfigureRegister implements ImportBeanDefinitionRegistrar, Res
         BeanDefinitionScanner scanner = new BeanDefinitionScanner(registry, false);
         scanner.setResourceLoader(resourceLoader);
         scanner.registerFilters();
-        scanner.doScan("com.github.service.impl");
+        scanner.doScan("com.github");
     }
 
     class  BeanDefinitionScanner extends ClassPathBeanDefinitionScanner {

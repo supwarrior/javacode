@@ -1,7 +1,7 @@
 /*
 * com.github
 */
-package com.github.mvc.controller;
+package com.github.mvc.service.impl;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,10 +13,10 @@ import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import static org.mockito.ArgumentMatchers.any;
-import com.github.mvc.service.IBeanService;
+import com.github.mvc.model.User;
 
 /**
-* BeanControllerTest
+* UserServiceTest
 *
 * @author k
 * @date 2022
@@ -24,32 +24,54 @@ import com.github.mvc.service.IBeanService;
 @RunWith(PowerMockRunner.class)
 // @PrepareForTest({XX.class}) 模拟final, private, static, native方法的类
 @PowerMockIgnore("javax.management.*")
-public class BeanControllerTest {
+public class UserServiceTest {
 
     @InjectMocks
-    private BeanController BeanController;
+    private UserService UserService;
 
     @Mock
-    private IBeanService beanService;
+    private User user;
 
     @Test
-    public void loadSpringFactoriesBean(){
+    public void getProperties(){
         // 1.set up
         // PowerMockito.when(模拟方法调用).thenReturn(模拟返回值);
 
         // 2.run test
-        // BeanController.loadSpringFactoriesBean
+        // UserService.getProperties
 
         // 3.verify result
         // Assert.assertEquals
     }
     @Test
-    public void initializeAndDestroy(){
+    public void getUserName(){
         // 1.set up
         // PowerMockito.when(模拟方法调用).thenReturn(模拟返回值);
 
         // 2.run test
-        // BeanController.initializeAndDestroy
+        // UserService.getUserName
+
+        // 3.verify result
+        // Assert.assertEquals
+    }
+    @Test
+    public void initDataMethod(){
+        // 1.set up
+        // PowerMockito.when(模拟方法调用).thenReturn(模拟返回值);
+
+        // 2.run test
+        // UserService.initDataMethod
+
+        // 3.verify result
+        // Assert.assertEquals
+    }
+    @Test
+    public void destroyDataMethod(){
+        // 1.set up
+        // PowerMockito.when(模拟方法调用).thenReturn(模拟返回值);
+
+        // 2.run test
+        // UserService.destroyDataMethod
 
         // 3.verify result
         // Assert.assertEquals

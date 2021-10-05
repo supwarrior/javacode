@@ -15,6 +15,7 @@ import java.util.List;
 import static com.github.common.Constant.BASEDIR;
 import static com.github.common.Constant.DOT;
 import static com.github.common.Constant.JAVA_TEST_SRC;
+import static com.github.common.Constant.OS;
 import static com.github.common.Constant.TEST_CLASS_SUFFIX;
 
 /**
@@ -39,7 +40,7 @@ public class UnitTestGeneratorUtil {
                 continue;
             }
             Mocker mocker = new Mocker();
-            String osName = System.getProperty("os.name");
+            String osName = System.getProperty(OS);
             String className;
             if (StringUtils.isNoneBlank(osName) && osName.contains(Constant.WINDOWS)) {
                 className = javaNamePath.substring(javaNamePath.lastIndexOf("\\") + 1, javaNamePath.lastIndexOf("."));
@@ -111,10 +112,5 @@ public class UnitTestGeneratorUtil {
         } catch (Exception exception) {
             throw new RuntimeException(exception);
         }
-    }
-
-
-    public static void main(String[] args) throws Exception {
-        UnitTestGeneratorUtil.generatorUnitTest("com.github.mvc.controller");
     }
 }

@@ -1,7 +1,7 @@
 /*
 * com.github
 */
-package com.github.mvc.controller;
+package com.github.mvc.service.impl;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,10 +13,9 @@ import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import static org.mockito.ArgumentMatchers.any;
-import com.github.mvc.service.IUserService;
 
 /**
-* UserControllerTest
+* BeanServiceTest
 *
 * @author k
 * @date 2022
@@ -24,21 +23,41 @@ import com.github.mvc.service.IUserService;
 @RunWith(PowerMockRunner.class)
 // @PrepareForTest({XX.class}) 模拟final, private, static, native方法的类
 @PowerMockIgnore("javax.management.*")
-public class UserControllerTest {
+public class BeanServiceTest {
 
     @InjectMocks
-    private UserController UserController;
+    private BeanService BeanService;
 
-    @Mock
-    private IUserService userService;
 
     @Test
-    public void getUserName(){
+    public void destroyBean(){
         // 1.set up
         // PowerMockito.when(模拟方法调用).thenReturn(模拟返回值);
 
         // 2.run test
-        // UserController.getUserName
+        // BeanService.destroyBean
+
+        // 3.verify result
+        // Assert.assertEquals
+    }
+    @Test
+    public void initBean(){
+        // 1.set up
+        // PowerMockito.when(模拟方法调用).thenReturn(模拟返回值);
+
+        // 2.run test
+        // BeanService.initBean
+
+        // 3.verify result
+        // Assert.assertEquals
+    }
+    @Test
+    public void loadSpringFactoriesBean(){
+        // 1.set up
+        // PowerMockito.when(模拟方法调用).thenReturn(模拟返回值);
+
+        // 2.run test
+        // BeanService.loadSpringFactoriesBean
 
         // 3.verify result
         // Assert.assertEquals

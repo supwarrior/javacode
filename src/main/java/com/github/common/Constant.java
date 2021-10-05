@@ -16,6 +16,9 @@ public class Constant {
      * 当前系统
      */
     public static final String WINDOWS = "Windows";
+
+    public static final String OS = "os.name";
+
     /**
      * 测试类路径
      */
@@ -36,7 +39,10 @@ public class Constant {
      * 模板文件路径
      */
     public static final String CONFIG_PATH = "/src/main/resources/template/";
-
+    /**
+     * 资源文件
+     */
+    public static final String RESOURCE_PATH = "/src/main/resources/";
     /**
      * The location to look for factories.
      * <p>Can be present in multiple JAR files.

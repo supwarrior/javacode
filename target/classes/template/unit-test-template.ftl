@@ -29,11 +29,12 @@ import ${mockerFields.typeFullName};
 public class ${mocker.testClassName} {
 
     @InjectMocks
-    private ${mocker.className} ${mocker.className};
+    private ${mocker.className} ${mocker.lowerClassName};
 
 <#list mocker.mockerFields as mockerFields>
     @Mock
     private ${mockerFields.typeName} ${mockerFields.fieldName};
+    
 </#list>
 
 <#list mocker.mockerMethods as mockerMethods>

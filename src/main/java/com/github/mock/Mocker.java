@@ -29,6 +29,10 @@ public class Mocker {
      */
     private String className;
     /**
+     * 源类名 被测试的类名  首字母小写
+     */
+    private String lowerClassName;
+    /**
      * 作者名
      */
     private String author;

@@ -1,9 +1,9 @@
 package com.github.mvc.controller;
 
 import com.github.annotation.Component;
+import com.github.annotation.Inject;
 import com.github.annotation.RepeatSubmit;
 import com.github.mvc.service.IUserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/api/user")
 public class UserController {
 
-    @Autowired
+    @Inject
     private IUserService userService;
 
     /**

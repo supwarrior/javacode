@@ -26,7 +26,7 @@ import static org.mockito.ArgumentMatchers.any;
 public class BeanServiceTest {
 
     @InjectMocks
-    private BeanService BeanService;
+    private BeanService beanService;
 
 
     @Test
@@ -41,23 +41,23 @@ public class BeanServiceTest {
         // Assert.assertEquals
     }
     @Test
-    public void initBean(){
-        // 1.set up
-        // PowerMockito.when(模拟方法调用).thenReturn(模拟返回值);
-
-        // 2.run test
-        // BeanService.initBean
-
-        // 3.verify result
-        // Assert.assertEquals
-    }
-    @Test
     public void loadSpringFactoriesBean(){
         // 1.set up
         // PowerMockito.when(模拟方法调用).thenReturn(模拟返回值);
 
         // 2.run test
         // BeanService.loadSpringFactoriesBean
+
+        // 3.verify result
+        // Assert.assertEquals
+    }
+    @Test
+    public void initBean(){
+        // 1.set up
+        // PowerMockito.when(模拟方法调用).thenReturn(模拟返回值);
+
+        // 2.run test
+        // BeanService.initBean
 
         // 3.verify result
         // Assert.assertEquals

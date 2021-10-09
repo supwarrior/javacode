@@ -13,7 +13,6 @@ import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import static org.mockito.ArgumentMatchers.any;
-import com.github.mvc.service.IUserService;
 
 /**
 * UserControllerTest
@@ -27,10 +26,8 @@ import com.github.mvc.service.IUserService;
 public class UserControllerTest {
 
     @InjectMocks
-    private UserController UserController;
+    private UserController userController;
 
-    @Mock
-    private IUserService userService;
 
     @Test
     public void getUserName(){

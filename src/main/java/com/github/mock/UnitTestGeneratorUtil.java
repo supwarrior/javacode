@@ -1,6 +1,7 @@
 package com.github.mock;
 
 import com.github.common.Constant;
+import com.github.common.util.StringUtil;
 import com.github.resource.Directory;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +58,7 @@ public class UnitTestGeneratorUtil {
             mocker.setDate("2022");
             mocker.setHeadDesc("com.github");
             mocker.setClassName(className);
+            mocker.setLowerClassName(StringUtil.strConvertLowerCamel(className));
             mocker.setTestClassName(className + TEST_CLASS_SUFFIX);
             mocker.setFile(testFile);
             getMockField(packageName + DOT + className, mocker);

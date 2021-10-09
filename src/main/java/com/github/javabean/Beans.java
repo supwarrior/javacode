@@ -2,9 +2,12 @@ package com.github.javabean;
 
 
 
+import java.beans.BeanInfo;
+import java.beans.Introspector;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static com.github.common.util.StringUtil.getName;
 
@@ -92,6 +95,12 @@ public class Beans extends BeanDestroy implements BeanDriver {
         beanInitialize.initialize(bean);
         BeanInject.set(bean);
         String name = getName(bean.getClass());
+        try {
+            BeanInfo beanInfo = Introspector.getBeanInfo(bean.getClass(), Object.class);
+            Stream.of(beanInfo.getPropertyDescriptors()).forEach(descriptor -> System.out.println(descriptor));
+        } catch (Exception exception) {
+            throw new RuntimeException(exception);
+        }
         cache.put(name, bean);
     }
 }

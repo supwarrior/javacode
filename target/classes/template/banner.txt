@@ -16,4 +16,3 @@
   "---....--'                                               `---`                  '---'        `----'
 
 ${spring-boot.version}
-javaCode 一个Java学习项目

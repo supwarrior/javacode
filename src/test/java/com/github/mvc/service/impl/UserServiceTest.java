@@ -27,10 +27,11 @@ import com.github.mvc.model.User;
 public class UserServiceTest {
 
     @InjectMocks
-    private UserService UserService;
+    private UserService userService;
 
     @Mock
     private User user;
+    
 
     @Test
     public void getProperties(){

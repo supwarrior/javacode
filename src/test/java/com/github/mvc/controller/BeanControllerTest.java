@@ -27,22 +27,12 @@ import com.github.mvc.service.IBeanService;
 public class BeanControllerTest {
 
     @InjectMocks
-    private BeanController BeanController;
+    private BeanController beanController;
 
     @Mock
     private IBeanService beanService;
+    
 
-    @Test
-    public void loadSpringFactoriesBean(){
-        // 1.set up
-        // PowerMockito.when(模拟方法调用).thenReturn(模拟返回值);
-
-        // 2.run test
-        // BeanController.loadSpringFactoriesBean
-
-        // 3.verify result
-        // Assert.assertEquals
-    }
     @Test
     public void initializeAndDestroy(){
         // 1.set up
@@ -50,6 +40,17 @@ public class BeanControllerTest {
 
         // 2.run test
         // BeanController.initializeAndDestroy
+
+        // 3.verify result
+        // Assert.assertEquals
+    }
+    @Test
+    public void loadSpringFactoriesBean(){
+        // 1.set up
+        // PowerMockito.when(模拟方法调用).thenReturn(模拟返回值);
+
+        // 2.run test
+        // BeanController.loadSpringFactoriesBean
 
         // 3.verify result
         // Assert.assertEquals

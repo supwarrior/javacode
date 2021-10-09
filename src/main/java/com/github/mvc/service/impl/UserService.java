@@ -1,6 +1,5 @@
 package com.github.mvc.service.impl;
 
-import com.github.annotation.Component;
 import com.github.javabean.BeanLifecycle;
 import com.github.javabean.Beans;
 import com.github.mvc.model.User;
@@ -9,9 +8,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
+ * 这里演示不使用 @Component 去注入 InjectHandler去处理
+ *
  * @author 康盼Java开发工程师
  */
-@Component
 @Slf4j
 public class UserService implements IUserService, BeanLifecycle {
     
@@ -28,7 +28,7 @@ public class UserService implements IUserService, BeanLifecycle {
      * 调用接口 http://localhost:8028/api/bean/loadSpringFactoriesBean
      * 测试 JSON.toJSONString 证明toJSONString的时候会调用getX方法返回的值
      *
-     * @return id
+     * @return String
      */
     public String getProperties() {
         return "-1";

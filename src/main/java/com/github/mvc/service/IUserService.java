@@ -11,4 +11,11 @@ public interface IUserService {
      * @return String
      */
     String getUserName();
+
+    /**
+     * 获取用户名
+     *
+     * @return String
+     */
+    String getSuperUserName();
 }

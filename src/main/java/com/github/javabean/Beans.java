@@ -2,9 +2,15 @@ package com.github.javabean;
 
 
 
+import com.github.annotation.Inject;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.ListableBeanFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import java.beans.BeanInfo;
 import java.beans.Introspector;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -34,6 +40,13 @@ public class Beans extends BeanDestroy implements BeanDriver {
                     if (className.equals(name)) {
                         return initialize(clazz);
                     }
+                }
+            } else {
+                BeanFactory beanFactory = new ClassPathXmlApplicationContext("classpath:/spring-bean.xml");
+                if (beanFactory instanceof ListableBeanFactory) {
+                    ListableBeanFactory listableBeanFactory = (ListableBeanFactory) beanFactory;
+                    Map<String, Object>  map = listableBeanFactory.getBeansWithAnnotation(Inject.class);
+                    return map.get(name);
                 }
             }
         }

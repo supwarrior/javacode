@@ -2,10 +2,10 @@ package com.github.mvc.service.impl;
 
 import com.github.javabean.BeanLifecycle;
 import com.github.javabean.Beans;
+import com.github.mvc.model.SuperUser;
 import com.github.mvc.model.User;
 import com.github.mvc.service.IUserService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * 这里演示不使用 @Component 去注入 InjectHandler去处理
@@ -14,14 +14,20 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 @Slf4j
 public class UserService implements IUserService, BeanLifecycle {
-    
-    @Autowired
+    /**
+     * 这里没有注入 默认使用的是Inject注入
+     */
     private User user;
 
     @Override
     public String getUserName() {
-        user = (User) Beans.getByName("user");
         return user.getName();
+    }
+
+    @Override
+    public String getSuperUserName() {
+        SuperUser superUser = (SuperUser) Beans.getByName("superUser");
+        return superUser.getName();
     }
 
     /**

@@ -29,4 +29,15 @@ public class UserController {
     public String getUserName() {
         return userService.getUserName();
     }
+
+    /**
+     * 请求 http://localhost:8028/api/getSuperUserName
+     * @return 李婷
+     */
+    @GetMapping(path = "/getSuperUserName")
+    @ResponseBody
+    @RepeatSubmit
+    public String getSuperUserName() {
+        return userService.getSuperUserName();
+    }
 }

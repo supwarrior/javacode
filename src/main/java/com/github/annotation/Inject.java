@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
  * @description 实例化
  */
 
-@Target({ElementType.FIELD})
+@Target({ElementType.FIELD,ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Inject {
     String value() default "";

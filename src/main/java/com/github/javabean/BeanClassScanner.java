@@ -65,6 +65,10 @@ public class BeanClassScanner {
                     }
                     beanProperties.add(beanProperty);
                 }
+                // 读取 properties 文件信息
+                if (beanProperties.getProperties().size() == 0) {
+                    beanProperties.setDefault(id);
+                }
                 BeanDefinition beanDefinition = new BeanDefinition(beanClass, beanProperties);
                 beanDefinition.setInitMethodName(initMethod);
                 beanDefinition.setDestroyMethodName(destroyMethodName);

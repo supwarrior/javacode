@@ -3,6 +3,7 @@ package com.github.mvc.controller;
 import com.github.annotation.Component;
 import com.github.annotation.RepeatSubmit;
 import com.github.javabean.Beans;
+import com.github.mvc.model.ComputerIntegratedManufacturingSystem;
 import com.github.mvc.model.User;
 import com.github.mvc.service.IBeanService;
 import com.github.mvc.service.IUserService;
@@ -48,4 +49,28 @@ public class BeanController {
         beanService.destroyBean();
         return -1;
     }
+
+    /**
+     * 请求 http://localhost:8028/api/bean/getMdsJsonView
+     *
+     * @return 康盼
+     */
+    @GetMapping(path = "/getMdsJsonView")
+    @ResponseBody
+    @RepeatSubmit
+    public String getMdsJsonView() {
+        return new ComputerIntegratedManufacturingSystem().getMdsJsonView();
+    }
+    /**
+     * 请求 http://localhost:8028/api/bean/getOmsJsonView
+     *
+     * @return 康盼
+     */
+    @GetMapping(path = "/getOmsJsonView")
+    @ResponseBody
+    @RepeatSubmit
+    public String getOmsJsonView() {
+        return new ComputerIntegratedManufacturingSystem().getOmsJsonView();
+    }
+
 }

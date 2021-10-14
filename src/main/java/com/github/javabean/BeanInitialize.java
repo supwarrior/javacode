@@ -41,7 +41,8 @@ public class BeanInitialize {
                 } else {
                     name = field.getName();
                 }
-                Object value = fieldMap.getOrDefault(name, null);
+                // 这里适配 properties key 都是大写的问题
+                Object value = fieldMap.getOrDefault(name, fieldMap.getOrDefault(name.toUpperCase(), null));
                 if (value instanceof BeanRef) {
                     BeanRef beanRef = (BeanRef) value;
                     String beanId = beanRef.getId();

@@ -72,6 +72,7 @@ public class Beans extends BeanDestroy implements BeanDriver {
                     }
                 }
             } else {
+                // SPI
                 Class[] classes;
                 if (beanClass.isInterface()) {
                     classes = new Class[]{beanClass};
@@ -104,8 +105,15 @@ public class Beans extends BeanDestroy implements BeanDriver {
         }
     }
 
+    /**
+     * 实例化
+     *
+     * @param bean
+     */
     private static void initialize(Object bean) {
+        // 属性赋值
         beanInitialize.initialize(bean);
+        // inject 赋值
         BeanInject.set(bean);
         String name = getName(bean.getClass());
         try {

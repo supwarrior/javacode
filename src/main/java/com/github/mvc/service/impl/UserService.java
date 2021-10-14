@@ -2,6 +2,7 @@ package com.github.mvc.service.impl;
 
 import com.github.javabean.BeanLifecycle;
 import com.github.javabean.Beans;
+import com.github.mvc.model.RootUser;
 import com.github.mvc.model.SuperUser;
 import com.github.mvc.model.User;
 import com.github.mvc.service.IUserService;
@@ -19,9 +20,21 @@ public class UserService implements IUserService, BeanLifecycle {
      */
     private User user;
 
+    /**
+     * 使用 @Inject 注解可以不用在 bean.xml 配置 ref properties
+     * <property name="rootUser" class="com.github.mvc.model.RootUser" ref="rootUser"></property>
+     * 将在 BeanInject.set(bean) 注入
+     */
+    private RootUser rootUser;
+
     @Override
     public String getUserName() {
         return user.getName();
+    }
+
+    @Override
+    public String getRootUserName() {
+        return rootUser.getName();
     }
 
     @Override

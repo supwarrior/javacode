@@ -18,4 +18,11 @@ public interface IUserService {
      * @return String
      */
     String getSuperUserName();
+
+    /**
+     * 获取 root 用户名
+     *
+     * @return String
+     */
+    String getRootUserName();
 }

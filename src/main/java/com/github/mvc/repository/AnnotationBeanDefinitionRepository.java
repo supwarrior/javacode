@@ -28,7 +28,7 @@ public class AnnotationBeanDefinitionRepository {
     @Component
     public static class Config {
 
-        @Bean(name = {"user","superUser"})
+        @Bean(name = {"superUser"})
         public User user() {
             return (User) Beans.getByName("user");
         }

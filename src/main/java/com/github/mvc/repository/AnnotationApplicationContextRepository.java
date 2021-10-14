@@ -27,7 +27,7 @@ public class AnnotationApplicationContextRepository {
         }
     }
 
-    @Bean
+    @Bean(name = {"bean-user"})
     public User user() {
         return (User) Beans.getByName("user");
     }

@@ -20,7 +20,7 @@ public class UserController {
     private IUserService userService;
 
     /**
-     * 请求 http://localhost:8028/api/getUserName
+     * 请求 http://localhost:8028/api/user/getUserName
      * @return 康盼
      */
     @GetMapping(path = "/getUserName")
@@ -31,7 +31,18 @@ public class UserController {
     }
 
     /**
-     * 请求 http://localhost:8028/api/getSuperUserName
+     * 请求 http://localhost:8028/api/user/getRootUserName
+     * @return pan.kang
+     */
+    @GetMapping(path = "/getRootUserName")
+    @ResponseBody
+    @RepeatSubmit
+    public String getRootUserName() {
+        return userService.getRootUserName();
+    }
+
+    /**
+     * 请求 http://localhost:8028/api/user/getSuperUserName
      * @return 李婷
      */
     @GetMapping(path = "/getSuperUserName")

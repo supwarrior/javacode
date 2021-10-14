@@ -1,0 +1,617 @@
+<body link="blue" vlink="purple">
+<table id="oms" width="1017.13" border="0" cellpadding="0" cellspacing="0" style='width:762.85pt;border-collapse:collapse;table-layout:fixed;'>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Planning</td>
+        <td class="xl98" >Product Request</td>
+        <td class="xl98" >-</td>
+        <td class="xl99" >Product Order</td>
+        <td class="xl98" >产品订单</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Planning</td>
+        <td class="xl98" >New Lot Release</td>
+        <td class="xl98"></td>
+        <td class="xl98" >Create Product Order</td>
+        <td class="xl98" >创建产品订单</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Planning</td>
+        <td class="xl98" >Manufacturing Order Change</td>
+        <td class="xl98"></td>
+        <td class="xl98" >Product Order Change</td>
+        <td class="xl98" >修改产品订单</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Planning</td>
+        <td class="xl98" >Schedule Change</td>
+        <td class="xl98" >Change Flow</td>
+        <td class="xl98" >Lot Plan Change</td>
+        <td class="xl98" >更改流程</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Planning</td>
+        <td class="xl98" >Priority Class</td>
+        <td class="xl98"></td>
+        <td class="xl98" >Priority Class</td>
+        <td class="xl98" >优先等级</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Planning</td>
+        <td class="xl98" >External Priority</td>
+        <td class="xl98"></td>
+        <td class="xl99" >Schedule Priority</td>
+        <td class="xl98" >排产优先级</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Planning</td>
+        <td class="xl98" >Internal Priority</td>
+        <td class="xl98"></td>
+        <td class="xl98" >Internal Priority</td>
+        <td class="xl98" >外部优先级</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Planning</td>
+        <td class="xl98" >Lot Requeue</td>
+        <td class="xl98"></td>
+        <td class="xl98" >Refresh Lot Queue</td>
+        <td class="xl98" >刷新批次排序</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Access Management</td>
+        <td class="xl98" >Privilege Check</td>
+        <td class="xl98"></td>
+        <td class="xl98" >Access Control Check</td>
+        <td class="xl98" >权限检查</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Bank</td>
+        <td class="xl98" >Move Bank</td>
+        <td class="xl98" >-</td>
+        <td class="xl98" >Bank Move</td>
+        <td class="xl98" >（逻辑性的）库存间转移</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Bank</td>
+        <td class="xl98" >Bank-In</td>
+        <td class="xl98" >Bank-In</td>
+        <td class="xl98" >Bank-In</td>
+        <td class="xl98" >（逻辑性的）入库</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Bank</td>
+        <td class="xl98" >Bank-Out</td>
+        <td class="xl98" >Bank-Out</td>
+        <td class="xl98" >Bank-Out</td>
+        <td class="xl98" >（逻辑性的）出库</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Bank</td>
+        <td class="xl98" >Bank Hold</td>
+        <td class="xl98" >-</td>
+        <td class="xl98" >Bank Hold</td>
+        <td class="xl98" >（逻辑性的）库存暂停</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Bank</td>
+        <td class="xl98" >Bank Hold Release</td>
+        <td class="xl98" >-</td>
+        <td class="xl98" >Bank Hold Release</td>
+        <td class="xl98" >（逻辑性的）取消库存暂停</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Bank</td>
+        <td class="xl98" >Ship</td>
+        <td class="xl98" >Ship</td>
+        <td class="xl98" >Ship</td>
+        <td class="xl98" >出货</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Bank</td>
+        <td class="xl98" >Ship Cancel</td>
+        <td class="xl98" >UnShip</td>
+        <td class="xl98" >Ship Cancel</td>
+        <td class="xl98" >取消出货</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Bank</td>
+        <td class="xl98" >Vendor Lot Receive</td>
+        <td class="xl98" >-</td>
+        <td class="xl99" >Material Receive</td>
+        <td class="xl98" >接收原材料批次</td>
+        <td class="xl98" >从仓库中接收一个供应商批次</td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Bank</td>
+        <td class="xl98" >Vendor Lot Prepare</td>
+        <td class="xl98" >-</td>
+        <td class="xl99" >Material Prepare</td>
+        <td class="xl98" >准备原材料批次</td>
+        <td class="xl98" >把供应商批次和晶舟关联，并指定晶圆数量</td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Bank</td>
+        <td class="xl98" >Vendor Lot Prepare Cancel</td>
+        <td class="xl98" >-</td>
+        <td class="xl99" >Material Prepare Cancel</td>
+        <td class="xl98" >取消准备原材料批次</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Bank</td>
+        <td class="xl98" >Vendor Lot Return</td>
+        <td class="xl98" >-</td>
+        <td class="xl99" >Material Return</td>
+        <td class="xl98" >返还原材料批次</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Bank</td>
+        <td class="xl98" >Bank Type</td>
+        <td class="xl98" >-</td>
+        <td class="xl98" >Bank Type</td>
+        <td class="xl98" >（逻辑性的）库存类型</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Bank</td>
+        <td class="xl98" >- Production</td>
+        <td class="xl98" >-</td>
+        <td class="xl98" >- Production</td>
+        <td class="xl98" >生产类批次</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Bank</td>
+        <td class="xl98">- Recycle</td>
+        <td class="xl98" >-</td>
+        <td class="xl98" >- Recycle</td>
+        <td class="xl98" >循环</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Bank</td>
+        <td class="xl98">- Control Wafer</td>
+        <td class="xl98" >-</td>
+        <td class="xl99" >- NPW (Non Production Wafer)</td>
+        <td class="xl98" >非生产批</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Bank</td>
+        <td class="xl98" >Customer Code</td>
+        <td class="xl98" >-</td>
+        <td class="xl98" >Customer ID</td>
+        <td class="xl98" >客户ID</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Lot - STB</td>
+        <td class="xl98" >STB(Start-To-Build)</td>
+        <td class="xl98" >Create Lot</td>
+        <td class="xl99" >Wafer Lot Start</td>
+        <td class="xl98" >建批</td>
+        <td class="xl98" >给投批的批次分配批次ID，生成产品批次</td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Lot</td>
+        <td class="xl98" >Split</td>
+        <td class="xl98" >Split</td>
+        <td class="xl98" >Split</td>
+        <td class="xl98" >分批</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Lot</td>
+        <td class="xl98" >Merge</td>
+        <td class="xl98" >Merge</td>
+        <td class="xl98" >Merge</td>
+        <td class="xl98" >合批</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Lot</td>
+        <td class="xl98" >Hold</td>
+        <td class="xl98" >Hold</td>
+        <td class="xl98" >Hold</td>
+        <td class="xl98" >暂停</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Lot</td>
+        <td class="xl98" >Hold Release</td>
+        <td class="xl98" >Release</td>
+        <td class="xl98" >Hold Release</td>
+        <td class="xl98" >放行/释放</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Lot</td>
+        <td class="xl98" >All Rework</td>
+        <td class="xl98" >Rework</td>
+        <td class="xl98" >Full Rework</td>
+        <td class="xl98" >完全返工</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Lot</td>
+        <td class="xl98" >Future Hold</td>
+        <td class="xl98" >Future Hold</td>
+        <td class="xl98" >Future Hold</td>
+        <td class="xl98" >预设暂停</td>
+        <td class="xl98" >用于在未来的某个指定工步暂停当前批次</td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Lot</td>
+        <td class="xl98" >Future Hold Cancel</td>
+        <td class="xl98" >Future Hold Cancel</td>
+        <td class="xl98" >Future Hold Cancel</td>
+        <td class="xl98" >取消预设暂停</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Lot</td>
+        <td class="xl98" >Rework Cancel</td>
+        <td class="xl98" >Rework Cancel</td>
+        <td class="xl98" >Rework Cancel</td>
+        <td class="xl98" >取消返工</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Lot</td>
+        <td class="xl98" >Partial Rework</td>
+        <td class="xl98" >-</td>
+        <td class="xl98" >Partial Rework</td>
+        <td class="xl98" >部分返工</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Lot</td>
+        <td class="xl98" >Partial Rework Cancel</td>
+        <td class="xl98" >-</td>
+        <td class="xl98" >Partial Rework Cancel</td>
+        <td class="xl98" >取消部分返工</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Lot</td>
+        <td class="xl98" >Engineering All Rework</td>
+        <td class="xl98"></td>
+        <td class="xl99" >Dynamic Full Rework</td>
+        <td class="xl98" >动态返工</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Lot</td>
+        <td class="xl98" >Engineering Partial Rework</td>
+        <td class="xl98"></td>
+        <td class="xl99" >Dynamic Partial Rework</td>
+        <td class="xl98" >动态部分返工</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Lot</td>
+        <td class="xl98" >Scrap</td>
+        <td class="xl98" >Scrap</td>
+        <td class="xl98" >Scrap</td>
+        <td class="xl98" >报废</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Lot</td>
+        <td class="xl98" >Scrap Cancel</td>
+        <td class="xl98" >UnScrap</td>
+        <td class="xl98" >Scrap Cancel</td>
+        <td class="xl98" >取消报废</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Lot</td>
+        <td class="xl98" >Operation Locate</td>
+        <td class="xl98" >Skip</td>
+        <td class="xl99" >Skip</td>
+        <td class="xl98" >跳步</td>
+        <td class="xl98" >让当前批次跳转到指定工步</td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Lot</td>
+        <td class="xl98" >Locate Forward</td>
+        <td class="xl98" >Skip After</td>
+        <td class="xl99" >Skip Forward</td>
+        <td class="xl98" >往此工步所在的流程中的接下来的工步跳</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Lot</td>
+        <td class="xl98" >Locate Backward</td>
+        <td class="xl98" >Skip Before</td>
+        <td class="xl99" >Skip Backward</td>
+        <td class="xl98" >往此工步所在的流程中的之前的工步跳</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Lot</td>
+        <td class="xl98" >Gate Pass</td>
+        <td class="xl98" >-</td>
+        <td class="xl99" >Pass-Thru (Pass-Through)</td>
+        <td class="xl98" >跳过当站</td>
+        <td class="xl98" >让当前批次跳过当前工步</td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Lot</td>
+        <td class="xl98" >Branch</td>
+        <td class="xl98" >-</td>
+        <td class="xl99" >Branch</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Lot</td>
+        <td class="xl98" >Planned Split Merge</td>
+        <td class="xl98">-</td>
+        <td class="xl99" >Planned Split Merge (PSM)</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Lot</td>
+        <td class="xl98" >Lot Information Change</td>
+        <td class="xl98" >Change ID</td>
+        <td class="xl98" >Lot Information Change</td>
+        <td class="xl98" >更改批号</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Lot</td>
+        <td class="xl98" >Operation History</td>
+        <td class="xl98" >Lot History</td>
+        <td class="xl98" >Lot History</td>
+        <td class="xl98" >批次历史</td>
+        <td class="xl98" >查询当前批次的操作历史记录</td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Dispatch</td>
+        <td class="xl98" >What Next</td>
+        <td class="xl98"></td>
+        <td class="xl98" >What Next</td>
+        <td class="xl98" >接下来如何去做</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Dispatch</td>
+        <td class="xl98" >Where Next</td>
+        <td class="xl98"></td>
+        <td class="xl98" >Where Next</td>
+        <td class="xl98" >接下来在哪里</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Dispatch</td>
+        <td class="xl98" >Start Lots Reservation</td>
+        <td class="xl98"></td>
+        <td class="xl99" >Move In Reservation</td>
+        <td class="xl98" >预约</td>
+        <td class="xl98" >预约设备的某个端口，防止其他批次占用该端口</td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Dispatch</td>
+        <td class="xl98" >Lot Auto Dispatch Control</td>
+        <td class="xl98"></td>
+        <td class="xl99" >Lot Auto Dispatch Control</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Equipment</td>
+        <td class="xl98" >Load</td>
+        <td class="xl98" >-</td>
+        <td class="xl98" >Load</td>
+        <td class="xl98" >装载</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Equipment</td>
+        <td class="xl98" >Unload</td>
+        <td class="xl98" >-</td>
+        <td class="xl98" >Unload</td>
+        <td class="xl98" >卸载</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Equipment</td>
+        <td class="xl98" >Operation Start</td>
+        <td class="xl98" >Move In</td>
+        <td class="xl99" >Move In</td>
+        <td class="xl98" >操作开始</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Equipment</td>
+        <td class="xl98" >Operation Start Cancel</td>
+        <td class="xl98" >Cancel Move In</td>
+        <td class="xl98" >Cancel Move In</td>
+        <td class="xl98" >取消操作</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Equipment</td>
+        <td class="xl98" >Operation Complete</td>
+        <td class="xl98" >Move Out</td>
+        <td class="xl99" >Move Out</td>
+        <td class="xl98" >操作完成</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Equipment</td>
+        <td class="xl98" >-</td>
+        <td class="xl98" >Move Next</td>
+        <td class="xl98" >-</td>
+        <td class="xl98" >到下一站</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Equipment</td>
+        <td class="xl98" >Process Start</td>
+        <td class="xl98" >-</td>
+        <td class="xl98" >Process Start</td>
+        <td class="xl98" >加工开始</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Equipment</td>
+        <td class="xl98" >Process End</td>
+        <td class="xl98" >-</td>
+        <td class="xl98" >Process End</td>
+        <td class="xl98" >加工结束</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Equipment</td>
+        <td class="xl98" >Partial Operation Complete</td>
+        <td class="xl98"></td>
+        <td class="xl98" >Running Split</td>
+        <td class="xl98" >加工过程分批</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Carrier</td>
+        <td class="xl98" >Carrier Exchange</td>
+        <td class="xl98"></td>
+        <td class="xl98" >Carrier Exchange</td>
+        <td class="xl98" >交换晶舟</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Reticle</td>
+        <td class="xl98" >Reticle Just In Just Out</td>
+        <td class="xl98"></td>
+        <td class="xl98" >Reticle Just In Just Out</td>
+        <td class="xl98" >光罩进/出</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Process</td>
+        <td class="xl98" >Process Hold</td>
+        <td class="xl98"></td>
+        <td class="xl98" >Process Hold</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Process</td>
+        <td class="xl98" >Route Look Ahead</td>
+        <td class="xl98"></td>
+        <td class="xl99" >Future Flow</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;' >Process</td>
+        <td class="xl98" >Future Actions List</td>
+        <td class="xl98"></td>
+        <td class="xl98" >Future Actions</td>
+        <td class="xl98" >未来动作（操作）</td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;'></td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+        <td class="xl98" >Season Plan</td>
+        <td class="xl98" >暖机计划</td>
+        <td class="xl98" >用户对设备（Equipment或Chamber）Season条件的配置，一个设备可以有多笔Season Plan</td>
+        <td class="xl98"></td>
+    </tr>
+    <tr height="19" style='height:14.25pt;'>
+        <td class="xl98" height="19" style='height:14.25pt;'></td>
+        <td class="xl98"></td>
+        <td class="xl98"></td>
+        <td class="xl98" >Season Job</td>
+        <td class="xl98" >一次暖机动作（工作/事件）</td>
+        <td class="xl98" >基于Season Plan设置，自动或手动触发生成的Season任务，和Season Lot关联</td>
+        <td class="xl98"></td>
+    </tr>
+</table>
+</body>

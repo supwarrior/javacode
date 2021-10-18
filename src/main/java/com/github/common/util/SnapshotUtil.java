@@ -1,9 +1,15 @@
 package com.github.common.util;
 
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 屏幕截图
@@ -32,5 +38,20 @@ public class SnapshotUtil {
         } catch (Exception exception) {
             throw new RuntimeException(exception);
         }
+    }
+
+    /**
+     * 一些重要的会议开启 自动截屏
+     * @param args
+     */
+    public static void main(String[] args) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        ScheduledExecutorService scheduledExecutorService = new ScheduledThreadPoolExecutor(1);
+        scheduledExecutorService.scheduleAtFixedRate(() -> {
+            Long time = System.currentTimeMillis();
+            String date = simpleDateFormat.format(new Date(time));
+            date = date.replaceAll("\\:| \\ ","-");
+            snapShot("../ideaPng/" + date ,"png");
+        },5,60, TimeUnit.SECONDS);
     }
 }

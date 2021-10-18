@@ -1,4 +1,4 @@
-package com.github.mvc.model;
+package com.github.mvc.model.oms;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
@@ -11,6 +11,11 @@ import lombok.Data;
  */
 @Data
 public class SystemComponent {
+    /**
+     * 备注
+     */
+    @JSONField(ordinal = 0)
+    private int index;
     /**
      * 组件所在的模块名称 JSONField 转换 json 排序
      */
@@ -37,7 +42,7 @@ public class SystemComponent {
     @JSONField(ordinal = 5)
     private String description;
     /**
-     * 描述
+     * 备注
      */
     @JSONField(ordinal = 6)
     private String remarks;

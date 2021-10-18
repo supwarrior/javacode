@@ -85,8 +85,12 @@ public class BeanClassScanner {
                         File file = new File(URLDecoder.decode(url.toString(), StandardCharsets.UTF_8.name()).substring(6));
                         FileList list = Directory.get(file, ".class");
                         list.getFiles().forEach(ele -> {
-                            String fileName = ele.getName();
-                            String className = scanPath + "." + fileName.substring(0, fileName.lastIndexOf("."));
+                            // C:\Users\康盼Java开发工程师\Documents\javacode\target\classes\com\github\mvc\controller\BeanController.class
+                            String path = ele.getPath();
+                            String packageName = path.replace("\\",".");
+                            int index = packageName.indexOf(scanPath);
+                            packageName = packageName.substring(index);
+                            String className = packageName.substring(0, packageName.lastIndexOf("."));
                             try {
                                 Class clazz = Class.forName(className, false, classLoader);
                                 BeanClassFilter<Class<?>> filter = cla -> cla.isAnnotationPresent(Component.class);

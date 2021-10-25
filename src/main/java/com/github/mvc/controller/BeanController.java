@@ -3,6 +3,9 @@ package com.github.mvc.controller;
 import com.alibaba.fastjson.JSON;
 import com.github.annotation.Component;
 import com.github.annotation.RepeatSubmit;
+import com.github.code.CoreBeanMapping;
+import com.github.common.Code;
+import com.github.common.MsgRetCodeConfig;
 import com.github.javabean.Beans;
 import com.github.mvc.model.TextValue;
 import com.github.mvc.model.oms.BankOperationEnum;
@@ -19,6 +22,7 @@ import com.github.mvc.model.oms.SystemComponent;
 import com.github.mvc.service.IBeanService;
 import com.github.mvc.service.IUserService;
 import com.github.mvc.service.impl.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,6 +39,7 @@ import java.util.List;
 @Component
 @RequestMapping("/api/bean")
 @CrossOrigin(origins = "http://localhost:8080")
+@Slf4j
 public class BeanController {
     
     @Autowired
@@ -42,6 +47,9 @@ public class BeanController {
 
     @Autowired
     private ComputerIntegratedManufacturingSystem computerIntegratedManufacturingSystem;
+
+    @Autowired
+    private CoreBeanMapping coreBeanMapping;
 
 
     /**
@@ -310,6 +318,34 @@ public class BeanController {
             result.add(systemComponent);
         }
         return result;
+    }
+
+    @Autowired
+    private MsgRetCodeConfig msgRetCodeConfig;
+
+    /**
+     * 请求 http://localhost:8028/api/bean/msgRetCodeConfig
+     *
+     * @return 康盼
+     */
+    @GetMapping(path = "/msgRetCodeConfig")
+    @ResponseBody
+    @RepeatSubmit
+    public Code msgRetCodeConfig() {
+        return msgRetCodeConfig.getMsgOk();
+    }
+
+
+    /**
+     * 请求 http://localhost:8028/api/bean/coreBeanMapping
+     *
+     * @return 康盼
+     */
+    @GetMapping(path = "/coreBeanMapping")
+    @ResponseBody
+    @RepeatSubmit
+    public void coreBeanMapping() {
+        log.info("coreBeanMapping:{}", coreBeanMapping);
     }
 
 }

@@ -65,8 +65,8 @@ import java.util.concurrent.locks.StampedLock;
  * 2021/2/23        ********             zqi                更改雪花算法，支持分布式多实例部署
  * </pre>
  *
- * @author: PlayBoy
- * @date: 2018/9/19 21:46
+ * @author: pan.kang
+ * @date: 2020
  * @copyright: 2018, FA Software (Shanghai) Co., Ltd. All Rights Reserved.
  */
 @Slf4j

@@ -6,6 +6,7 @@ import com.github.annotation.RepeatSubmit;
 import com.github.code.CoreBeanMapping;
 import com.github.common.Code;
 import com.github.common.MsgRetCodeConfig;
+import com.github.common.core.BaseCore;
 import com.github.javabean.Beans;
 import com.github.mvc.model.TextValue;
 import com.github.mvc.model.oms.BankOperationEnum;
@@ -24,6 +25,7 @@ import com.github.mvc.service.IUserService;
 import com.github.mvc.service.impl.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,10 +40,10 @@ import java.util.List;
  */
 @Component
 @RequestMapping("/api/bean")
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = {"http://localhost:8080", "http://192.168.1.146:8080"})
 @Slf4j
 public class BeanController {
-    
+
     @Autowired
     private IBeanService beanService;
 
@@ -85,7 +87,8 @@ public class BeanController {
     @GetMapping(path = "/getMdsJsonView")
     @ResponseBody
     @RepeatSubmit
-    @CrossOrigin(origins = "http://localhost:8080")
+//    @CrossOrigin(origins = "http://localhost:8080")
+    @Cacheable(value = "coreCache")
     public String getMdsJsonView() {
         return computerIntegratedManufacturingSystem.getMdsJsonView();
     }
@@ -100,13 +103,13 @@ public class BeanController {
     @GetMapping(path = "/getMdsFilters")
     @ResponseBody
     @RepeatSubmit
-    @CrossOrigin(origins = "http://localhost:8080")
+//    @CrossOrigin(origins = "http://localhost:8080")
     public List<TextValue> getMdsFilters() {
         String json = computerIntegratedManufacturingSystem.getMdsJsonView();
-        List<SystemComponent> list = JSON.parseArray(json,SystemComponent.class);
+        List<SystemComponent> list = JSON.parseArray(json, SystemComponent.class);
         List<TextValue> result = new LinkedList<>();
         list.stream().map(SystemComponent::getFunction).distinct().forEach(ele -> {
-            TextValue textValue = new TextValue(ele,ele);
+            TextValue textValue = new TextValue(ele, ele);
             result.add(textValue);
         });
         return result;
@@ -121,13 +124,13 @@ public class BeanController {
     @GetMapping(path = "/getOmsFilters")
     @ResponseBody
     @RepeatSubmit
-    @CrossOrigin(origins = "http://localhost:8080")
+//    @CrossOrigin(origins = "http://localhost:8080")
     public List<TextValue> getOmsFilters() {
         String json = computerIntegratedManufacturingSystem.getOmsJsonView();
-        List<SystemComponent> list = JSON.parseArray(json,SystemComponent.class);
+        List<SystemComponent> list = JSON.parseArray(json, SystemComponent.class);
         List<TextValue> result = new LinkedList<>();
         list.stream().map(SystemComponent::getFunction).distinct().forEach(ele -> {
-            TextValue textValue = new TextValue(ele,ele);
+            TextValue textValue = new TextValue(ele, ele);
             result.add(textValue);
         });
         return result;
@@ -170,7 +173,7 @@ public class BeanController {
     @RepeatSubmit
     public List<SystemComponent> getLotBatchManagementFlow() {
         List<SystemComponent> result = new LinkedList<>();
-        for(LotOperationEnum ele :LotOperationEnum.values()) {
+        for (LotOperationEnum ele : LotOperationEnum.values()) {
             SystemComponent systemComponent = new SystemComponent();
             systemComponent.setIndex(ele.getIndex());
             systemComponent.setFunction(ele.name());
@@ -192,7 +195,7 @@ public class BeanController {
     @RepeatSubmit
     public List<SystemComponent> getBankFlow() {
         List<SystemComponent> result = new LinkedList<>();
-        for(BankOperationEnum ele : BankOperationEnum.values()) {
+        for (BankOperationEnum ele : BankOperationEnum.values()) {
             SystemComponent systemComponent = new SystemComponent();
             systemComponent.setIndex(ele.getIndex());
             systemComponent.setFunction(ele.name());
@@ -212,7 +215,7 @@ public class BeanController {
     @ResponseBody
     @RepeatSubmit
     public List<TextValue> getBankInformation(@PathVariable(name = "key") String key) {
-        return  LogInformationEnum.getLogInformationEnum(key);
+        return LogInformationEnum.getLogInformationEnum(key);
     }
 
     /**
@@ -225,7 +228,7 @@ public class BeanController {
     @RepeatSubmit
     public List<SystemComponent> getBayInfo() {
         List<SystemComponent> result = new LinkedList<>();
-        for(BayEnum ele : BayEnum.values()) {
+        for (BayEnum ele : BayEnum.values()) {
             SystemComponent systemComponent = new SystemComponent();
             systemComponent.setIndex(ele.getIndex());
             systemComponent.setFunction(ele.name());
@@ -246,7 +249,7 @@ public class BeanController {
     @RepeatSubmit
     public List<SystemComponent> getLotStartFlow() {
         List<SystemComponent> result = new LinkedList<>();
-        for(LotStartEnum ele : LotStartEnum.values()) {
+        for (LotStartEnum ele : LotStartEnum.values()) {
             SystemComponent systemComponent = new SystemComponent();
             systemComponent.setIndex(ele.getIndex());
             systemComponent.setFunction(ele.name());
@@ -267,7 +270,7 @@ public class BeanController {
     @RepeatSubmit
     public List<SystemComponent> getEquipmentFlow() {
         List<SystemComponent> result = new LinkedList<>();
-        for(EquipmentEnum ele : EquipmentEnum.values()) {
+        for (EquipmentEnum ele : EquipmentEnum.values()) {
             SystemComponent systemComponent = new SystemComponent();
             systemComponent.setIndex(ele.getIndex());
             systemComponent.setFunction(ele.name());
@@ -288,7 +291,7 @@ public class BeanController {
     @RepeatSubmit
     public List<SystemComponent> getLotListFlow() {
         List<SystemComponent> result = new LinkedList<>();
-        for(LotListEnum ele : LotListEnum.values()) {
+        for (LotListEnum ele : LotListEnum.values()) {
             SystemComponent systemComponent = new SystemComponent();
             systemComponent.setIndex(ele.getIndex());
             systemComponent.setFunction(ele.name());
@@ -309,7 +312,7 @@ public class BeanController {
     @RepeatSubmit
     public List<SystemComponent> getConstraintListFlow() {
         List<SystemComponent> result = new LinkedList<>();
-        for(ConstraintEnum ele : ConstraintEnum.values()) {
+        for (ConstraintEnum ele : ConstraintEnum.values()) {
             SystemComponent systemComponent = new SystemComponent();
             systemComponent.setIndex(ele.getIndex());
             systemComponent.setFunction(ele.name());
@@ -346,6 +349,24 @@ public class BeanController {
     @RepeatSubmit
     public void coreBeanMapping() {
         log.info("coreBeanMapping:{}", coreBeanMapping);
+    }
+
+    @Autowired
+    private BaseCore baseCore;
+
+    /**
+     * 请求 http://localhost:8028/api/bean/baseCoreInsert
+     *
+     * @return 康盼
+     */
+    @GetMapping(path = "/baseCoreInsert")
+    @ResponseBody
+    @RepeatSubmit
+    public List<Object[]> baseCoreInsert() {
+        String sql = "insert into OMAMPLAN (id, EQP_ID, CHAMBER_ID, CHAMBER_RKEY) values (?,?, ?, ?)";
+        Object[] strs = {1L, "EQP_ID", "CHAMBER_ID", "CHAMBER_RKEY"};
+        baseCore.insert(sql, strs);
+        return baseCore.queryAll("select * from OMAMPLAN where id = ?", 1L);
     }
 
 }

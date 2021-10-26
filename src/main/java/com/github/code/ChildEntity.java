@@ -6,6 +6,9 @@ import lombok.EqualsAndHashCode;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
+/**
+ * @author 康盼Java开发工程师
+ */
 @EqualsAndHashCode(callSuper = true)
 @Data
 @MappedSuperclass

@@ -8,18 +8,9 @@ import lombok.ToString;
 
 import javax.persistence.MappedSuperclass;
 
+
 /**
- * description:
- * <p>MasterEntity .<br/></p>
- * <p>
- * change history:
- * date             defect#             person             comments
- * -------------------------------------------------------------------------------------------------------------------
- * 2019/9/3         ********             ZQI               create file
- *
- * @author ZQI
- * @date 2019/9/3 14:58
- * @copyright 2019, FA Software (Shanghai) Co., Ltd. All Rights Reserved.
+ * @author 康盼Java开发工程师
  */
 @EqualsAndHashCode(callSuper = true)
 @Getter

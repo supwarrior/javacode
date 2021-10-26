@@ -14,8 +14,8 @@ import javax.persistence.Table;
  * @author 康盼Java开发工程师
  */
 @EqualsAndHashCode(callSuper = true)
-// @Entity
-@Embeddable
+@Entity
+//@Embeddable
 @Table(name = "OMAMPLAN")
 @IdPrefix(value = "OMAMPLAN")
 @Data

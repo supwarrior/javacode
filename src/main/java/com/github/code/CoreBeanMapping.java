@@ -35,10 +35,12 @@ public class CoreBeanMapping {
      *
      * @Core
      * public class CimEqpMonitorBO extends AbstractNamedEntity<CimEquipmentMonitorDO> implements CimEqpMonitor {}
+     *
+     * {Class@7441} "interface com.fa.cim.newcore.bo.person.CimPerson" -> {Class@11254} "class com.fa.cim.newcore.impl.bo.person.CimPersonBO"
      */
-    private final Map<Class<?>, Class<?>> CORE_BEAN_MAPPING = new ConcurrentHashMap(256);
-    private final Map<Class<?>, Class<? extends BaseEntity>> BO_AND_ENTITY_MAPPING = new ConcurrentHashMap(256);
-    private final Map<String, Class<? extends BaseEntity>> PREFIX_AND_ENTITY_MAPPING = new ConcurrentHashMap(256);
+    public final Map<Class<?>, Class<?>> CORE_BEAN_MAPPING = new ConcurrentHashMap(256);
+    public final Map<Class<?>, Class<? extends BaseEntity>> BO_AND_ENTITY_MAPPING = new ConcurrentHashMap(256);
+    public final Map<String, Class<? extends BaseEntity>> PREFIX_AND_ENTITY_MAPPING = new ConcurrentHashMap(256);
 
     private CoreBeanMapping() {
         log.info("init");
@@ -63,7 +65,8 @@ public class CoreBeanMapping {
                     ParameterizedType parameterizedType = (ParameterizedType) type;
                     Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
                     if (actualTypeArguments != null && actualTypeArguments.length >= 1 && actualTypeArguments[0] instanceof Class) {
-                        Class<? extends BaseEntity> boundEntity  = Arrays.stream(actualTypeArguments).filter(args -> BaseEntity.class.isAssignableFrom((Class)args)).findAny()
+                        Class<? extends BaseEntity> boundEntity  = Arrays.stream(actualTypeArguments)
+                                .filter(args -> BaseEntity.class.isAssignableFrom((Class)args)).findAny()
                                 .map(ele -> (Class)ele).orElseThrow(() -> new RuntimeException("Data Object Type Not Found"));
                         BO_AND_ENTITY_MAPPING.put(aClass, boundEntity);
                     }

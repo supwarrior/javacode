@@ -13,4 +13,12 @@ package com.github.code;
  */
 
 public interface CimBO {
+    String getPrimaryKey();
+
+    default void makeDirty() {
+    }
+
+    default boolean isDirty() {
+        return false;
+    }
 }

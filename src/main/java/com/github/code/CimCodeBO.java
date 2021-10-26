@@ -16,4 +16,9 @@ import com.github.annotation.Core;
  */
 @Core
 public class CimCodeBO implements CimBO {
+
+    @Override
+    public String getPrimaryKey() {
+        return null;
+    }
 }

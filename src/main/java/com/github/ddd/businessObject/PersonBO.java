@@ -3,6 +3,8 @@ package com.github.ddd.businessObject;
 
 import com.github.annotation.Core;
 import com.github.annotation.Flush;
+import com.github.annotation.Inject;
+import com.github.common.cons.MsgRetCodeConfig;
 import com.github.ddd.domainObject.Person;
 import com.github.ddd.domainObject.PersonDO;
 import lombok.ToString;
@@ -18,6 +20,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class PersonBO extends AbstractBO<PersonDO> implements Person {
 
+    /**
+     * DefaultBeanFactory 注入
+     */
+    @Inject
+    private MsgRetCodeConfig msgRetCodeConfig;
+
     public PersonBO(PersonDO entity) {
         super(entity);
     }
@@ -28,6 +36,6 @@ public class PersonBO extends AbstractBO<PersonDO> implements Person {
     @Override
     @Flush
     public void business() {
-        log.info("执行了抽象类的 flushMain 方法");
+        log.info("执行了抽象类的 flushMain 方法:{}",msgRetCodeConfig.getMsgOk());
     }
 }

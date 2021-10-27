@@ -61,13 +61,10 @@ import java.util.concurrent.locks.StampedLock;
  * <pre>
  * date             defect#             person             comments
  * ------------------------------------------------------------------------------
- * 2018/9/19        ********             PlayBoy            create file
- * 2021/2/23        ********             zqi                更改雪花算法，支持分布式多实例部署
+ * 2018/9/19        ********             k                create file
+ * 2021/2/23        ********             k                更改雪花算法，支持分布式多实例部署
  * </pre>
  *
- * @author: PlayBoy
- * @date: 2018/9/19 21:46
- * @copyright: 2018, FA Software (Shanghai) Co., Ltd. All Rights Reserved.
  */
 @Slf4j
 public class SnowflakeIDWorker {
@@ -123,12 +120,12 @@ public class SnowflakeIDWorker {
     private final static long SEQUENCE_MASK = ~(-1L << SEQUENCE_BITS);
 
     /**
-     * 默认的mycim 当前worker id
+     * 当前worker id
      */
     private final static long MYCIM_WORKER_ID = 0L;
 
     /**
-     * 默认的mycim 当前dataCenter id
+     * 当前dataCenter id
      */
     private final static long MYCIM_DATA_CENTER_ID = 0L;
 
@@ -165,8 +162,6 @@ public class SnowflakeIDWorker {
      *
      * @param workerID     工作ID (0~31)
      * @param dataCenterID 数据中心ID (0~31)
-     * @author PlayBoy
-     * @date 2018/9/21 13:11:55
      */
     private SnowflakeIDWorker(long workerID, long dataCenterID) {
         if (workerID > MAX_WORKER_ID || workerID < 0) {
@@ -187,39 +182,36 @@ public class SnowflakeIDWorker {
      * <p>获得下一个ID (该方法是线程安全的)
      *
      * @return SnowflakeID
-     * @author PlayBoy
-     * @date 2018/9/21 13:12:24
      */
     public long nextID() {
         long writeLock = stampedLock.writeLock();
         try {
             long timestamp = timeGen();
 
-            //如果当前时间小于上一次ID生成的时间戳，说明系统时钟回退过这个时候应当抛出异常
+            // 如果当前时间小于上一次ID生成的时间戳，说明系统时钟回退过这个时候应当抛出异常
             if (timestamp < lastTimestamp) {
                 throw new RuntimeException(
                         String.format("Clock moved backwards.  Refusing to generate id for %d milliseconds",
                                 lastTimestamp - timestamp));
             }
 
-            //如果是同一时间生成的，则进行毫秒内序列
+            // 如果是同一时间生成的，则进行毫秒内序列
             if (lastTimestamp == timestamp) {
                 sequence = (sequence + 1) & SEQUENCE_MASK;
                 //毫秒内序列溢出
                 if (sequence == 0) {
-                    //阻塞到下一个毫秒,获得新的时间戳
+                    // 阻塞到下一个毫秒,获得新的时间戳
                     timestamp = tilNextMillis(lastTimestamp);
                 }
             }
-            //时间戳改变，毫秒内序列重置
+            // 时间戳改变，毫秒内序列重置
             else {
                 sequence = 0L;
             }
-
-            //上次生成ID的时间截
+            // 上次生成ID的时间截
             lastTimestamp = timestamp;
 
-            //移位并通过或运算拼到一起组成64位的ID
+            // 移位并通过或运算拼到一起组成64位的ID
             return ((timestamp - START_TIMESTAMP) << TIMESTAMP_LEFT_SHIFT)
                     | (dataCenterID << DATA_CENTER_ID_SHIFT)
                     | (workerID << WORKER_ID_SHIFT)
@@ -235,8 +227,6 @@ public class SnowflakeIDWorker {
      *
      * @param lastTimestamp 上次生成ID的时间截
      * @return 当前时间戳
-     * @author PlayBoy
-     * @date 2018/9/25 12:20:20
      */
     protected long tilNextMillis(long lastTimestamp) {
         long timestamp = timeGen();
@@ -250,8 +240,6 @@ public class SnowflakeIDWorker {
      * <p>返回以毫秒为单位的当前时间
      *
      * @return 当前时间(毫秒)
-     * @author PlayBoy
-     * @date 2018/9/25 12:20:42
      */
     protected long timeGen() {
         return System.currentTimeMillis();
@@ -261,9 +249,6 @@ public class SnowflakeIDWorker {
      * 获取生成ID的前缀，使用{@link IdPrefix} 注解
      *
      * @param entityClazz entityClazz
-     * @return id prefix
-     * @author PlayBoy
-     * @date 2018/9/27 13:14:15
      */
     public String getIdPrefix(Class<?> entityClazz) {
         Objects.requireNonNull(entityClazz, "entityClazz can not be null");
@@ -290,8 +275,6 @@ public class SnowflakeIDWorker {
      * Gets the singleton instance for SnowflakeIDWorker.
      *
      * @return singleton instance
-     * @author ZQI
-     * @date 2021/2/23 15:32
      */
     public static SnowflakeIDWorker getInstance() {
         long dataCenterID = 0L;

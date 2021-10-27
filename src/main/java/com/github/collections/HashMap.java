@@ -5,8 +5,7 @@ import java.util.Iterator;
 /**
  * @author 康盼Java开发工程师
  */
-public class HashMap<K, V> implements Iterable<Entry<K, V>> {
-
+public class HashMap <K, V> implements Iterable<Entry<K, V>> {
     private Node<K, V>[] table;
 
     private int size;
@@ -96,7 +95,7 @@ public class HashMap<K, V> implements Iterable<Entry<K, V>> {
         return new HashIterator();
     }
 
-    class HashIterator implements Iterator<Entry<K, V>> {
+     class HashIterator implements Iterator<Entry<K, V>> {
         Node<K, V> next;
         Node<K, V> current;
         int index;

@@ -15,10 +15,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import static com.github.common.Constant.BASEDIR;
-import static com.github.common.Constant.JAVA;
-import static com.github.common.Constant.JAVA_MAIN_SRC;
-import static com.github.common.Constant.RESOURCE_PATH;
+import static com.github.common.cons.Constant.BASEDIR;
+import static com.github.common.cons.Constant.JAVA;
+import static com.github.common.cons.Constant.JAVA_MAIN_SRC;
+import static com.github.common.cons.Constant.RESOURCE_PATH;
 
 /**
  * 跟文件操作有关的

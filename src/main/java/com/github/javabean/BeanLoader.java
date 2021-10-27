@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 
-import static com.github.common.Constant.FACTORIES_RESOURCE_LOCATION;
+import static com.github.common.cons.Constant.FACTORIES_RESOURCE_LOCATION;
 
 /**
  * Javabean 的加载器 SPI机制

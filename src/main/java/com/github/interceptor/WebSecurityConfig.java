@@ -11,18 +11,6 @@ import org.springframework.context.annotation.Configuration;
 //import org.springframework.security.core.userdetails.UserDetailsService;
 //import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
-/**
- * description:
- * <p>
- * change history:
- * date             defect#             person             comments
- * ---------------------------------------------------------------------------------------------------------------------
- * 2021/10/22     ********            pan.kang                create file
- *
- * @author: pan.kang
- * @date: 2021/10/22 11:37
- * @copyright: 2020, FA Software (Shanghai) Co., Ltd. All Rights Reserved.
- */
 // @Configuration
 // @EnableWebSecurity
 //@ConditionalOnProperty(
@@ -30,6 +18,9 @@ import org.springframework.context.annotation.Configuration;
 //        havingValue = "secure",
 //        matchIfMissing = true
 //)
+/**
+ * @author 康盼Java开发工程师
+ */
 public class WebSecurityConfig {
         // extends WebSecurityConfigurerAdapter {
 

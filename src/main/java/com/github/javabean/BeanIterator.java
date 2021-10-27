@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
 
-import static com.github.common.Constant.PREFIX;
+import static com.github.common.cons.Constant.PREFIX;
 
 
 /**

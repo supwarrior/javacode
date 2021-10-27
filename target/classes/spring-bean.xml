@@ -12,7 +12,7 @@
         <property name="address" value="武汉市武昌区积玉桥联投时代"></property>
     </bean>
 
-    <bean id = "userRepository" class = "com.github.mvc.repository.UserRepository" autowire="byType">
+    <bean id = "userRepository" class = "com.github.mainfun.UserRepository" autowire="byType">
     </bean>
 
 

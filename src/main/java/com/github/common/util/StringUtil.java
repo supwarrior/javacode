@@ -4,8 +4,8 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 
-import static com.github.common.Constant.OS;
-import static com.github.common.Constant.WINDOWS;
+import static com.github.common.cons.Constant.OS;
+import static com.github.common.cons.Constant.WINDOWS;
 
 /**
  * @author 康盼Java开发工程师

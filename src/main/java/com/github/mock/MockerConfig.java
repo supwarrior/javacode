@@ -1,6 +1,6 @@
 package com.github.mock;
 
-import com.github.common.Constant;
+import com.github.common.cons.Constant;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateExceptionHandler;

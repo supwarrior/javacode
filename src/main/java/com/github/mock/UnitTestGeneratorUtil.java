@@ -1,6 +1,6 @@
 package com.github.mock;
 
-import com.github.common.Constant;
+import com.github.common.cons.Constant;
 import com.github.common.util.StringUtil;
 import com.github.resource.Directory;
 import org.apache.commons.lang3.StringUtils;
@@ -13,11 +13,11 @@ import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.github.common.Constant.BASEDIR;
-import static com.github.common.Constant.DOT;
-import static com.github.common.Constant.JAVA_TEST_SRC;
-import static com.github.common.Constant.OS;
-import static com.github.common.Constant.TEST_CLASS_SUFFIX;
+import static com.github.common.cons.Constant.BASEDIR;
+import static com.github.common.cons.Constant.DOT;
+import static com.github.common.cons.Constant.JAVA_TEST_SRC;
+import static com.github.common.cons.Constant.OS;
+import static com.github.common.cons.Constant.TEST_CLASS_SUFFIX;
 
 /**
  * @author 康盼Java开发工程师

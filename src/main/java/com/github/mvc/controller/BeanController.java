@@ -3,10 +3,10 @@ package com.github.mvc.controller;
 import com.alibaba.fastjson.JSON;
 import com.github.annotation.Component;
 import com.github.annotation.RepeatSubmit;
-import com.github.code.CoreBeanMapping;
-import com.github.common.Code;
-import com.github.common.MsgRetCodeConfig;
-import com.github.common.core.BaseCore;
+import com.github.common.cons.Code;
+import com.github.common.cons.MsgRetCodeConfig;
+import com.github.ddd.BaseCore;
+import com.github.ddd.CoreBeanMapping;
 import com.github.javabean.Beans;
 import com.github.mvc.model.TextValue;
 import com.github.mvc.model.oms.BankOperationEnum;
@@ -87,7 +87,6 @@ public class BeanController {
     @GetMapping(path = "/getMdsJsonView")
     @ResponseBody
     @RepeatSubmit
-//    @CrossOrigin(origins = "http://localhost:8080")
     @Cacheable(value = "coreCache")
     public String getMdsJsonView() {
         return computerIntegratedManufacturingSystem.getMdsJsonView();
@@ -103,7 +102,6 @@ public class BeanController {
     @GetMapping(path = "/getMdsFilters")
     @ResponseBody
     @RepeatSubmit
-//    @CrossOrigin(origins = "http://localhost:8080")
     public List<TextValue> getMdsFilters() {
         String json = computerIntegratedManufacturingSystem.getMdsJsonView();
         List<SystemComponent> list = JSON.parseArray(json, SystemComponent.class);
@@ -124,7 +122,6 @@ public class BeanController {
     @GetMapping(path = "/getOmsFilters")
     @ResponseBody
     @RepeatSubmit
-//    @CrossOrigin(origins = "http://localhost:8080")
     public List<TextValue> getOmsFilters() {
         String json = computerIntegratedManufacturingSystem.getOmsJsonView();
         List<SystemComponent> list = JSON.parseArray(json, SystemComponent.class);

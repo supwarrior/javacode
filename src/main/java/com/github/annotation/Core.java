@@ -11,25 +11,14 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * description:
- * <p>
- * change history:
- * date             defect#             person             comments
- * ---------------------------------------------------------------------------------------------------------------------
- * 2021/10/25     ********            pan.kang                create file
- *
- * @author: pan.kang
- * @date: 2021/10/25 13:16
- * @copyright: 2020, FA Software (Shanghai) Co., Ltd. All Rights Reserved.
+ * @author 康盼Java开发工程师
  */
 @Documented
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@org.springframework.stereotype.Component
+@Component
 @Scope("prototype")
 public @interface Core {
-    @AliasFor(
-            annotation = Component.class
-    )
+    @AliasFor(annotation = Component.class)
     String value() default "";
 }

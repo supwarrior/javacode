@@ -1,16 +1,17 @@
-package com.github.ddd.domainObject;
+package com.github.analysis;
 
 import com.github.ddd.businessObject.BaseBO;
 
 /**
  * @author 康盼Java开发工程师
  */
-public interface Person extends BaseBO {
+public interface Log extends BaseBO {
+
 
     /**
-     * business
+     * saveLog
      */
-    void business();
+    void saveLog();
 
     /**
      * getEntity

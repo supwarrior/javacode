@@ -1,5 +1,6 @@
 package com.github.ddd.domainObject;
 
+
 import javax.persistence.MappedSuperclass;
 
 /**

@@ -53,31 +53,33 @@ public class CoreBeanMapping {
     }
 
     private void initCoreBean() {
-        String scanValue = "com.github.ddd";
-        new Reflections(scanValue, new Scanner[0])
-                .getTypesAnnotatedWith(Core.class)
-                .stream()
-                .filter(clazz -> !Modifier.isAbstract(clazz.getModifiers()))
-                .forEach(clazz -> {
-                    Class<?>[] interfaces = clazz.getInterfaces();
-                    if (interfaces.length > 0) {
-                        Class<?> clazzInterface = clazz.getInterfaces()[0];
-                        this.CORE_BEAN_MAPPING.put(clazzInterface, clazz);
-                        Type type = clazz.getGenericSuperclass();
-                        if (type instanceof ParameterizedType) {
-                            ParameterizedType parameterizedType = (ParameterizedType) type;
-                            // 获取泛型参数
-                            Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
-                            if (actualTypeArguments != null && actualTypeArguments.length >= 1 && actualTypeArguments[0] instanceof Class) {
-                                Class<?> entityClass = Arrays.stream(actualTypeArguments)
-                                        .filter(actualTypeArgument -> BaseEntity.class.isAssignableFrom((Class)actualTypeArgument))
-                                        .findAny()
-                                        .map(ele -> (Class) ele)
-                                        .orElseThrow(() -> new RuntimeException("Data Object Type Not Found"));
-                                BO_AND_ENTITY_MAPPING.put(clazz, entityClass);
+        String scanValues = "com.github.ddd;com.github.analysis";
+        Arrays.stream(scanValues.split(";")).forEach(scanValue -> {
+            new Reflections(scanValue, new Scanner[0])
+                    .getTypesAnnotatedWith(Core.class)
+                    .stream()
+                    .filter(clazz -> !Modifier.isAbstract(clazz.getModifiers()))
+                    .forEach(clazz -> {
+                        Class<?>[] interfaces = clazz.getInterfaces();
+                        if (interfaces.length > 0) {
+                            Class<?> clazzInterface = clazz.getInterfaces()[0];
+                            this.CORE_BEAN_MAPPING.put(clazzInterface, clazz);
+                            Type type = clazz.getGenericSuperclass();
+                            if (type instanceof ParameterizedType) {
+                                ParameterizedType parameterizedType = (ParameterizedType) type;
+                                // 获取泛型参数
+                                Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
+                                if (actualTypeArguments != null && actualTypeArguments.length >= 1 && actualTypeArguments[0] instanceof Class) {
+                                    Class<?> entityClass = Arrays.stream(actualTypeArguments)
+                                            .filter(actualTypeArgument -> BaseEntity.class.isAssignableFrom((Class) actualTypeArgument))
+                                            .findAny()
+                                            .map(ele -> (Class) ele)
+                                            .orElseThrow(() -> new RuntimeException("Data Object Type Not Found"));
+                                    BO_AND_ENTITY_MAPPING.put(clazz, entityClass);
+                                }
                             }
                         }
-                    }
-                });
+                    });
+        });
     }
 }

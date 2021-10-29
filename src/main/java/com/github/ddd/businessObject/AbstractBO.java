@@ -38,5 +38,8 @@ public abstract class AbstractBO<T extends MainEntity> implements BaseBO {
         jpaRepository.save(this.entity);
     }
 
-
+    @Override
+    public void flush() {
+        jpaRepository.insert(this.entity);
+    }
 }

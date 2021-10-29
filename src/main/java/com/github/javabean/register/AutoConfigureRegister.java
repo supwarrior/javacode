@@ -13,6 +13,8 @@ import org.springframework.core.type.filter.AnnotationTypeFilter;
 import java.util.Set;
 
 /**
+ * 自定义注解扫描包
+ *
  * @author 康盼Java开发工程师
  */
 public class AutoConfigureRegister implements ImportBeanDefinitionRegistrar, ResourceLoaderAware {

@@ -1,11 +1,14 @@
 package com.github.javabean;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
  * @author 康盼Java开发工程师
  */
+@Slf4j
 public class BeanCache<K, V> extends LinkedHashMap<K, V> {
 
     private final int CACHE_SIZE;
@@ -26,9 +29,9 @@ public class BeanCache<K, V> extends LinkedHashMap<K, V> {
         boolean flag = size() > CACHE_SIZE;
         Object key = eldest.getKey();
         if (flag) {
-            System.out.println("清除边界：" + key);
+            log.info("清除边界:{}",key);
         } else {
-            System.out.println("不清除边界：" + key);
+            log.info("不清除边界:{}",key);
         }
         return flag;
     }

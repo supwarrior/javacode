@@ -54,7 +54,7 @@ import java.util.concurrent.locks.StampedLock;
  *                                  |        |
  *                           主机号前8bit   主机号后8bit
  * </pre>
- * <p> <b>注意：</b>当环境变量 MYCIM_WORKER_ID 赋值后，会替换 workID
+ * <p> <b>注意：</b>当环境变量 WORKER_ID 赋值后，会替换 workID
  *
  * <p>
  * change history:
@@ -122,12 +122,12 @@ public class SnowflakeIDWorker {
     /**
      * 当前worker id
      */
-    private final static long MYCIM_WORKER_ID = 0L;
+    private final static long WORKER_ID = 0L;
 
     /**
      * 当前dataCenter id
      */
-    private final static long MYCIM_DATA_CENTER_ID = 0L;
+    private final static long DATA_CENTER_ID = 0L;
 
     /**
      * 工作机器ID(0~256) 或 IP地址
@@ -153,7 +153,7 @@ public class SnowflakeIDWorker {
     private static final StampedLock stampedLock = new StampedLock();
 
     private SnowflakeIDWorker() {
-        this(MYCIM_WORKER_ID, MYCIM_DATA_CENTER_ID);
+        this(WORKER_ID, DATA_CENTER_ID);
     }
 
     /**
@@ -269,7 +269,7 @@ public class SnowflakeIDWorker {
 
 
     private static volatile SnowflakeIDWorker instance;
-    private static final String MYCIM_WORKER_ID_ENV = "MYCIM_WORKER_ID";
+    private static final String WORKER_ID_ENV = "WORKER_ID";
 
     /**
      * Gets the singleton instance for SnowflakeIDWorker.
@@ -302,10 +302,10 @@ public class SnowflakeIDWorker {
                         dataCenterID = Long.parseLong(split[2]);
                         workID = Long.parseLong(split[3]);
                     }
-                    String workIDEnv = System.getenv(MYCIM_WORKER_ID_ENV);
+                    String workIDEnv = System.getenv(WORKER_ID_ENV);
                     if (null != workIDEnv) {
                         if (log.isInfoEnabled()) {
-                            log.info("MYCIM_WORKER_ID_ENV: {}", workIDEnv);
+                            log.info("WORKER_ID_ENV: {}", workIDEnv);
                         }
                         workID = Long.parseLong(workIDEnv);
                         dataCenterID = 0L;

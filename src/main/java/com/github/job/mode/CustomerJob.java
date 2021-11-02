@@ -1,8 +1,9 @@
 package com.github.job.mode;
 
+import lombok.Data;
+
+@Data
 public class CustomerJob {
-
-
     /**
      * 作业名称
      */

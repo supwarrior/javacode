@@ -2,7 +2,9 @@ package com.github.job.mode;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.job.JobConstant;
+import lombok.Getter;
 
+@Getter
 public class JobProperties {
 
 

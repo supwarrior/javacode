@@ -40,4 +40,26 @@ public class UserControllerTest {
         // 3.verify result
         // Assert.assertEquals
     }
+    @Test
+    public void getSuperUserName(){
+        // 1.set up
+        // PowerMockito.when(模拟方法调用).thenReturn(模拟返回值);
+
+        // 2.run test
+        // UserController.getSuperUserName
+
+        // 3.verify result
+        // Assert.assertEquals
+    }
+    @Test
+    public void getRootUserName(){
+        // 1.set up
+        // PowerMockito.when(模拟方法调用).thenReturn(模拟返回值);
+
+        // 2.run test
+        // UserController.getRootUserName
+
+        // 3.verify result
+        // Assert.assertEquals
+    }
 }

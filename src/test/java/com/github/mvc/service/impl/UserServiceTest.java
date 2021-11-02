@@ -13,7 +13,6 @@ import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import static org.mockito.ArgumentMatchers.any;
-import com.github.mvc.model.User;
 
 /**
 * UserServiceTest
@@ -29,10 +28,29 @@ public class UserServiceTest {
     @InjectMocks
     private UserService userService;
 
-    @Mock
-    private User user;
-    
 
+    @Test
+    public void destroyDataMethod(){
+        // 1.set up
+        // PowerMockito.when(模拟方法调用).thenReturn(模拟返回值);
+
+        // 2.run test
+        // UserService.destroyDataMethod
+
+        // 3.verify result
+        // Assert.assertEquals
+    }
+    @Test
+    public void initDataMethod(){
+        // 1.set up
+        // PowerMockito.when(模拟方法调用).thenReturn(模拟返回值);
+
+        // 2.run test
+        // UserService.initDataMethod
+
+        // 3.verify result
+        // Assert.assertEquals
+    }
     @Test
     public void getProperties(){
         // 1.set up
@@ -56,23 +74,23 @@ public class UserServiceTest {
         // Assert.assertEquals
     }
     @Test
-    public void initDataMethod(){
+    public void getSuperUserName(){
         // 1.set up
         // PowerMockito.when(模拟方法调用).thenReturn(模拟返回值);
 
         // 2.run test
-        // UserService.initDataMethod
+        // UserService.getSuperUserName
 
         // 3.verify result
         // Assert.assertEquals
     }
     @Test
-    public void destroyDataMethod(){
+    public void getRootUserName(){
         // 1.set up
         // PowerMockito.when(模拟方法调用).thenReturn(模拟返回值);
 
         // 2.run test
-        // UserService.destroyDataMethod
+        // UserService.getRootUserName
 
         // 3.verify result
         // Assert.assertEquals

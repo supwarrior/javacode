@@ -30,17 +30,6 @@ public class BeanServiceTest {
 
 
     @Test
-    public void destroyBean(){
-        // 1.set up
-        // PowerMockito.when(模拟方法调用).thenReturn(模拟返回值);
-
-        // 2.run test
-        // BeanService.destroyBean
-
-        // 3.verify result
-        // Assert.assertEquals
-    }
-    @Test
     public void loadSpringFactoriesBean(){
         // 1.set up
         // PowerMockito.when(模拟方法调用).thenReturn(模拟返回值);
@@ -58,6 +47,17 @@ public class BeanServiceTest {
 
         // 2.run test
         // BeanService.initBean
+
+        // 3.verify result
+        // Assert.assertEquals
+    }
+    @Test
+    public void destroyBean(){
+        // 1.set up
+        // PowerMockito.when(模拟方法调用).thenReturn(模拟返回值);
+
+        // 2.run test
+        // BeanService.destroyBean
 
         // 3.verify result
         // Assert.assertEquals

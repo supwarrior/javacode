@@ -13,7 +13,8 @@ package com.github.common.cons;
 public enum TransactionIDEnum {
 
     NULL(null),
-    JCW01("JCW01");
+    JCW01("JCW01"),
+    JCW02("JCW02");
 
 
     private String value;

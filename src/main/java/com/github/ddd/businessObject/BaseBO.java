@@ -24,4 +24,8 @@ public interface BaseBO {
     default void flushAttribute() {
 
     }
+
+    default boolean lock() {
+        return false;
+    }
 }

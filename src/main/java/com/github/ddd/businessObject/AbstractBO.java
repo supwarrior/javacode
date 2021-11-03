@@ -6,6 +6,7 @@ import com.github.ddd.CoreBeanMapping;
 import com.github.ddd.JpaRepository;
 import com.github.ddd.SpringContextUtil;
 import com.github.ddd.domainObject.MainEntity;
+import com.github.jpa.lock.ObjectLockExecutor;
 import lombok.Data;
 
 /**
@@ -21,6 +22,8 @@ public abstract class AbstractBO<T extends MainEntity> implements BaseBO {
 
     private JpaRepository jpaRepository;
 
+    private ObjectLockExecutor objectLockExecutor;
+
     /**
      * 对应 DO 层的数据实体
      */
@@ -29,6 +32,7 @@ public abstract class AbstractBO<T extends MainEntity> implements BaseBO {
     public AbstractBO(T entity) {
         coreBeanMapping = SpringContextUtil.getSingletonBean(CoreBeanMapping.class);
         jpaRepository = SpringContextUtil.getSingletonBean(JpaRepository.class);
+        objectLockExecutor = SpringContextUtil.getSingletonBean(ObjectLockExecutor.class);
         this.entity = entity;
     }
 
@@ -41,5 +45,11 @@ public abstract class AbstractBO<T extends MainEntity> implements BaseBO {
     @Override
     public void flush() {
         jpaRepository.insert(this.entity);
+    }
+
+    @Override
+    public boolean lock() {
+        objectLockExecutor.executeLock(this.entity.getId());
+        return true;
     }
 }

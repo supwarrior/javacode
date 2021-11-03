@@ -6,12 +6,12 @@ import org.springframework.stereotype.Service;
 /**
  * @author 康盼Java开发工程师
  */
-@Service("PostCancel")
+@Service("PersonDataGeneratorCancel")
 @Slf4j
-public class PostCancel implements IPostController {
+public class PersonDataGeneratorCancel implements IPersonController {
 
     @Override
-    public void callBack() {
-        log.info("PostCancel callBack");
+    public void initData() {
+
     }
 }

@@ -5,7 +5,6 @@ import com.github.annotation.Core;
 import com.github.annotation.Flush;
 import com.github.annotation.Inject;
 import com.github.common.cons.MsgRetCodeConfig;
-import com.github.ddd.domainObject.Person;
 import com.github.ddd.domainObject.PersonDO;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;

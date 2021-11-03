@@ -2,7 +2,7 @@ package com.github.ddd.factory;
 
 import com.github.ddd.CoreBeanMapping;
 import com.github.ddd.domainObject.BaseEntity;
-import com.github.ddd.domainObject.Person;
+import com.github.ddd.businessObject.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

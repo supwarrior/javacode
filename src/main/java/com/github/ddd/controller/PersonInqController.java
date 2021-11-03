@@ -7,7 +7,7 @@ import com.github.annotation.Compensable;
 import com.github.annotation.Transaction;
 import com.github.common.cons.TransactionIDEnum;
 import com.github.ddd.businessObject.BaseBO;
-import com.github.ddd.domainObject.Person;
+import com.github.ddd.businessObject.Person;
 import com.github.ddd.factory.BaseCoreFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,8 +25,8 @@ import java.util.List;
 @Transaction
 @RestController
 @RequestMapping("/person")
-@Compensable(interfaceClass = IPostController.class, confirmableKey = "PostConfirm", cancellableKey = "PostCancel")
-public class PersonInqController implements IPostController {
+@Compensable(interfaceClass = IPersonController.class, confirmableKey = "PersonDataGenerator", cancellableKey = "PersonDataGeneratorCancel")
+public class PersonInqController implements IPersonController {
 
     @Autowired
     private BaseCoreFactory baseCoreFactory;
@@ -49,6 +49,7 @@ public class PersonInqController implements IPostController {
     }
 
     @Override
-    public void callBack() {
+    public void initData() {
+
     }
 }

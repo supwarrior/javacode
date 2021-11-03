@@ -5,11 +5,11 @@ package com.github.ddd.controller;
  *
  * @author 康盼Java开发工程师
  */
-public interface IPostController {
+public interface IPersonController {
 
     /**
-     * callBack
+     * initData
      */
-    void callBack();
+    void initData();
 
 }

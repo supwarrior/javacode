@@ -1,6 +1,5 @@
-package com.github.ddd.domainObject;
+package com.github.ddd.businessObject;
 
-import com.github.ddd.businessObject.BaseBO;
 
 /**
  * @author 康盼Java开发工程师

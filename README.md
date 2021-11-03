@@ -34,4 +34,7 @@ spring.h2.console.path=/h2-console
 # default enable auth
 boot.login.auth=secure
 
+### 11月份读
+http://origin.redisbook.com/
+
 

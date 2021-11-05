@@ -20,4 +20,12 @@ public class ProductRequestDO extends MainEntity {
     @NamedIdentifier
     @Column(name = "PROD_ORDER_ID", length = 64, unique = true)
     private String productRequestID;
+
+    @NamedIdentifier
+    @Column(name = "REQUEST_NUMBER")
+    private int requestNumber;
+
+    public synchronized void setRequestNumber(int requestNumber) {
+        this.requestNumber = requestNumber;
+    }
 }

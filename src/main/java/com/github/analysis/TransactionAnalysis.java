@@ -3,12 +3,14 @@ package com.github.analysis;
 import com.github.annotation.Transaction;
 import com.github.common.cons.TransactionIDEnum;
 import com.github.ddd.factory.BeanFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
+
 import java.lang.reflect.Method;
 
 
@@ -19,6 +21,7 @@ import java.lang.reflect.Method;
  */
 @Component
 @Aspect
+@Slf4j
 public class TransactionAnalysis {
 
     @Around(value = "execution(* com.github.ddd.controller..*.*(..))")
@@ -42,6 +45,7 @@ public class TransactionAnalysis {
                 stopWatch.stop();
                 LogDO logDO = new LogDO();
                 logDO.setTransactionId(transactionId);
+                log.info("ThreadContextHolder.getRequestTime() {}", ThreadContextHolder.getRequestTime());
                 logDO.setRequestTime(ThreadContextHolder.getRequestTime().toString());
                 logDO.setMethodName(methodName);
                 logDO.setTime(String.valueOf(stopWatch.getTotalTimeMillis()));

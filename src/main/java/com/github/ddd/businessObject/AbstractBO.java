@@ -3,7 +3,7 @@ package com.github.ddd.businessObject;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.github.ddd.CoreBeanMapping;
-import com.github.ddd.JpaRepository;
+import com.github.ddd.jpa.JpaRepository;
 import com.github.ddd.SpringContextUtil;
 import com.github.ddd.domainObject.MainEntity;
 import com.github.jpa.lock.ObjectLockExecutor;

@@ -8,7 +8,6 @@ import com.github.common.cons.MsgRetCodeConfig;
 import com.github.ddd.BaseCore;
 import com.github.ddd.CoreBeanMapping;
 import com.github.javabean.Beans;
-import com.github.mainfun.JsonObjectTest;
 import com.github.mvc.model.TextValue;
 import com.github.mvc.model.oms.BankOperationEnum;
 import com.github.mvc.model.oms.BayEnum;
@@ -30,8 +29,6 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -98,7 +95,6 @@ public class BeanController {
 
     /**
      * 请求 http://localhost:8028/api/bean/getMdsFilters
-     * http://localhost:8080/#/term 的过滤器
      *
      * @return 康盼
      */
@@ -118,7 +114,6 @@ public class BeanController {
 
     /**
      * 请求 http://localhost:8028/api/bean/getOmsFilters
-     * http://localhost:8080/#/term 的过滤器
      *
      * @return 康盼
      */
@@ -339,20 +334,6 @@ public class BeanController {
     }
 
 
-    /**
-     * 请求 http://localhost:8028/api/bean/coreBeanMapping
-     *
-     * @return 康盼
-     */
-    @GetMapping(path = "/coreBeanMapping")
-    @ResponseBody
-    @RepeatSubmit
-    public void coreBeanMapping() {
-        JsonObjectTest.AMSSendDTO sendDTO = jsonObjectTest.parseTo();
-        sendAlarmInfo(sendDTO);
-        log.info("coreBeanMapping:{}", coreBeanMapping);
-    }
-
     @Autowired
     private BaseCore baseCore;
 
@@ -370,15 +351,4 @@ public class BeanController {
         baseCore.insert(sql, strs);
         return baseCore.queryAll("select * from OMAMPLAN where id = ?", 1L);
     }
-
-
-    @Autowired
-    private JsonObjectTest jsonObjectTest;
-
-
-    @PostMapping("/ams/v1/open/alarmNotify")
-    public void sendAlarmInfo(@RequestBody JsonObjectTest.AMSSendDTO amsSendDTO) {
-        log.info("success");
-    }
-
 }

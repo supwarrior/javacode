@@ -69,4 +69,9 @@ Outputs.ObjLockModeOut objLockModeOut = objectMethod.objectLockModeGet(objCommon
 1. 利用 spring 容器管理的所有单例对象（非懒加载对象）初始化完成之后调用的回调接口去查找这些单例对象是否含有 Compensable 注解，通过 compensable.confirmableKey 和 compensable.cancellableKey() 在 spring 容器中查找对应的实例，在 confirm 类 做第二次提交，失败了在 cancell 类 做回滚
 
 
+**熟悉 myCIM4.0 项目中各种注解的使用，比如 @CimMapping @MasterEntity @Flush @Core @EnablePostProcess @IdPrefix等**
 
+
+**熟悉 myCIM4.0 项目中 BO DO 实体转化及业务应用并自己模拟写了个demo**
+
+**了解 myCIM4.0 项目中监听事件的应用**

@@ -244,13 +244,13 @@ public class SimpleSkipListMap<K, V> extends AbstractMap<K, V> implements Clonea
      */
     public V put(K kkey, V value) {
         Comparable<? super K> key = comparable(kkey);
-        Node<K, V> b = findPredecessor(key);   //一般用b来表示前序节点
-        Node<K, V> n = b.next;                  //一般用n来表示当前节点
-        Node<K, V> f = null;                    //一般用f来表示后续节点
+        Node<K, V> b = findPredecessor(key);   // 一般用b来表示前序节点
+        Node<K, V> n = b.next;                  // 一般用n来表示当前节点
+        Node<K, V> f = null;                    // 一般用f来表示后续节点
         for (; ; ) {
             if (n != null) {
                 f = n.next;
-                if (n.value == null) {      //如果n已经被删除,从链表中删除
+                if (n.value == null) {      // 如果n已经被删除,从链表中删除
                     b.next = f;
                     n = f;
                     continue;
@@ -261,7 +261,7 @@ public class SimpleSkipListMap<K, V> extends AbstractMap<K, V> implements Clonea
                     n = n.next;
                     continue;
                 }
-                if (c == 0) {  //如果key相等，直接替换value
+                if (c == 0) {  // 如果key相等，直接替换value
                     V oldValue = (V) n.value;
                     n.value = value;
                     return oldValue;
@@ -288,18 +288,18 @@ public class SimpleSkipListMap<K, V> extends AbstractMap<K, V> implements Clonea
         int max = h.level;
         if (max >= level) {
             Index<K, V> idx = null;
-            //从第1层到第level层建立索引，并设置好索引的down引用
+            // 从第1层到第level层建立索引，并设置好索引的down引用
             for (int i = 1; i <= level; i++) {
                 idx = new Index<>(z, idx, null);
             }
-            addIndex(idx, h, level);  //设置索引的right引用
+            addIndex(idx, h, level);  // 设置索引的right引用
         } else {
             //总索引层+1，重新设置head
             level = max + 1;
             HeadIndex<K, V> tmpHead = new HeadIndex<>(head.node, head, null, level);
             head = tmpHead;
             Index<K, V> idx = null;
-            //从第1层到第max+1层建立索引，并设置好索引的down引用
+            // 从第1层到第max+1层建立索引，并设置好索引的down引用
             for (int i = 1; i <= level; i++) {
                 idx = new Index<>(z, idx, null);
             }
@@ -315,7 +315,7 @@ public class SimpleSkipListMap<K, V> extends AbstractMap<K, V> implements Clonea
      * @param indexLevel 被插入索引的层级
      */
     private void addIndex(Index<K, V> idx, HeadIndex<K, V> h, int indexLevel) {
-        int insertionLevel = indexLevel;  //当前要设置的索引的层次
+        int insertionLevel = indexLevel;  // 当前要设置的索引的层次
         Comparable<? super K> key = comparable(idx.node.key);
         if (key == null) throw new NullPointerException();
         Index<K, V> q = h;
@@ -326,28 +326,28 @@ public class SimpleSkipListMap<K, V> extends AbstractMap<K, V> implements Clonea
             if (r != null) {
                 Node<K, V> n = r.node;
                 int c = key.compareTo(n.key);
-                if (n.value == null) {   //如果n已经被删除
+                if (n.value == null) {   // 如果n已经被删除
                     q.right = r.right;
                     r = q.right;
                     continue;
                 }
-                if (c > 0) {  //c>0则同层向右搜索
+                if (c > 0) {  // c>0则同层向右搜索
                     q = r;
                     r = q.right;
                     continue;
                 }
             }
-            //此处开始设置每层的t的right，将t插入至q和r之间
-            if (j == insertionLevel) {  //如果当前遍历的索引层次等于要设置索引的层次
+            // 此处开始设置每层的t的right，将t插入至q和r之间
+            if (j == insertionLevel) {  // 如果当前遍历的索引层次等于要设置索引的层次
                 q.right = t;
                 t.right = r;
                 if (--insertionLevel == 0) {
                     return;
                 }
             }
-            if (--j >= insertionLevel && j < indexLevel) //如果j处于适当的层次，要设置的索引t下降一层
+            if (--j >= insertionLevel && j < indexLevel) // 如果j处于适当的层次，要设置的索引t下降一层
                 t = t.down;
-            q = q.down;   //要索引遍历的层次下降
+            q = q.down;   // 要索引遍历的层次下降
             r = q.right;
         }
     }
@@ -378,26 +378,26 @@ public class SimpleSkipListMap<K, V> extends AbstractMap<K, V> implements Clonea
     private Node<K, V> findPredecessor(Comparable<? super K> key) {
         if (key == null)
             throw new NullPointerException(); // don't postpone errors
-        Index<K, V> q = head;         //一般用q来表示前一个索引
-        Index<K, V> r = q.right;      //一般用r来表示q的right索引
+        Index<K, V> q = head;         // 一般用q来表示前一个索引
+        Index<K, V> r = q.right;      // 一般用r来表示q的right索引
         for (; ; ) {
             if (r != null) {
                 Node<K, V> n = r.node;
                 K k = n.key;
-                //处理作废的索引
+                // 处理作废的索引
                 if (n.value == null) {
                     q.right = r.right;
                     r = q.right;
                     continue;
                 }
                 int c = key.compareTo(k);
-                if (c > 0) {   //同层向后遍历
+                if (c > 0) {   // 同层向后遍历
                     q = r;
                     r = r.right;
                     continue;
                 }
             }
-            //下降一层
+            // 下降一层
             Index<K, V> d = q.down;
             if (d != null) {
                 q = d;
@@ -491,7 +491,7 @@ public class SimpleSkipListMap<K, V> extends AbstractMap<K, V> implements Clonea
                     continue;
                 }
                 if (c == 0) {
-                    //通过将value设置为null使得该节点作废，在后续的各种遍历操作中会逐步删除节点以及它的索引
+                    // 通过将value设置为null使得该节点作废，在后续的各种遍历操作中会逐步删除节点以及它的索引
                     V v = (V) n.value;
                     n.value = null;
                     return v;
@@ -618,7 +618,7 @@ public class SimpleSkipListMap<K, V> extends AbstractMap<K, V> implements Clonea
     }
 
     /* ----------------KeySet Values EntrySet utilities -------------- */
-    //内部类，KeySet
+    // 内部类，KeySet
     static final class KeySet<E> extends AbstractSet<E> {
         private final SimpleSkipListMap<E, Object> m;
 
@@ -643,7 +643,7 @@ public class SimpleSkipListMap<K, V> extends AbstractMap<K, V> implements Clonea
         return (ks != null) ? ks : (keySet = new KeySet(this));
     }
 
-    //内部类，Values
+    // 内部类，Values
     static final class Values<E> extends AbstractCollection<E> {
         private final SimpleSkipListMap<Object, E> m;
 
@@ -668,7 +668,7 @@ public class SimpleSkipListMap<K, V> extends AbstractMap<K, V> implements Clonea
         return (vs != null) ? vs : (values = new Values(this));
     }
 
-    //内部类，EntrySet
+    // 内部类，EntrySet
     static final class EntrySet<K, V> extends AbstractSet<Map.Entry<K, V>> {
         private final SimpleSkipListMap<K, V> m;
 

@@ -2,12 +2,19 @@ package com.github.ddd.businessObject;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.github.ddd.CoreAttribute;
 import com.github.ddd.CoreBeanMapping;
+import com.github.ddd.domainObject.ChildEntity;
+import com.github.ddd.jpa.CoreJpaRepository;
 import com.github.ddd.jpa.JpaRepository;
 import com.github.ddd.SpringContextUtil;
 import com.github.ddd.domainObject.MainEntity;
 import com.github.jpa.lock.ObjectLockExecutor;
 import lombok.Data;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 
 /**
  * 执行业务相关逻辑 抽象出来
@@ -24,6 +31,10 @@ public abstract class AbstractBO<T extends MainEntity> implements BaseBO {
 
     private ObjectLockExecutor objectLockExecutor;
 
+    protected CoreJpaRepository coreJpaRepository;
+
+
+
     /**
      * 对应 DO 层的数据实体
      */
@@ -33,6 +44,7 @@ public abstract class AbstractBO<T extends MainEntity> implements BaseBO {
         coreBeanMapping = SpringContextUtil.getSingletonBean(CoreBeanMapping.class);
         jpaRepository = SpringContextUtil.getSingletonBean(JpaRepository.class);
         objectLockExecutor = SpringContextUtil.getSingletonBean(ObjectLockExecutor.class);
+        coreJpaRepository = SpringContextUtil.getSingletonBean(CoreJpaRepository.class);
         this.entity = entity;
     }
 
@@ -51,5 +63,15 @@ public abstract class AbstractBO<T extends MainEntity> implements BaseBO {
     public boolean lock() {
         objectLockExecutor.executeLock(this.entity.getId());
         return true;
+    }
+
+    private Map<Class<?>, CoreAttribute<?>> attributes = new HashMap<>();
+
+    protected <C extends ChildEntity> CoreAttribute<C> getAttribute(Class<C> attributeType) {
+        return Optional.ofNullable((CoreAttribute<C>) attributes.get(attributeType)).orElseGet(() -> {
+            CoreAttribute<C> attribute = new CoreAttribute<>(coreJpaRepository, attributeType, entity.getId());
+            this.attributes.put(attributeType, attribute);
+            return attribute;
+        });
     }
 }

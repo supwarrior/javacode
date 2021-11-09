@@ -92,6 +92,7 @@ public class JpaRepository {
         setParams(nativeQuery, params);
         return nativeQuery;
     }
+
     private Query generateNativeQuery(String nativeSql, Object... params) {
         Query nativeQuery = em.createNativeQuery(nativeSql);
         setParams(nativeQuery, params);
@@ -146,7 +147,7 @@ public class JpaRepository {
                 Sort.unsorted()).getResultList();
     }
 
-    protected <T extends BaseEntity> TypedQuery<T> getQuery(@Nullable Specification<T> spec, final Class<T> domainClass, Sort sort) {
+    protected <T extends BaseEntity> TypedQuery<T> getQuery(@Nullable Specification<T> spec, Class<T> domainClass, Sort sort) {
         CriteriaBuilder builder = this.em.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(domainClass);
         Root<T> root = this.applySpecificationToCriteria(spec, domainClass, query);
@@ -183,11 +184,11 @@ public class JpaRepository {
         });
     }
 
-    public  <R, T extends R> List<Field> allFields(Class<T> targetClass) {
+    public <R, T extends R> List<Field> allFields(Class<T> targetClass) {
         Class superclass = targetClass.getSuperclass();
         List<Field> superClassFields = superclass != Object.class ? allFields(superclass) : Collections.emptyList();
         Field[] declaredFields = targetClass.getDeclaredFields();
-        List<Field> result =  Arrays.stream(declaredFields)
+        List<Field> result = Arrays.stream(declaredFields)
                 .filter((field) -> !Modifier.isStatic(field.getModifiers())).collect(Collectors.toList());
         result.addAll(superClassFields);
         return isEmpty(result) ? Collections.emptyList() : result;

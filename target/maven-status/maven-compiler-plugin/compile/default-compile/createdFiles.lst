@@ -1,4 +1,5 @@
 com\github\resource\Directory$1.class
+com\github\ddd\CoreAttribute.class
 com\github\job\mode\CustomerJob.class
 com\github\jpa\lock\DefaultObjectLockExecutor$Action.class
 com\github\mvc\model\RootUser.class
@@ -30,6 +31,7 @@ com\github\ddd\controller\IProductRequestController.class
 com\github\annotation\DefaultValue.class
 com\github\jpa\lock\JpaLogicLockExecutor.class
 com\github\mainfun\AnnotationBeanDefinitionRepository$Config.class
+com\github\ddd\controller\JpaAttributeController.class
 com\github\javabean\register\AutoConfigureRegister$BeanDefinitionScanner.class
 com\github\interceptor\WebSecurityConfig.class
 com\github\javabean\BeanProperty.class
@@ -58,7 +60,9 @@ com\github\mainfun\BeanInstanceLearn.class
 com\github\job\controller\JobController.class
 com\github\ddd\domainObject\MainEntity.class
 com\github\jpa\lock\LogicLockExecutor.class
+com\github\ddd\jpa\JpaRepository$ExampleSpecification.class
 com\github\ddd\jpa\JpaRepository.class
+com\github\ddd\jpa\Content.class
 com\github\mock\MockerMethod.class
 com\github\mainfun\SimpleSkipListMap$Index.class
 com\github\javabean\BeanClassScanner.class
@@ -120,9 +124,11 @@ com\github\ddd\businessObject\AbstractProductRequest.class
 com\github\ddd\controller\ProductRequestControllerTest$1.class
 com\github\annotation\CoreBeanCache.class
 com\github\mvc\model\oms\LotStartEnum.class
+com\github\common\cons\Response$Code.class
 com\github\javabean\BeanInject.class
 com\github\mvc\model\oms\BankOperationEnum.class
 com\github\analysis\BasePostProcessProxy.class
+com\github\ddd\jpa\CoreJpaRepository.class
 com\github\mainfun\AnnotationBeanDefinitionRepository.class
 com\github\mainfun\SimpleSkipListMap$HeadIndex.class
 com\github\mvc\model\oms\EquipmentEnum.class
@@ -130,6 +136,7 @@ com\github\ddd\businessObject\PersonBO.class
 com\github\jpa\lock\JpaLogicLockHandler.class
 com\github\mvc\service\IUserService.class
 com\github\ddd\CoreBeanMapping.class
+com\github\common\cons\Response.class
 com\github\ddd\businessObject\Person.class
 com\github\analysis\EnablePostProcess.class
 com\github\common\cons\TransactionIDEnum.class
@@ -152,6 +159,7 @@ com\github\mainfun\SimpleSkipListMap.class
 com\github\analysis\PostProcessPlanProxy$PlanTask.class
 com\github\mvc\service\impl\UserService.class
 com\github\javabean\BeanDriver.class
+com\github\ddd\jpa\CoreBeanCache.class
 com\github\javabean\handler\InjectHandler.class
 com\github\ddd\businessObject\AbstractBO.class
 com\github\ddd\controller\PersonDataGenerator.class
@@ -177,6 +185,7 @@ com\github\mainfun\UserRepository.class
 com\github\analysis\Log.class
 com\github\mainfun\BeanDefinitionBuilderLearn.class
 com\github\ddd\domainObject\ProductRequestDO.class
+com\github\ddd\CoreAttribute$DictionaryContent.class
 com\github\mainfun\AnnotationApplicationContextRepository.class
 com\github\resource\PropertyUtil.class
 com\github\JavaCodeApplication.class
@@ -192,6 +201,7 @@ com\github\mvc\model\oms\Carrier.class
 com\github\collections\HashMap$Node.class
 com\github\javabean\BeanProperties.class
 com\github\common\cons\MsgRetCodeConfig.class
+com\github\ddd\domainObject\ChildEntity.class
 com\github\javabean\Beans.class
 com\github\jpa\lock\ObjectIdentifier.class
 com\github\analysis\LogDO.class

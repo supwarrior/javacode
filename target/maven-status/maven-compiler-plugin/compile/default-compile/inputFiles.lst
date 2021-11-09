@@ -1,10 +1,13 @@
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\ddd\businessObject\AbstractProductRequest.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\job\JobParserAutoConfiguration.java
+C:\Users\Administrator\Documents\javacode\src\main\java\com\github\ddd\jpa\Content.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\job\simpleJob\PersonJob.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\interceptor\RepeatSubmitInterceptor.java
+C:\Users\Administrator\Documents\javacode\src\main\java\com\github\ddd\jpa\CoreJpaRepository.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\annotation\DefaultValue.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\jpa\lock\ObjectLockManagerImpl.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\jpa\lock\ObjectLockMethod.java
+C:\Users\Administrator\Documents\javacode\src\main\java\com\github\ddd\controller\JpaAttributeController.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\resource\Directory.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\common\cons\TransactionIDEnum.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\job\JobConfig.java
@@ -19,6 +22,7 @@ C:\Users\Administrator\Documents\javacode\src\main\java\com\github\analysis\LogB
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\job\JobConstant.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\mvc\model\oms\BankOperationEnum.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\analysis\ThreadContextHolder.java
+C:\Users\Administrator\Documents\javacode\src\main\java\com\github\ddd\jpa\CoreBeanCache.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\mvc\model\sps\SchedulingPlanLotInfo.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\ddd\businessObject\AbstractBO.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\jpa\lock\DefaultObjectLockExecutor.java
@@ -37,6 +41,7 @@ C:\Users\Administrator\Documents\javacode\src\main\java\com\github\javabean\Bean
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\common\cons\Constant.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\jpa\lock\ObjectLockExecutor.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\ddd\domainObject\PersonDO.java
+C:\Users\Administrator\Documents\javacode\src\main\java\com\github\ddd\CoreAttribute.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\mvc\model\sps\ProductInfo.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\ddd\CoreInvocationHandler.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\common\util\BaseUtil.java
@@ -86,6 +91,7 @@ C:\Users\Administrator\Documents\javacode\src\main\java\com\github\cache\EhCache
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\javabean\register\AutoConfigureRegister.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\interceptor\WebMvcConfig.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\javabean\BeanClassScanner.java
+C:\Users\Administrator\Documents\javacode\src\main\java\com\github\common\cons\Response.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\analysis\Log.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\javabean\BeanDriverManager.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\javabean\BeanProperties.java
@@ -164,6 +170,7 @@ C:\Users\Administrator\Documents\javacode\src\main\java\com\github\mvc\model\oms
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\mvc\model\oms\LogInformationEnum.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\mainfun\BeanDefinitionBuilderLearn.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\mvc\model\SuperUser.java
+C:\Users\Administrator\Documents\javacode\src\main\java\com\github\ddd\domainObject\ChildEntity.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\mvc\controller\UserController.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\common\cons\MsgRetCodeConfig.java
 C:\Users\Administrator\Documents\javacode\src\main\java\com\github\job\simpleJob\PersonJobListener.java

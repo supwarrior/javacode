@@ -20,5 +20,8 @@ public class PersonDataGenerator implements IPersonController {
         String sql = "insert into t_person (id, org_id, email_id, passwd, tel_contact_no, user_id) values (?, ?,?,?,?,?)";
         Object[] params = {"0", "上扬", "work@163.com", "123", "13728897992", "u007"};
         baseCore.insert(sql, params);
+        sql = "insert into t_sub_person (id, org_id, email_id, passwd, tel_contact_no, user_id, REFKEY) values (?, ?,?,?,?,?,?)";
+        params = new Object[]{"0", "上扬", "work@163.com", "123", "13728897992", "u008","0"};
+        baseCore.insert(sql, params);
     }
 }

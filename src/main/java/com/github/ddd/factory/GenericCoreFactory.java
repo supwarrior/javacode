@@ -1,7 +1,6 @@
 package com.github.ddd.factory;
 
 import com.github.ddd.CoreBeanMapping;
-import com.github.ddd.businessObject.BaseBO;
 import com.github.ddd.domainObject.BaseEntity;
 import com.github.ddd.businessObject.Person;
 import com.github.ddd.jpa.CoreHelper;
@@ -35,6 +34,9 @@ public class GenericCoreFactory extends AbstractCoreFactory {
     public <T> T getBO(Class<T> clazz, String primaryKey) {
         Class entityClass = this.coreBeanMapping.getBean(clazz);
         BaseEntity entity = this.getEntityById(entityClass, primaryKey);
+        if (entity == null) {
+            entity = (BaseEntity) newBO(clazz);
+        }
         // 这里可以加入缓存支持
         T result = BeanFactory.getDefaultBeanFactory().getBean(clazz, new Object[]{entity});
         return result;
@@ -52,13 +54,13 @@ public class GenericCoreFactory extends AbstractCoreFactory {
             if (null == entity) {
                 return null;
             } else {
-                return this.getBO(boClazz, entity);
+                return BeanFactory.getDefaultBeanFactory().getBean(boClazz, new Object[]{entity});
             }
         }
         return null;
     }
 
-    public <T extends BaseBO> T newBO(Class<T> boClazz) {
+    public <T> T newBO(Class<T> boClazz) {
         if (Modifier.isInterface(boClazz.getModifiers())) {
             Class<BaseEntity> baseEntity = (Class<BaseEntity>) this.coreBeanMapping.getBean(boClazz);
             return this.getBO(boClazz, this.coreHelper.newEntity(baseEntity));

@@ -6,15 +6,14 @@ import com.github.ddd.CoreAttribute;
 import com.github.ddd.CoreBeanMapping;
 import com.github.ddd.domainObject.ChildEntity;
 import com.github.ddd.jpa.CoreJpaRepository;
-import com.github.ddd.jpa.JpaRepository;
 import com.github.ddd.SpringContextUtil;
 import com.github.ddd.domainObject.MainEntity;
 import com.github.jpa.lock.ObjectLockExecutor;
+import com.github.mycim.event.EventFIFOBaseDO;
 import lombok.Data;
+import org.springframework.data.util.ProxyUtils;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * 执行业务相关逻辑 抽象出来
@@ -27,11 +26,11 @@ public abstract class AbstractBO<T extends MainEntity> implements BaseBO {
 
     private CoreBeanMapping coreBeanMapping;
 
-    private JpaRepository jpaRepository;
-
     private ObjectLockExecutor objectLockExecutor;
 
     protected CoreJpaRepository coreJpaRepository;
+
+    protected Class<? extends EventFIFOBaseDO> eventFIFOClass;
 
 
 
@@ -42,21 +41,31 @@ public abstract class AbstractBO<T extends MainEntity> implements BaseBO {
 
     public AbstractBO(T entity) {
         coreBeanMapping = SpringContextUtil.getSingletonBean(CoreBeanMapping.class);
-        jpaRepository = SpringContextUtil.getSingletonBean(JpaRepository.class);
         objectLockExecutor = SpringContextUtil.getSingletonBean(ObjectLockExecutor.class);
         coreJpaRepository = SpringContextUtil.getSingletonBean(CoreJpaRepository.class);
         this.entity = entity;
+        this.entityClass = (Class<T>) ProxyUtils.getUserClass(entity.getClass());
+        this.init();
+
+    }
+
+
+    private final Class<T> entityClass;
+
+    protected void init() {
+        CoreBeanMapping.EntityMetadata entityMetadata = coreBeanMapping.getEntityMetadata(this.entityClass);
+        this.eventFIFOClass = entityMetadata.getEventFIFOClass();
     }
 
 
     @Override
     public void flushMain() {
-        jpaRepository.save(this.entity);
+        coreJpaRepository.save(this.entity);
     }
 
     @Override
     public void flush() {
-        jpaRepository.insert(this.entity);
+        coreJpaRepository.insert(this.entity);
     }
 
     @Override

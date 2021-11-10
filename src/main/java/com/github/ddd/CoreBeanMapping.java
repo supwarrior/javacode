@@ -2,6 +2,10 @@ package com.github.ddd;
 
 import com.github.annotation.Core;
 import com.github.ddd.domainObject.BaseEntity;
+import com.github.ddd.domainObject.ChildEntity;
+import com.github.ddd.domainObject.MainEntity;
+import com.github.mycim.event.EventFIFOBaseDO;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.reflections.Reflections;
 import org.reflections.scanners.Scanner;
@@ -11,7 +15,9 @@ import java.lang.reflect.Modifier;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -52,9 +58,20 @@ public class CoreBeanMapping {
         return getEntityBean(key);
     }
 
+    private final Map<Class<?>, CoreBeanMapping.EntityMetadata> MASTER_AND_CHILD_ENTITY_MAPPING = new ConcurrentHashMap(256);
+
+    public CoreBeanMapping.EntityMetadata getEntityMetadata(Class<? extends MainEntity> masterEntity) {
+        return this.MASTER_AND_CHILD_ENTITY_MAPPING.get(masterEntity);
+    }
+
+    @Data
+    public static class EntityMetadata {
+        private Set<Class<? extends ChildEntity>> childEntities = new HashSet();
+        private Class<? extends EventFIFOBaseDO> eventFIFOClass;
+    }
 
     private void initCoreBean() {
-        String scanValues = "com.github.ddd;com.github.analysis;com.github.mycim.boCell";
+        String scanValues = "com.github.ddd;com.github.analysis;com.github.mycim.boCell;com.github.mycim.event";
         Arrays.stream(scanValues.split(";")).forEach(scanValue -> {
             new Reflections(scanValue, new Scanner[0])
                     .getTypesAnnotatedWith(Core.class)
@@ -77,6 +94,8 @@ public class CoreBeanMapping {
                                             .map(ele -> (Class) ele)
                                             .orElseThrow(() -> new RuntimeException("Data Object Type Not Found"));
                                     BO_AND_ENTITY_MAPPING.put(clazz, entityClass);
+                                    CoreBeanMapping.EntityMetadata entityInformation = new CoreBeanMapping.EntityMetadata();
+                                    this.MASTER_AND_CHILD_ENTITY_MAPPING.putIfAbsent(entityClass, entityInformation);
                                 }
                             }
                         }

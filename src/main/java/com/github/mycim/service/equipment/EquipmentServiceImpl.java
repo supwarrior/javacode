@@ -2,6 +2,7 @@ package com.github.mycim.service.equipment;
 
 import com.alibaba.nacos.common.utils.CollectionUtils;
 import com.github.jpa.lock.IObjectLockMethod;
+import com.github.jpa.lock.ObjectIdentifier;
 import com.github.mycim.boCell.CimMachine;
 import com.github.mycim.dto.Infos;
 import com.github.mycim.method.equipment.IEquipmentMethod;
@@ -70,6 +71,7 @@ public class EquipmentServiceImpl implements IEquipmentService {
     private NonLotDataCollectionEventParams getNonLotDataCollectionEventParams(EquipmentReportDataCollectionReqParams reportDataParams,
                                                                                EquipmentDataCollectionSpecResults reportResults) {
         NonLotDataCollectionEventParams collectionEventParams = new NonLotDataCollectionEventParams();
+        collectionEventParams.setJoinObjectId(reportDataParams.getEquipmentId().getReferenceKey());
         return collectionEventParams;
     }
 

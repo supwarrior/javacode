@@ -8,7 +8,6 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.query.EscapeCharacter;
 import org.springframework.data.jpa.repository.query.QueryUtils;
 import org.springframework.lang.Nullable;
-import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
@@ -31,7 +30,6 @@ import java.util.stream.Collectors;
 /**
  * @author 康盼Java开发工程师
  */
-@Component
 public class JpaRepository {
 
     @PersistenceContext

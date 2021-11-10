@@ -26,6 +26,6 @@ public class EventManagerBO  extends AbstractManager implements EventManager {
             String watchDogName = watchDog.getWatchDogName();
             retVal.addFIFOData(watchDogName, eventTime);
         }
-        return null;
+        return retVal;
     }
 }

@@ -15,8 +15,8 @@ public class CimNonLotEdcEventBO extends AbstractEventBase<CimEventNonLotEdcDO> 
     )
     @Override
     public void setEventData(Event.EventRecord eventRecord) {
-        CimEventNonLotEdcDO entity = this.getEntity();
         super.setEventData(eventRecord);
+        CimEventNonLotEdcDO entity = this.getEntity();
         EdcEvent.NonLotEdcEventRecord record = (EdcEvent.NonLotEdcEventRecord)eventRecord;
         entity.setJoinObjectId(record.getJoinObjectId());
         entity.setJoinObjectRefKey(record.getJoinObjectRefKey());

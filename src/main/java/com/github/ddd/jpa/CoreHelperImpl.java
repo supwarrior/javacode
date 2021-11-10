@@ -18,6 +18,13 @@ import java.util.stream.Collectors;
 public class CoreHelperImpl implements CoreHelper {
 
 
+    /**
+     * 实例化实体对象主健值及默认值
+     *
+     * @param entityClazz
+     * @param <E>
+     * @return
+     */
     public <E extends BaseEntity> E newEntity(Class<E> entityClazz) {
         try {
             E entity = entityClazz.newInstance();
@@ -30,6 +37,12 @@ public class CoreHelperImpl implements CoreHelper {
         }
     }
 
+    /**
+     * 初始化entity的属性值
+     *
+     * @param entity
+     * @param <E>
+     */
     private <E extends BaseEntity> void initEntity(E entity) {
         Class<? extends BaseEntity> aClass = entity.getClass();
         Optional.of(this.findDefaultValueFields(aClass)).ifPresent(list -> {

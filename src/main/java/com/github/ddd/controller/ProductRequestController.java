@@ -7,7 +7,7 @@ import com.github.analysis.TransactionID;
 import com.github.annotation.Compensable;
 import com.github.annotation.Transaction;
 import com.github.common.cons.TransactionIDEnum;
-import com.github.ddd.jpa.JpaRepository;
+import com.github.ddd.jpa.CoreJpaRepository;
 import com.github.ddd.businessObject.ProductRequest;
 import com.github.ddd.domainObject.ProductRequestDO;
 import com.github.jpa.lock.IObjectLockMethod;
@@ -42,7 +42,7 @@ public class ProductRequestController implements IProductRequestController {
     private EntityManager entityManager;
 
     @Autowired
-    private JpaRepository jpaRepository;
+    private CoreJpaRepository coreJpaRepository;
 
 
     /**
@@ -68,7 +68,7 @@ public class ProductRequestController implements IProductRequestController {
             ProductRequestDO productRequestDO = list.get(0);
             log.info("/objectLock/req productRequestDO:{}",productRequestDO);
             productRequestDO.setRequestNumber(productRequestDO.getRequestNumber() + 1);
-            jpaRepository.update(productRequestDO);
+            coreJpaRepository.update(productRequestDO);
         }
         return query.getResultList();
     }

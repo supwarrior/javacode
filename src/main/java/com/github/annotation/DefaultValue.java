@@ -15,6 +15,8 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface DefaultValue {
 
+    DefaultValue.Type type() default DefaultValue.Type.OTHER;
+
     /**
      * string value. Default "-"
      *
@@ -63,4 +65,13 @@ public @interface DefaultValue {
      * @return char
      */
     char charValue() default '-';
+
+    public static enum Type {
+        OTHER,
+        INIT_TIME,
+        CURRENT_TIME;
+
+        private Type() {
+        }
+    }
 }

@@ -12,6 +12,7 @@ import org.springframework.util.ReflectionUtils;
 import javax.persistence.Column;
 import java.lang.reflect.Field;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -69,7 +70,6 @@ public class CoreAttribute<T extends ChildEntity> {
     public class DictionaryContent extends Content {
 
 
-
         public DictionaryContent() {
             super();
         }
@@ -82,17 +82,27 @@ public class CoreAttribute<T extends ChildEntity> {
             return (Optional<T>) coreJpaRepository.findOne(dictionaryExample(dKey));
         }
 
+        public List<T> getAll() {
+            return this.queryAllFromDB();
+        }
+
+        protected List<T> queryAllFromDB() {
+            return CoreAttribute.this.coreJpaRepository.findChildEntities(CoreAttribute.this.type, CoreAttribute.this.referenceKey);
+        }
+
         private Example<T> dictionaryExample(String dKey) {
             Example<T> example = example();
             setDkey(dKey, example.getProbe());
             return example;
         }
+
         @SneakyThrows
         protected Example<T> example() {
             T example = type.newInstance();
             example.setReferenceKey(CoreAttribute.this.referenceKey);
             return Example.of(example);
         }
+
         private void setDkey(String dKey, T entity) {
             entity.setReferenceKey(CoreAttribute.this.referenceKey);
             ReflectionUtils.makeAccessible(this.field);

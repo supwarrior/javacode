@@ -83,6 +83,10 @@ public class JpaRepository {
         return getPage(result, searchCondition, countTotal(nativeSql, params));
     }
 
+    public <T> List<T> query(String nativeSql, Class<T> classType, Object... params) {
+        return this.getNativeQuery(nativeSql, classType, params).getResultList();
+    }
+
     private <T> Page<T> getPage(List<T> contents, SearchCondition searchCondition, long total) {
         return new PageImpl(contents, PageRequest.of(searchCondition.getPage() - 1, searchCondition.getSize()), total);
     }

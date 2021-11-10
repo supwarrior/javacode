@@ -29,9 +29,10 @@ public class CoreJpaRepository extends JpaRepository {
         T result = (T) this.getQuery(exampleSpecification, example.getProbeType(), Sort.unsorted()).getSingleResult();
         return this.isExampleValueEmpty((BaseEntity) example.getProbe()) ?
                 Optional.empty() :
-                 Optional.of(result);
+                Optional.of(result);
 
     }
+
 
     private <T> boolean isExampleValueEmpty(T example) {
         return allFields(example.getClass()).parallelStream().noneMatch((field) -> {

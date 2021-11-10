@@ -52,8 +52,9 @@ public class CoreBeanMapping {
         return getEntityBean(key);
     }
 
+
     private void initCoreBean() {
-        String scanValues = "com.github.ddd;com.github.analysis";
+        String scanValues = "com.github.ddd;com.github.analysis;com.github.mycim.boCell";
         Arrays.stream(scanValues.split(";")).forEach(scanValue -> {
             new Reflections(scanValue, new Scanner[0])
                     .getTypesAnnotatedWith(Core.class)

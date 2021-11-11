@@ -18,7 +18,7 @@ import java.lang.reflect.Method;
 
 /**
  * 扫描得到所有注解了Compensable 的类，同时解析出来cancel，confirm对应的类
- * 参考https://github.com/liuyangming/ByteTCC/wiki/User-Guide-0.5.x
+ * 参考 https://github.com/liuyangming/ByteTCC/wiki/User-Guide-0.5.x
  *
  * @author 康盼Java开发工程师
  */
@@ -77,12 +77,18 @@ public class CompensableAnnotationConfigValidator implements SmartInitializingSi
                         for(int j = 0; j < methodArray.length; ++j) {
                             Method interfaceMethod = methodArray[j];
                             String methodName = interfaceMethod.getName();
+                            log.info("methodName:{}",methodName);
                             Class<?>[] parameterTypes = interfaceMethod.getParameterTypes();
+                            int len = parameterTypes.length;
+                            Object[] args = new Object[len];
+                            for (int k = 0; k < len; ++k) {
+                                args[k] = parameterTypes[k].newInstance();
+                            }
                             if (confirmableService != null) {
-                                interfaceMethod.invoke(confirmableService, parameterTypes);
+                                interfaceMethod.invoke(confirmableService, args);
                             }
                             if (cancellableService != null) {
-                                interfaceMethod.invoke(cancellableService, parameterTypes);
+                                interfaceMethod.invoke(cancellableService, args);
                             }
                         }
                     }

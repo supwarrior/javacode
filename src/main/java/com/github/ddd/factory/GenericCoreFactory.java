@@ -34,8 +34,9 @@ public class GenericCoreFactory extends AbstractCoreFactory {
     public <T> T getBO(Class<T> clazz, String primaryKey) {
         Class entityClass = this.coreBeanMapping.getBean(clazz);
         BaseEntity entity = this.getEntityById(entityClass, primaryKey);
+        // 这里做了特殊处理 按逻辑是不能为空的 否则查出来是有数据
         if (entity == null) {
-            entity = (BaseEntity) newBO(clazz);
+            entity = this.coreHelper.newEntity(entityClass);
         }
         // 这里可以加入缓存支持
         T result = BeanFactory.getDefaultBeanFactory().getBean(clazz, new Object[]{entity});

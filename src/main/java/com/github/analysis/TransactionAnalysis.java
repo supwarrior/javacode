@@ -29,6 +29,7 @@ public class TransactionAnalysis {
         final Class<?> targetClass = joinPoint.getTarget().getClass();
         // 获取类的注解
         final boolean isTransaction = targetClass.isAnnotationPresent(Transaction.class);
+        Object result = null;
         if (isTransaction) {
             StopWatch stopWatch = new StopWatch();
             // 获取方法上的注解
@@ -41,7 +42,7 @@ public class TransactionAnalysis {
                 String transactionId = transactionIDEnum.getValue();
                 stopWatch.start(targetClass.getName() + "." + methodName);
                 // 执行方法
-                joinPoint.proceed(joinPoint.getArgs());
+                result = joinPoint.proceed(joinPoint.getArgs());
                 stopWatch.stop();
                 LogDO logDO = new LogDO();
                 logDO.setTransactionId(transactionId);
@@ -52,7 +53,9 @@ public class TransactionAnalysis {
                 Log log = BeanFactory.getDefaultBeanFactory().getBean(Log.class, new Object[]{logDO});
                 log.saveLog();
             }
+        } else {
+            result = joinPoint.proceed(joinPoint.getArgs());
         }
-        return joinPoint.proceed(joinPoint.getArgs());
+        return result;
     }
 }

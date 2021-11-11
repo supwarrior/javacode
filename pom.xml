@@ -14,7 +14,7 @@
         <java.version>1.8</java.version>
         <nacos.version>2.1.4.RELEASE</nacos.version>
         <elastic-job.version>2.1.5</elastic-job.version>
-
+        <threadLocal.version>2.12.0</threadLocal.version>
     </properties>
 
     <parent>
@@ -148,11 +148,6 @@
 <!--            <scope>test</scope>-->
 <!--        </dependency>-->
 
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
@@ -208,6 +203,25 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!-- thread local -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>transmittable-thread-local</artifactId>
+            <version>${threadLocal.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!--  redisson -->
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson-spring-boot-starter</artifactId>
+            <version>3.11.4</version>
         </dependency>
 
 

@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.query.EscapeCharacter;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ReflectionUtils;
 
+import javax.persistence.TypedQuery;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,13 +27,13 @@ public class CoreJpaRepository extends JpaRepository {
 
     public <T extends BaseEntity> Optional<T> findOne(Example<T> example) {
         ExampleSpecification exampleSpecification = new JpaRepository.ExampleSpecification(example, EscapeCharacter.DEFAULT);
-        T result = (T) this.getQuery(exampleSpecification, example.getProbeType(), Sort.unsorted()).getSingleResult();
+        TypedQuery<T> tTypedQuery = this.getQuery(exampleSpecification, example.getProbeType(), Sort.unsorted());
+        T result = tTypedQuery.getSingleResult();
         return this.isExampleValueEmpty((BaseEntity) example.getProbe()) ?
                 Optional.empty() :
                 Optional.of(result);
 
     }
-
 
     private <T> boolean isExampleValueEmpty(T example) {
         return allFields(example.getClass()).parallelStream().noneMatch((field) -> {

@@ -24,7 +24,7 @@ public class CimMachineBO extends AbstractBO<CimEquipmentDO> implements CimMachi
 
     @Override
     public void doSpecCheck(List<EDCDTO.DCItemData> dataItemDataList, ObjectIdentifier specId,
-                            EDCDTO.NonLotEdcData nonLotEdcData,CimDataCollectionSpecification spec) {
+                            EDCDTO.NonLotEdcData nonLotEdcData, CimDataCollectionSpecification spec) {
 
         CoreAttribute attribute = new CoreAttribute(this.coreJpaRepository, CimDataCollectionSpecItemDO.class, "0");
         Field field = CoreAttribute.findField(CimDataCollectionSpecItemDO.class, "LINK_KEY");
@@ -37,13 +37,10 @@ public class CimMachineBO extends AbstractBO<CimEquipmentDO> implements CimMachi
             EDCDTO.DCItemSpecification specInfo = EDCDTO.getSpecItemInfo(item);
             // 3. EDC SPEC ITEM 数据 check
             if (null != specInfo && !equalsIn(dcItem.getSpecCheckResult(), new String[]{"*", "#"})) {
-                double numValue = dcItem.getNumValue().doubleValue();
-                if (specInfo.getScreenLimitUpperRequired() && specInfo.getScreenLimitUpper() < numValue) {
-                    dcItem.setSpecCheckResult("5");
-                    Optional.ofNullable(specInfo.getActionCodesUscrn()).ifPresent((codeString) -> {
-                        dcItem.setActionCodes(Arrays.asList(codeString.split(",")));
-                    });
-                }
+                dcItem.setSpecCheckResult("5");
+                Optional.ofNullable(specInfo.getActionCodesUscrn()).ifPresent((codeString) -> {
+                    dcItem.setActionCodes(Arrays.asList(codeString.split(",")));
+                });
             }
         });
     }

@@ -98,7 +98,8 @@ public class EquipmentMethod implements IEquipmentMethod {
                 dataCollectionItemList
                         .stream()
                         .map(item -> {
-                            CimDataCollectionSpecItemDO cimDataCollectionSpecItemDO = (CimDataCollectionSpecItemDO) dictionaryContent_specItemDO.get(item.getDataCollectionItemName()).get();
+                            String name = item.getDataCollectionItemName();
+                            CimDataCollectionSpecItemDO cimDataCollectionSpecItemDO = (CimDataCollectionSpecItemDO) dictionaryContent_specItemDO.get(name).get();
                             return null != item ? EDCDTO.getSpecItemInfo(cimDataCollectionSpecItemDO) : null;
                         })
                         .filter(Objects::nonNull)

@@ -2,8 +2,10 @@ package com.github.mycim.controller.equipment;
 
 import com.github.analysis.ThreadContextHolder;
 import com.github.analysis.TransactionID;
+import com.github.annotation.Compensable;
 import com.github.common.cons.Response;
 import com.github.common.cons.TransactionIDEnum;
+import com.github.ddd.controller.IPersonController;
 import com.github.mycim.dto.Infos;
 import com.github.mycim.dto.Params;
 import com.github.mycim.model.eqp.params.EquipmentReportDataCollectionReqParams;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 @RequestMapping("/eqp")
+@Compensable(interfaceClass = IEquipmentController.class, confirmableKey = "EquipmentDataGenerator", cancellableKey = "EquipmentDataGeneratorCancel")
 public class EquipmentController implements IEquipmentController {
 
     @Autowired

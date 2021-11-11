@@ -18,6 +18,7 @@ public class EventManagerBO  extends AbstractManager implements EventManager {
         String sql = "SELECT OMRESPSENTINEL.* FROM OMRESPSENTINEL WHERE TRX_ID = ?";
         List<CimWatchDogDO> watchDogDOS = this.coreJpaRepository.query(sql, CimWatchDogDO.class, new Object[]{txID});
         CimEventBase retVal = this.genericCoreFactory.newBO(eventType);
+        // 历史记录 entity 赋值 然后保存
         retVal.setEventData(eventRecord);
 
         Iterator iterator = watchDogDOS.iterator();

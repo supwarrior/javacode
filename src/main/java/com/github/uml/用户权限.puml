@@ -1,0 +1,59 @@
+@startuml
+'https://plantuml.com/class-diagram
+'关于权限涉及的表
+
+
+class OMUSER {
+    + ID
+}
+
+class OMACCESSGRP {
+    + ID
+    + ACCESS_GRP_KEY
+    + SERVICES_ID
+    + ACCESS_CATEGORY_ID
+    + ACCESS_GRP_ID
+    + DESCRIPTION
+    + ENTITY_MGR
+
+}
+
+OMACCESSGRP --|> OMACCESSGRP_ACCESS: ID 关联 REFKEY
+OMACCESSGRP --|> OMUSER_ACCESSGRP: ID 关联 ACCESS_GRP_RKEY
+
+OMUSER_ACCESSGRP --|> OMACCESSGRP_ACCESS: ACCESS_GRP_RKEY 关联 REFKEY
+
+
+class OMUSER_ACCESSGRP {
+    + ID
+    + ACCESS_GRP_KEY
+    + ACCESS_GRP_RKEY
+    + REFKEY
+    + LINK_KEY
+}
+
+ OMUSER --|> OMUSER_ACCESSGRP:ID 关联 REFKEY
+
+class OMACCESSGRP_ACCESS {
+ + ID
+ + LINK_KEY
+ + ACCESS_ID
+ + PERMISSION
+ + REFKEY
+}
+
+class MDSACCESS {
+    + ID
+    + SERVICE_NAME
+    + ACCESS_CAT
+    + ACCESS_ID
+    + ACCESS_NAME
+    + TYPE
+}
+
+MDSACCESS --|> OMACCESSGRP_ACCESS:ACCESS_ID 关联 ACCESS_ID(LINK_KEY)
+
+
+
+
+@enduml

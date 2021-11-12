@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/component-diagram
+database "MDS-DB" as 1 {
+ [用户权限]
+ [配方]
+}
+MDS -> 1: 配置入库
+
+MDS -> [release]: deploy
+
+note bottom of [release]
+  core 核心团队
+end note
+
+[release] -> 2:消息处理
+
+
+2 <-- OMS:数据获取
+
+database "OMS-DB" as 2 {
+
+}
+
+
+
+
+@enduml

@@ -1,6 +1,5 @@
 package com.github.esec.entityListeners.controller;
 
-import com.github.esec.entityListeners.controller.Admin;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;

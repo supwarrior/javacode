@@ -1,0 +1,51 @@
+@startuml
+'https://plantuml.com/class-diagram
+class OMLOT {
+    + ID
+    + LOT_ID
+    + PROPE_RKEY
+}
+
+class OMPROPE {
+    + ID
+    + ROUTE_PRF_RKEY
+    + ROUTE_OPE_NO
+}
+
+class OMPRF_PRSSSEQ {
+    + ID
+    + IDX_NO
+    + LINK_KEY
+    + PRSS_RKEY
+    + REFKEY
+}
+
+OMLOT <-- OMPROPE:  ID 关联 PROPE_RKEY
+
+OMPRF_PRSSSEQ --> OMPROPE: REFKEY 关联 ROUTE_PRF_RKEY
+
+note  "LINK_KEY 关联 ROUTE_OPE_NO"  as N1
+
+OMPRF_PRSSSEQ ..> N1
+N1 ..> OMPROPE
+
+
+class OMPRF {
+    + ID
+    + PRP_STRING
+    + PRP_ID
+    + PRP_RKEY
+    + ACTIVE_FLAG
+    + PRP_LEVEL
+    + CREATE_TIME
+    + ENTITY_MGR
+}
+
+OMPRF --> OMPROPE: ID 关联 ROUTE_PRF_RKEY
+
+
+class OMPRP {
+    + ID
+}
+
+@enduml

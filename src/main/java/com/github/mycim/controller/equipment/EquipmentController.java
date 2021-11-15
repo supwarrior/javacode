@@ -5,12 +5,12 @@ import com.github.analysis.TransactionID;
 import com.github.annotation.Compensable;
 import com.github.common.cons.Response;
 import com.github.common.cons.TransactionIDEnum;
-import com.github.ddd.controller.IPersonController;
 import com.github.mycim.dto.Infos;
 import com.github.mycim.dto.Params;
 import com.github.mycim.model.eqp.params.EquipmentReportDataCollectionReqParams;
 import com.github.mycim.service.access.IAccessInqService;
 import com.github.mycim.service.equipment.IEquipmentService;
+import com.github.postProcessEvent.core.EnablePostProcess;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
@@ -30,10 +30,17 @@ public class EquipmentController implements IEquipmentController {
     @Autowired
     private IEquipmentService equipmentService;
 
+    /**
+     * localhost:8028/eqp/chamber_status_change/req
+     *
+     * @param reportDataCollectionReqParams
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/chamber_status_change/req", method = RequestMethod.POST)
     @TransactionID(value = TransactionIDEnum.JCW01)
     @Override
+    @EnablePostProcess
     public Response equipmentReportDataCollectionReq(@RequestBody EquipmentReportDataCollectionReqParams
                                                              reportDataCollectionReqParams) {
         String txID = TransactionIDEnum.JCW01.getValue();
@@ -49,4 +56,6 @@ public class EquipmentController implements IEquipmentController {
         return Response.createSucc(txID, equipmentService.sxEqpReportDataCollectionReq(objCommon,
                 reportDataCollectionReqParams));
     }
+
+
 }

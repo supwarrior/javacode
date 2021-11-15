@@ -1,19 +1,19 @@
 package com.github.esec.entityListeners.controller;
 
-import com.github.esec.core.SnowflakeIDWorker;
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 
-@EntityListeners(AuditTrailListener.class) // 前置后置操作
+@EntityListeners(AuditTrailListener.class)
 @Entity
 @Data
+@DynamicUpdate
+@DynamicInsert
 public class Admin {
-
     @Id
-    @GenericGenerator(name = "idGenerator", strategy = SnowflakeIDWorker.STRATEGY_REFERENCE)
-    @GeneratedValue(generator = "idGenerator")
+    @GeneratedValue
     private int id;
     private String userName;
     private String firstName;

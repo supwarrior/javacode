@@ -1,0 +1,41 @@
+{
+  "user": {
+    "userID": {
+      "value": "zhanghailin",
+      "referenceKey": ""
+    },
+    "password": "e10adc3949ba59abbe56e057f20f883e",
+    "functionID": "OEQPQ018"
+  },
+  "equipmentId": {
+    "value": "AETH202",
+    "referenceKey": "OMEQP.455386375116096960"
+  },
+  "dataCollectionPlanId": {
+    "referenceKey": "OMEDCPLAN.449229191659455936",
+    "value": "EDC_plan_zhl"
+  },
+  "dataCollectionItemList": [
+    {
+      "actionCodes": "",
+      "calculationExpression": "",
+      "calculationType": "Raw",
+      "dataCollectionItemName": "intdata",
+      "dataCollectionMode": "Manual",
+      "dataCollectionUnit": "",
+      "dataType": "Integer",
+      "dataValue": "1",
+      "historyRequiredFlag": true,
+      "itemType": "Raw",
+      "measurementType": "Wafer",
+      "seqNo": 0,
+      "siteCount": null,
+      "sitePosition": "",
+      "specCheckResult": "",
+      "targetValue": "",
+      "waferCount": null,
+      "waferID": null,
+      "waferPosition": ""
+    }
+  ]
+}

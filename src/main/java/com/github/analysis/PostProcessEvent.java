@@ -34,7 +34,7 @@ public class PostProcessEvent extends ApplicationEvent {
     /**
      * 监听事件
      */
-    @Component
+    @Component("listenerAnalysis")
     public static class Listener {
         @EventListener
         public void postProcessEvent(PostProcessEvent postProcessEvent) {

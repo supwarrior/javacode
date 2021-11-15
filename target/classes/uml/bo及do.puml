@@ -1,0 +1,56 @@
+@startuml
+'https://plantuml.com/class-diagram
+together {
+      class CoreBeanMapping {
+      }
+      note left: @Component 修饰的类
+
+
+      CoreBeanMapping --> Reflections:初始化进行包扫描
+      class Reflections {}
+
+      package core {
+         note left: 反射寻找被@Core 修饰的类
+      }
+}
+
+
+together {
+
+ class BO {}
+ note left : public class BO extends AbstractBO<DO> implements IM
+
+ class DO {}
+
+ BO --|> AbstractBO : > extends
+
+ AbstractBO --* DO : > 泛型参数 DO
+
+ AbstractBO --> IM :> 继承
+
+ abstract AbstractBO
+
+ interface IM
+}
+
+Reflections --> BO :> 利用反射寻找接口、类、泛型参数
+
+note as N1
+  <b><color:royalBlue>CORE_BEAN_MAPPING</color>
+  映射 接口 和 BO
+
+
+  <b><color:royalBlue>BO_AND_ENTITY_MAPPING</color>
+  映射 BO 和 DO
+  Type type = clazz.getGenericSuperclass();
+  ParameterizedType parameterizedType = (ParameterizedType) type;
+  Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
+
+end note
+
+BO --> N1
+
+
+
+
+@enduml

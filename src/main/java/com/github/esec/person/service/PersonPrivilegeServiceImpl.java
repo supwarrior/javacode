@@ -1,6 +1,5 @@
 package com.github.esec.person.service;
 
-import com.github.esec.bus.QPersonPrivilegeGroupDO;
 import com.github.esec.entity.dto.PersonPrivilegeGroupDTO;
 import com.github.esec.person.repository.PersonPrivilegeRepository;
 import com.querydsl.core.types.Predicate;
@@ -15,7 +14,8 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+
+import static com.github.esec.bus.QPersonPrivilegeGroupDO.personPrivilegeGroupDO;
 
 
 @Slf4j
@@ -40,8 +40,6 @@ public class PersonPrivilegeServiceImpl implements PersonPrivilegeService {
     public boolean checkPersonHavePermissionInq(String userId, String functionID) {
         JPAQueryFactory query = personPrivilegeRepository.generateQuery();
         // spring data QueryDSL
-        QPersonPrivilegeGroupDO personPrivilegeGroupDO = QPersonPrivilegeGroupDO.personPrivilegeGroupDO;
-
         Predicate predicate = personPrivilegeGroupDO.dKey.eq("test");
 
         // 单条件查询
@@ -55,10 +53,6 @@ public class PersonPrivilegeServiceImpl implements PersonPrivilegeService {
                 .on(personPrivilegeGroupDO.dKey.eq("test")).orderBy(personPrivilegeGroupDO.id.desc())
                 .fetch();
 
-        // 使用原生 Query
-        Query qu = query.selectFrom(personPrivilegeGroupDO)
-                .where(personPrivilegeGroupDO.dKey.eq("test")).createQuery();
-        qu.getSingleResult();
 
         // 分页查询单表
         Predicate pre = personPrivilegeGroupDO.id.lt("100");
@@ -89,6 +83,6 @@ public class PersonPrivilegeServiceImpl implements PersonPrivilegeService {
 
         personPrivilegeRepository.findOne(predicate);
 
-        return query.select(personPrivilegeGroupDO).fetchCount() > 0;
+        return false;
     }
 }

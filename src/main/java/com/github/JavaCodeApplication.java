@@ -1,6 +1,7 @@
 package com.github;
 
 import com.alibaba.nacos.spring.context.annotation.discovery.EnableNacosDiscovery;
+import com.github.esec.core.BaseRepositoryImpl;
 import com.github.mock.UnitTestGeneratorUtil;
 import org.dom4j.Document;
 import org.dom4j.Element;
@@ -10,6 +11,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import java.io.InputStream;
 
@@ -20,6 +22,7 @@ import java.io.InputStream;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
+@EnableJpaRepositories(repositoryBaseClass = BaseRepositoryImpl.class)
 public class JavaCodeApplication implements ApplicationRunner {
     public static void main(String[] args) {
         SpringApplication.run(JavaCodeApplication.class,args);

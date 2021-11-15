@@ -17,9 +17,6 @@ import java.lang.annotation.Target;
 public @interface IdPrefix {
     /**
      * <p>entity ID prefix</p>
-     *
-     * @author PlayBoy
-     * @date 2018/9/27 11:20:27
      */
     String value() default "T";
 }

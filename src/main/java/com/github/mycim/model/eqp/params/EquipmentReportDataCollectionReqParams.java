@@ -5,6 +5,7 @@ import com.github.mycim.common.support.User;
 import com.github.mycim.dto.Infos;
 import lombok.Data;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Data
@@ -34,5 +35,7 @@ public class EquipmentReportDataCollectionReqParams {
      * 上报类型
      */
     private String reportType = "Manual";
+
+    private Timestamp timestamp;
 
 }

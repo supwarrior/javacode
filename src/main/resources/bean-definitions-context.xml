@@ -4,4 +4,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="user-by-static-method" class="com.github.mvc.model.User" factory-method="createUser"/>
+
+    <!-- bean 的实例方法    -->
+    <bean id="user-by-instance-method" factory-bean="userFactory" factory-method="createUser"/>
+    <bean id="userFactory" class="com.github.demo.mainfun.factory.DefaultUserFactory"/>
+
+    <bean id="user-by-factory-bean" class="com.github.demo.mainfun.factory.UserFactoryBean"></bean>
+
+    <bean id = "userFactoryServiceLoader" class="org.springframework.beans.factory.serviceloader.ServiceLoaderFactoryBean">
+        <property name="serviceType" value="com.github.mvc.service.IUserService"></property>
+    </bean>
+
 </beans>

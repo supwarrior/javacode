@@ -15,6 +15,7 @@
         <nacos.version>2.1.4.RELEASE</nacos.version>
         <elastic-job.version>2.1.5</elastic-job.version>
         <threadLocal.version>2.12.0</threadLocal.version>
+        <spring-boot-admin.version>2.1.3</spring-boot-admin.version>
     </properties>
 
     <parent>
@@ -124,6 +125,8 @@
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <!-- https://www.baeldung.com/hibernate-criteria-queries-->
+        <!-- https://www.logicbig.com/tutorials/java-ee-tutorial/jpa/entity-audit-listener.html-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -234,8 +237,53 @@
             <artifactId>querydsl-apt</artifactId>
         </dependency>
 
+        <!--  https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+        </dependency>
+        <!-- https://grafana.com/grafana/download?platform=windows-->
+        <!-- https://prometheus.io/download/ -->
+        <!-- https://grafana.com/orgs/kangpanwork-->
+        <!-- https://www.prometheus.wang/quickstart/prometheus-job-and-instance.html-->
+        <!-- https://bigjar.github.io-->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
+
+        <!-- Bean Searcher 核心依赖，任何框架都可使用该依赖 -->
+        <dependency>
+            <groupId>com.ejlchina</groupId>
+            <artifactId>bean-searcher</artifactId>
+            <version>3.1.2</version>
+        </dependency>
+        <!-- SpringBoot v2.x 的项目可直接使用以下依赖，更为方便 -->
+        <dependency>
+            <groupId>com.ejlchina</groupId>
+            <artifactId>bean-searcher-boot-starter</artifactId>
+            <version>3.1.2</version>
+        </dependency>
 
     </dependencies>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-dependencies</artifactId>
+                <version>${spring-boot-admin.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 
     <repositories>

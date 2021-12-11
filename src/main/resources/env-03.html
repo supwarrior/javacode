@@ -1,0 +1,1328 @@
+<body link="blue" vlink="purple">
+<table id='env-03' width="3032">
+    <tr height="198" style='height:148.50pt;'>
+        <td class="xl80" height="198" align="right" style='height:148.50pt;' >1</td>
+        <td class="xl81" >OM_EDC_CHK_LEVEL</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl83" >This parameter specifies collected data value check level. <br/>“0” (Default): Data type verification is performed. Blank data value is checked. <br/>“1”: In addition to level 0, asterisk data is checked according to DC Spec items and processed wafers. For any required item defined in DC Spec, it should have at least one valid data value present and must not be asterisk. <br/>“2”: In addition to level 0, asterisk data is checked according to DC Spec items and processed wafers. For any required item defined in DC Spec, all items (values) defined in DCDef for processed wafer should present and must not be asterisk.</td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="288" style='height:216.00pt;'>
+        <td class="xl80" height="288" align="right" style='height:216.00pt;' >2</td>
+        <td class="xl81" >OM_EDC_ASTERISK_VALUE_CHK_TIME</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl83" >This env specifies edc value check timing for asterisk data (*1). This env will take effect when OM_EDC_CHK_LEVEL is set to “1” or “2”. <br/><br/>“0” (Default): Collected data value check for asterisk is performed before or inside move out (*2). <br/>“1”: Collected data value check for asterisk is performed as post process after move out (*3). <br/><br/>Note: <br/>*1: Collected data type verification and blank data value check are always performed before or as a part of operation completion. <br/>*2: Since collected data spec check from UI is supported only before move out,  edc value check for asterisk is skipped when claiming data spec check from UI if OM_EDC_ASTERISK_VALUE_CHK_TIME is set to “1”. <br/>*3: When OM_EDC_ASTERISK_VALUE_CHK_TIME is set to 1, system should support lot post process operation mode (OM_PP_FOR_LOT_MOVEOUT_FLAG should be 1).</td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >3</td>
+        <td class="xl81" >OM_DRBL_MAX_COUNT_FOR_HIST_INQ</td>
+        <td class="xl80"></td>
+        <td class="xl82" >新增</td>
+        <td class="xl83" >Durable History inquiry count limit.</td>
+        <td class="xl84" >100</td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >4</td>
+        <td class="xl81" >OM_EQP_EXTLEN_IN_EQP_HIST_INQ</td>
+        <td class="xl80"></td>
+        <td class="xl82" >新增</td>
+        <td class="xl85" >Maximum retrieved count for Equipment History List. Default value is 1000.<span style='mso-spacerun:yes;'>&nbsp;</span></td>
+        <td class="xl84" >100</td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="198" style='height:148.50pt;'>
+        <td class="xl80" height="198" align="right" style='height:148.50pt;' >5</td>
+        <td class="xl86" >OM_EQP_STATUS_BACKUP</td>
+        <td class="xl80"></td>
+        <td class="xl82" >新增</td>
+        <td class="xl78" >Under Offline Mode, eqp status is automatically changed when claiming MoveIn / MoveOut / MoveOutCancel. This env<span style='mso-spacerun:yes;'>&nbsp; </span>controls the eqp status code should be changed when performing Move In or Move In Cancel <br/><br/><span style='mso-spacerun:yes;'>&nbsp;</span><br/><br/>0. Equipment status is changed to SBY’s default equipment status on Operation Complete or Operation Start Cancel. <br/><br/>1. Equipment status is changed to the previous equipment status before the equipment becomes productive. <br/><br/></td>
+        <td class="xl84" >0</td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="88" style='height:66.00pt;'>
+        <td class="xl80" height="88" align="right" style='height:66.00pt;' >6</td>
+        <td class="xl86" >OM_CJID_BY_DISP</td>
+        <td class="xl80"></td>
+        <td class="xl82" >新增</td>
+        <td class="xl78" >A CJ ID includes equipmentID, date and a counter. This environment variable specified the object that manage the date and counter information. <br/><br/>Specify 0 to use equipment object to manage. Specify 1 to use dispatcher object to manage. <br/><br/></td>
+        <td class="xl84" >0</td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="110" style='height:82.50pt;'>
+        <td class="xl80" height="110" align="right" style='height:82.50pt;' >7</td>
+        <td class="xl86" >OM_QT_ACTION_KEEP_ON_CLEAR</td>
+        <td class="xl80"></td>
+        <td class="xl82" >新增</td>
+        <td class="xl78" >It controls whether Q-Time related action is cleared or not when lot is moved out of the Q-Time section. <br/><br/>If “1”, Q-Time related action info isn’t cleared. If it is specified as “0”, QTime related action information is cleared<br/><br/></td>
+        <td class="xl84" >0</td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl80" height="44" align="right" style='height:33.00pt;' >8</td>
+        <td class="xl86" >OM_QT_SENTINEL_USER_ID</td>
+        <td class="xl80"></td>
+        <td class="xl82" >新增</td>
+        <td class="xl78" >Set a system user name of QT Sentinel only when Q-Time Watchdog specifies a system user name except the default name “QT watcher&quot; into an env<span style='mso-spacerun:yes;'>&nbsp; </span>SYSUSERID</td>
+        <td class="xl79" >无</td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >9</td>
+        <td class="xl87" >OM_LOTID_GEN_IGNORE_WAFER</td>
+        <td class="xl80"></td>
+        <td class="xl82" >新增</td>
+        <td class="xl78" >If '1',<span style='mso-spacerun:yes;'>&nbsp; </span>system ignore wafer is already allocated as source lot.</td>
+        <td class="xl84" >0</td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >10</td>
+        <td class="xl86" >OM_WHATS_NEXT_MAX_COUNT</td>
+        <td class="xl80"></td>
+        <td class="xl82" >新增</td>
+        <td class="xl78" >Max return count for Equipment what's next operation.</td>
+        <td class="xl84" >200</td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >11</td>
+        <td class="xl86" >OM_QTIMEWARN_PERCENT</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl78" >Used to decide if a Q-Time is hurry or Normal</td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >12</td>
+        <td class="xl87" >OM_CARRIER_CHK_FOR_LOT_START</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl78" >Whether check if the carrier has control job or is in the equiment at lot start</td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >13</td>
+        <td class="xl87" >OM_FLOWB_RSRV_REMOVE_BY_MOVEIN</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl78" >If '1',<span style='mso-spacerun:yes;'>&nbsp; </span>remove Flow Batch reservation from the equipment at “Move In&quot;. The default is '1'.</td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="110" style='height:82.50pt;'>
+        <td class="xl80" height="110" align="right" style='height:82.50pt;' >14</td>
+        <td class="xl87" >OM_FLOWB_RSRV_REMOVE_BY_MOVEIN_CANCEL</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl78" >If '1',<span style='mso-spacerun:yes;'>&nbsp; </span>delete remaining Flow Batch reservation from the equipment at “Move In Cancel” operation. <br/><br/>Specify 0 to restore the deleted Flow Batch reservation of the equipment at “Move In Cancel” operation. The default is<span style='mso-spacerun:yes;'>&nbsp; </span>'1' . <br/><br/></td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="110" style='height:82.50pt;'>
+        <td class="xl80" height="110" align="right" style='height:82.50pt;' >15</td>
+        <td class="xl87" >OM_QT_SHOW_INACTIVE_LIST</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl78" >Usually, Q-Time List Inquiry service shows active Q-Time restricted lot informations. Specify 1 to show all Q-Time restricted lot informations including inactive ones. When Move Out is performed at the trigger process of Q-Time, timer becomes active. And it becomes inactive state when Move In is performed at the target process or when user changes the QTime timer to inactive state using Q-Time update service.</td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >16</td>
+        <td class="xl86" >OM_REGISTER_FOSB</td>
+        <td class="xl80"></td>
+        <td class="xl82" >新增</td>
+        <td class="xl78" >Whether regist FOSB carrier at Sorter action</td>
+        <td class="xl84" >0</td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >17</td>
+        <td class="xl82" >OM_SEASON_EQPSTATE</td>
+        <td class="xl80"></td>
+        <td class="xl82" >新增</td>
+        <td class="xl78" >season equipment status change,default '0' change to 'SBY.SESN'</td>
+        <td class="xl84" >0</td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl80" height="44" align="right" style='height:33.00pt;' >18</td>
+        <td class="xl86" >OM_TIME_TRACK_FOR_TX_EXEC</td>
+        <td class="xl80"></td>
+        <td class="xl82" >新增</td>
+        <td class="xl78" >Time tracking for method execution, the value is transactionId. Default value is ''. Please use ',' split it if there are multiple values</td>
+        <td class="xl79" >无</td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >19</td>
+        <td class="xl87" >OM_TIME_TRACK_LEVEL</td>
+        <td class="xl80"></td>
+        <td class="xl82" >新增</td>
+        <td class="xl78" >Time tracking for method execution.</td>
+        <td class="xl79" >controller,service,method,core</td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >20</td>
+        <td class="xl82" >OM_EAP_CONNECT_TIMEOUT</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl88" >defined the timeout time of EAP connection</td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="308" style='height:231.00pt;'>
+        <td class="xl80" height="308" align="right" style='height:231.00pt;' >21</td>
+        <td class="xl87" >OM_PCS_MAX_EXECUTION_IN_CHAIN</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl78" >Specify count to execute PCS in chain. When 0 is set, PCS is not called. Default value is 1. E.g. of chain execution - we have process flow with ope no 100, 200, 300 and 400. Some of the steps are attached with PCS, which will skip the lot to other operation. <br/><br/><span style='mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;</span>| <br/><br/><span style='mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;</span>O 100 <br/><br/><span style='mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;</span>| <br/><br/><span style='mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;</span>O 200<span style='mso-spacerun:yes;'>&nbsp;&nbsp; </span>PCS skip to 300 <br/><br/><span style='mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;</span>| <br/><br/><span style='mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;</span>O 300<span style='mso-spacerun:yes;'>&nbsp;&nbsp; </span>PCS skip to 400 <br/><br/><span style='mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;</span>| <br/><br/><span style='mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;</span>O 400<span style='mso-spacerun:yes;'>&nbsp;&nbsp; </span>PCS skip to 200 <br/><br/><span style='mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;</span>| <br/><br/>The above scenario will turn to infinite loop.<span style='mso-spacerun:yes;'>&nbsp; </span><br/><br/>Using this env, PCS execution is controlled.<span style='mso-spacerun:yes;'>&nbsp;&nbsp;</span></td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >22</td>
+        <td class="xl87" >OM_APC_TIMEOUT</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl78" >Specify timeout value (seconds) for a transaction between OMS and APC</td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="154" style='height:115.50pt;'>
+        <td class="xl80" height="154" align="right" style='height:115.50pt;' >23</td>
+        <td class="xl86" >OM_APC_DATA_REQUEST_MAX_COUNT</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl78" >Specify maximum number of record count to be returned from APC Entity Value Inquiry. <br/>The default value is 1,000. e.g. <br/>The APC sends an enquiry to OMS to get the Machine Recipe List. In OMS server, there are over 1,000,000 recipes exist. If there is no limitation on returned record count, a huge memory area will be used by OMS server and the returned result is going to be huge. OM_APC_DATA_REQUEST_MAX_COUNT will restrict the number of returned record count<br/></td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl80" height="44" align="right" style='height:33.00pt;' >24</td>
+        <td class="xl87" >OM_EAP_AVAILABLE</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl78" >Specify 1 to enable EAP interface function. <br/><br/></td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >25</td>
+        <td class="xl86" >OM_STEP_EQP_EXTLEN_FOR_OPE_LIST_INQ</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl85" >Specify number of average eqp count for each step record. Default value is 10.<span style='mso-spacerun:yes;'>&nbsp;</span></td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >27</td>
+        <td class="xl86" >OM_STEP_EXTLEN_FOR_OPE_LIST_INQ</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl78" >Specify avg record count (step count). Default value is 500.<span style='mso-spacerun:yes;'>&nbsp;</span></td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >28</td>
+        <td class="xl87" >OM_EQP_PORT_EXTLEN_IN_EQP_INFO_INQ</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl78" >Specify no. of avg port count for each eqp record. Default value is 10.<span style='mso-spacerun:yes;'>&nbsp;</span></td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >29</td>
+        <td class="xl87" >OM_EQP_PORT_WITH_LOT_EXTLEN_IN_EQP_INFO_INQ</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl78" >Specify no. of avg port count for each Lot record.<span style='mso-spacerun:yes;'>&nbsp;</span></td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >30</td>
+        <td class="xl86" >OM_BANK_DESTBANK_EXTLEN_IN_BANK_LIST_INQ</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl78" >Specify number of average dest bank count. Default value is 10.<span style='mso-spacerun:yes;'>&nbsp;</span></td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >31</td>
+        <td class="xl86" >OM_PRODUCT_EXTLEN_IN_PROD_LIST_INQ</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl85" >Set no of avg product count. Default<span style='mso-spacerun:yes;'>&nbsp; </span>is 10.<span style='mso-spacerun:yes;'>&nbsp;</span></td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >32</td>
+        <td class="xl87" >OM_SOURCE_PRODUCT_EXTLEN_IN_PROD_LIST_INQ</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl78" >Set no. of avg source product count for specified product. Default value is 10</td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >33</td>
+        <td class="xl87" >OM_QT_EXTLEN_FOR_QT_LOT_LIST_INQ</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl78" >set no of avg qtime restricted lot count. Default value is 100.<span style='mso-spacerun:yes;'>&nbsp;</span></td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >34</td>
+        <td class="xl87" >OM_RTCLPOD_EXTLEN_FOR_RTCL_STK_INQ</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl85" >Specify number of average reticle pod count in a stocker. Default value is 100</td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >35</td>
+        <td class="xl87" >OM_RETICLE_EXTLEN_FOR_RTCL_STK_INQ</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl78" >Set no of avg reticle count for each reticle pod. Default value is 10.<span style='mso-spacerun:yes;'>&nbsp;</span></td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >36</td>
+        <td class="xl87" >OM_PORT_EXTLEN_FOR_PORT_CATEGORY_CAPABILITY</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl85" >Specify port category capability length. Default value is 10.<span style='mso-spacerun:yes;'>&nbsp;</span></td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="132" style='height:99.00pt;'>
+        <td class="xl80" height="132" align="right" style='height:99.00pt;' >39</td>
+        <td class="xl86" >OM_USE_DB_TIMESTAMP</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl78" >When multiple OMS processes operate on different host, the following time stamps are set using current time stamp of each host. To unify time stamp information through whole OMS. <br/><br/>Set &quot;1&quot;, so that they are retrieved using current time stamp of database. <br/><br/>Default value is 0. <br/><br/>- Event log <br/><br/>- Table timestamp column value<span style='mso-spacerun:yes;'>&nbsp;</span></td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >40</td>
+        <td class="xl87" >OM_LOTID_GEN_LENGTH</td>
+        <td class="xl80"></td>
+        <td class="xl82" >新增</td>
+        <td class="xl85" >This env variable can specify the maximum length of lot ID generation.<span style='mso-spacerun:yes;'>&nbsp;</span></td>
+        <td class="xl84" >12</td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="66" style='height:49.50pt;'>
+        <td class="xl80" height="66" align="right" style='height:49.50pt;' >41</td>
+        <td class="xl86" >OM_LOTID_GEN_HEADER</td>
+        <td class="xl80"></td>
+        <td class="xl82" >新增</td>
+        <td class="xl78" >Specify 0 to use original lot ID Header. (Example: AA) <br/><br/>Specify 1 to generate lot ID Header with current date. (Example: AA+2017+06) <br/><br/></td>
+        <td class="xl84" >0</td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="66" style='height:49.50pt;'>
+        <td class="xl80" height="66" align="right" style='height:49.50pt;' >42</td>
+        <td class="xl87" >OM_LOTID_GEN_LAYER_ID</td>
+        <td class="xl80"></td>
+        <td class="xl82" >新增</td>
+        <td class="xl78" >Specify 1 to generate lot ID Header with current date. (Example: AA+2017+06) Specify 0 to use 00 as lotID Footer. (Example: .00) <br/>Specify 1 to set MfgLayer to the end of lotID Footer. (Example: .00+MfgLayerID)<span style='mso-spacerun:yes;'>&nbsp;</span></td>
+        <td class="xl84" >0</td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >43</td>
+        <td class="xl87" >OM_LOTID_GEN_DELIMITER</td>
+        <td class="xl80"></td>
+        <td class="xl82" >新增</td>
+        <td class="xl78" >This env variable can specify the delimiter of lot ID generation.<span style='mso-spacerun:yes;'>&nbsp;</span></td>
+        <td class="xl79" >无</td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >44</td>
+        <td class="xl86" >OM_CARRIER_CHK_EI_FOR_LOT_START</td>
+        <td class="xl80"></td>
+        <td class="xl82" >新增</td>
+        <td class="xl78" >If '0', allow these Lot Start operations while lot is in equipment</td>
+        <td class="xl79" >无</td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >45</td>
+        <td class="xl86" >OM_SENTINEL_NAME</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl78" >watch dog name of the sentinel</td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >46</td>
+        <td class="xl86" >OM_CONSTRAINT_ONETIME_EXCEPTION</td>
+        <td class="xl80"></td>
+        <td class="xl82" >新增</td>
+        <td class="xl85" >tool constraint switch off</td>
+        <td class="xl84" >0</td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >47</td>
+        <td class="xl86" >OM_EXCHANGE_CARRIER_CATEGORY_CHK_MODE</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl78" >Whether the contamination check will follow AA2BB mode or normal mode</td>
+        <td class="xl79" >OFF</td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >48</td>
+        <td class="xl86" >OM_LOT_TERMINATE_CHK_TYPE</td>
+        <td class="xl80"></td>
+        <td class="xl82" >添加备注-代码</td>
+        <td class="xl78" >whether need to check the Lot type (0.no; 1.yes)</td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >49</td>
+        <td class="xl86" >OM_CRCP_MULTIPLE_COMMON_USE</td>
+        <td class="xl80"></td>
+        <td class="xl82" >新增</td>
+        <td class="xl85" >ESEC Chamber level recipe / Multiple Chamber common use</td>
+        <td class="xl84" >1</td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >50</td>
+        <td class="xl82" >OM_EXCHANGE_CARRIER_CATEGORY_CHK_MODE</td>
+        <td class="xl80"></td>
+        <td class="xl82" >删除</td>
+        <td class="xl85"></td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >51</td>
+        <td class="xl82" >OM_SORTER_CARRIER_CATEGORY_CHK_MODE</td>
+        <td class="xl80"></td>
+        <td class="xl82" >删除</td>
+        <td class="xl85"></td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl80" height="22" align="right" style='height:16.50pt;' >52</td>
+        <td class="xl80" >OM_CARRIER_FEBE_MODE</td>
+        <td class="xl80"></td>
+        <td class="xl82" >删除</td>
+        <td class="xl85"></td>
+        <td class="xl84"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+        <td class="xl80"></td>
+    </tr>
+</table>
+</body>
+

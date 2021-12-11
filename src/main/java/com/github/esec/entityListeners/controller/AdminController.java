@@ -1,11 +1,11 @@
 package com.github.esec.entityListeners.controller;
 
+import com.github.common.util.ValidatedUtils;
+import com.github.esec.param.EquipmentFurnaceLayoutRecipeHistorySearchParam;
 import com.github.esec.person.service.PersonPrivilegeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,5 +28,10 @@ public class AdminController {
         entityManager.persist(article);
 
         personPrivilegeService.checkPersonHavePermissionInq("","");
+    }
+
+    @PostMapping("/valid")
+    public void testValid(@RequestBody EquipmentFurnaceLayoutRecipeHistorySearchParam equipmentFurnaceLayoutRecipeHistorySearchParam) {
+        ValidatedUtils.checkParam(equipmentFurnaceLayoutRecipeHistorySearchParam);
     }
 }

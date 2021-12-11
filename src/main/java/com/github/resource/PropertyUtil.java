@@ -198,6 +198,10 @@ public class PropertyUtil {
             return Character.toString(c);
         }
     }
+
+    public static void main(String[] args) {
+        System.out.println(ascii2Native("\\u7089\\u7ba1\\u7684\\u914d\\u65b9\\u672a\\u6307\\u5b9a\\u4f4d\\u7f6e"));
+    }
 }
 
 

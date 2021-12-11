@@ -1,0 +1,1001 @@
+<body link="blue" vlink="purple">
+<table id="env-02">
+    <tr height="88" style='height:66.00pt;'>
+        <td class="xl91" >OM_RC_WHEN_NO_DATA_FOR_LIST_INQ</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >添加备注-代码-sql</td>
+        <td class="xl91" >Specify 1 to change return code from ‘RC_NOT_FOUND***’ to ‘RC_OK’ for List-inquiry related transaction. Default value is 1.</span></td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74" align="right">0</td>
+        <td class="xl74" align="right">1</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="88" style='height:66.00pt;'>
+        <td class="xl65" >OM_DRBL_STATUS_CHG_LIMIT</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >添加备注-代码-sql</td>
+        <td class="xl91" >If ‘1’, after define a Next State, when changing durable status into other durable status, you can change status only into the status.</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74" align="right">0</td>
+        <td class="xl74" align="right">1</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >ENV_ENABLE</td>
+        <td class="xl65" >OM_ENV_ENABLE</td>
+        <td class="xl67"></td>
+        <td class="xl91" >新增</td>
+        <td class="xl91" >Whether to open the environment</td>
+        <td class="xl67"></td>
+        <td class="xl74" align="right">1</td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="286" style='height:214.50pt;'>
+        <td class="xl65" >OM_PSM_BRANCH_WARNING_ON_REGISTRATION</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >添加备注-代码-sql</td>
+        <td class="xl91" >When PSM is defined on sub branch, check if operation are consistent between branch connecting operation in the latest operation flow and the operation from which the lot is actually branched. <br/><br/>&quot;0&quot;. Do not perform this check when PSM registration. <br/><br/>&quot;1&quot;. Perform this check and return warning message when operatons aren’t consistent between branch connecting operation in the latest operation flow and the operation from which the lot is actually branched. <br/><br/></td>
+        <td class="xl65" >一致</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="198" style='height:148.50pt;'>
+        <td class="xl65" >OM_RTCLPOD_TRANSFER_STATUS_RPT_MODE</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >添加备注-代码-sql</td>
+        <td class="xl91" >It can set a rule whether rtclpod transfer status change is allowed for any types of transport equipments. If &quot;1&quot;, an error is returned when reticlePod’s transfer status change is reported for carrier or fixture transport equipment. If it is specified as 0, reticlePods are allowed to be transferred from/to any types of transport equipments. The default is 1. Recommend value is 1.</span></td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74" align="right">0</td>
+        <td class="xl74" align="right">1</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="88" style='height:66.00pt;'>
+        <td class="xl65" >OM_APC_NOTIFY_RESEND</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >添加备注-代码-sql</td>
+        <td class="xl91" >Set &quot;1&quot;, when you want to enable re-sending of the CJ info to APC. When an error occurs inside OMS after APC communication, OMS will send CJ info with suitable status.</span></td>
+        <td class="xl65" >一致</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="66" style='height:49.50pt;'>
+        <td class="xl65" >OM_MAX_WAFER_COUNT_FOR_LOT</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >添加备注-代码-sql</td>
+        <td class="xl91" >Used in SPS. Specify maximum number of wafers in a carrier. The default value is 25 if it is not specified.</span></td>
+        <td class="xl65" >一致</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="198" style='height:148.50pt;'>
+        <td class="xl65" >OM_CANCEL_BANK_IN_PRODUCT_CHK</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >添加备注-代码-sql</td>
+        <td class="xl91" >Specify 0 if BankIn Cancel should be allowed even when lot’s product spec related information like Process Flow ID, end bank ID and the last operation of Process Flow was changed usng MDS system. Specify 1 so BankIn Cancel checks the latest product setting and it should be prohibited when lot’s current bank or Process Flow is not the same with the latest product setting.</span></td>
+        <td class="xl65" >一致</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="88" style='height:66.00pt;'>
+        <td class="xl65" >OM_EQP_STATUS_CHG_LIMIT</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >添加备注-代码-sql</td>
+        <td class="xl91" >If ‘1’, after define a Next State, when changing </span>eqp status into other </span>status, you can change status only into the status. <br/><br/></td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74" align="right">0</td>
+        <td class="xl74" align="right">1</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="176" style='height:132.00pt;'>
+        <td class="xl65" >OM_PJ_CONTROL_ENABLE_FLAG</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >添加备注-代码-sql</td>
+        <td class="xl91" >Set “1” to enable fn below. If “0”, is specified, OMS will return error when a req is made. <br/><br/>- PJ info inquiry <br/><br/>- PJ mgmt (Pause, Resume, Stop, Abort) <br/><br/>- PJ wafer level real-time recipe parameter adjust<br/><br/>- Running Split</span></td>
+        <td class="xl65" >一致</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="66" style='height:49.50pt;'>
+        <td class="xl65" >OM_MAX_SIZE_LOT_LIST_INQ</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >添加备注-代码-sql</td>
+        <td class="xl91" >Specify maximum record number for LotList. Default value is 100. Any value below 100 is taken as 100</td>
+        <td class="xl65" >一致</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+    </tr>
+    <tr height="66" >
+        <td class="xl65" >OM_CONSTRAINT_USE_WILDCARD</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >添加备注-代码-sql</td>
+        <td class="xl91" >used for check reticle inhibity during what's next (has other Deprecated </span>use, might need to ask QiHeng to check)</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74" align="right">1</td>
+        <td class="xl74" align="right">0</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >OM_CONSTRAINT_MAX_LIST_INQ</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >添加备注-代码-sql</td>
+        <td class="xl91" >used for entity inihbity inq , the limit of the max length every time can be inqueried</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74" align="right">100</td>
+        <td class="xl74" align="right">2000</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="220" style='height:165.00pt;'>
+        <td class="xl65" >OM_SPC_URL</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl91" >新增</td>
+        <td class="xl91" >Specify the URL of SPC User Interface<br/><br/>When constraint inhibition is registered because of SPC Over, SPC Chart information (like Chart Group ID, Chart ID, and etc) is registered automatically as reason detail information of constraint. This information can be displayed by UI. Moreover, if this environment variable is set correctly, operator can directly access to SPC Chart page on web browser from UI.</td>
+        <td class="xl67"></td>
+        <td class="xl65" >无</td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_CONSTRAINT_WILDCARD_VALUE</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >Configure CONSTRAINT wildcard</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl67"></td>
+        <td class="xl65" >*</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="220" style='height:165.00pt;'>
+        <td class="xl65" >OM_CONSTRAINT_DURATION</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl67"></td>
+        <td class="xl91" >Specify the duration to set expiration date of Constraint. This is available for both manual registration and system registration. System registration is executed as the result of Spec check, SPC check or APC-IF error. In this case, system sets StartTime and EndTime as effective time period. Current timestamp is assigned as StartTime, and StartTime + &lt;OM_RESTRICTION_DURATION&gt; is assigned as EndTime. The default value is 10 (day).</span></td>
+        <td class="xl65" >不一致</td>
+        <td class="xl67"></td>
+        <td class="xl74" align="right">10</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="154" style='height:115.50pt;'>
+        <td class="xl65" >OM_AMONT_USED_COUNT_RESET_ON_LOT_START</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl91" >新增</td>
+        <td class="xl91" >Set “0” not to reset used count for auto monitor at npw lot start<br/><br/>Set “1” to reset used count for auto monitor at npw lot start<br/><br/>Set “2” to reset used count for auto monitor at recycle lot start<br/><br/></td>
+        <td class="xl67"></td>
+        <td class="xl92" align="right">0</td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_PP_FLAG_USE_FLAG</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >Whether to use the flag of the post process</td>
+        <td class="xl65" >一致</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="66" style='height:49.50pt;'>
+        <td class="xl67">19</td>
+        <td class="xl65" >OM_XFER_TAKEOUT_IN_NOT_AVAIL_STATE</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >添加备注-代码-sql</td>
+        <td class="xl91" >Set 1 to perform the TakeOut transfer process by Carrier Delivery even if the Equipment Status is Not Available. The default is 0.</span></td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74" align="right">0</td>
+        <td class="xl74" align="right">1</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >SP_PD_FLOW_LEVEL_MAIN</td>
+        <td class="xl65" >OM_PD_FLOW_LEVEL_MAIN</td>
+        <td class="xl65"></td>
+        <td class="xl91" >新增</td>
+        <td class="xl91" >Product main flow level</td>
+        <td class="xl67"></td>
+        <td class="xl93" ><font class="font31">Main</font></td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="198" style='height:148.50pt;'>
+        <td class="xl65" >OM_SORTER_LOCK_JOB_FLAG</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl91" >新增</td>
+        <td class="xl91" >Set &quot;1&quot; to lock automated sorter job when sorter job is about to be verified or updated. Whether equipment object should be locked depends on the value of SP_EQP_LOCK_MODE. <br/><br/>Specify 0 to lock related equipment object when sorter job is about to be verified or updated<br/><br/></td>
+        <td class="xl67"></td>
+        <td class="xl74" align="right">0</td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_LOT_PLAN_CHG_RESERVE</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >添加备注-代码-sql</td>
+        <td class="xl91" >Used in SPS</td>
+        <td class="xl65" >一致</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="110" style='height:82.50pt;'>
+        <td class="xl65" >OM_LOT_SPLIT_NO_SCHEDULE_FOR_CHILD</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >添加备注-代码-sql</td>
+        <td class="xl91" >If </span>'1', do not to copy the operation schedules from parent </span>to child lot. This improve resp time when a lot split. Thus, child lot will not have operation schedules. The default value is 0.</span></td>
+        <td class="xl65" >一致</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="154" style='height:115.50pt;'>
+        <td class="xl65" >OM_QT_KEEP_ON_LOT_PLAN_CHG</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl91" >新增</td>
+        <td class="xl91" >Controls whether QT info is cleared or not during lot plan chg. If “1” and the lot’s process flow isn’t changed, Q-Time related information won’t be cleared. If it is specified as “0” or the lot’s process flow is changed, Q-Time information is cleared. <br/><br/></td>
+        <td class="xl67"></td>
+        <td class="xl74" align="right">0</td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="132" style='height:99.00pt;'>
+        <td class="xl65" >OM_EQP_CHK_CARRIER_LOT_ON_PORT</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >During equipment mode change, OMS could check and block the equipment mode change if there is any carrier/lot was on the port. If </span>'1' check is enable.<br/><br/>Default value is 0. <br/><br/></td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74" align="right">0</td>
+        <td class="xl74" align="right">1</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="176" style='height:132.00pt;'>
+        <td class="xl65" >OM_EQP_GO_ONLINE_POSSIBLE_WITH_NPW</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >When “1”, it is possible to change eqp mode from Offline to Online even if NPW carrier is on the port or in the shelf of internal buffer equipment. In order to set this variable as “1”, EAP must have capability to control NPW FOUP on equipment port or in the shelf of internal buffer eqp. The default is “0”. <br/><br/></td>
+        <td class="xl65" >一致</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="66" style='height:49.50pt;'>
+        <td class="xl65" >SP_DISPATCH_CAST_CLEARED_BY_CHANGE_TO_ONLINE</td>
+        <td class="xl65" >OM_DISPATCH_CAST_CLEARED_BY_CHANGE_TO_ONLINE</td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65"></td>
+        <td class="xl91" >Whether to change the port status of the device to the online status<br/></td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74" align="right">0</td>
+        <td class="xl74" align="right">1</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="66" style='height:49.50pt;'>
+        <td class="xl65" >OM_PP_QUERY_FILTER_DELIMITER</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl91" >新增</td>
+        <td class="xl91" >Specify a character to be used as a separator of a combination filter for search of post process pattern.</span></td>
+        <td class="xl67"></td>
+        <td class="xl65" >无</td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="374" style='height:280.50pt;'>
+        <td class="xl65" >OM_OWNER_CHG_REMOVE_DUPLICATE</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl91" >新增</td>
+        <td class="xl91" >Set '1' </span>to delete duplicate records found in customized table during owner change service. For example, in case that a customized table has a unique index for an owner column, when the owner is changed from A to B, if owner B existed, changing A to B would cause a duplicate error. To avoide this problem, the owner change service deletes the record of A without changing A to B and remains the record of B. <br/><br/><br/>0: Default value. The owner change service fails when duplicate owner records were detected. <br/><br/>1: The owner change service keeps owner record unique by deleting duplicate owner records. <br/><br/></td>
+        <td class="xl67"></td>
+        <td class="xl74" align="right">0</td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="132" style='height:99.00pt;'>
+        <td class="xl65" >OM_PP_PARALLEL_ENABLE</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl91" >新增</td>
+        <td class="xl91" >0: Post Process is performed with sequential execution <br/><br/>1: Post Process is performed with parallel execution in case other conditions for parallel execution are met. <br/><br/></td>
+        <td class="xl67"></td>
+        <td class="xl74" align="right">0</td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_PP_PARALLEL_LOT_LIMIT</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl91" >新增</td>
+        <td class="xl94"></td>
+        <td class="xl67"></td>
+        <td class="xl74" align="right">10</td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_CARRIER_BASE_INFO_CHECK</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >Check cassette information check mark</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74" align="right">1</td>
+        <td class="xl74" align="right">0</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_RTCLPOD_BASE_INFO_CHECK</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >RTCLPOD basic information verification mark</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74" align="right">1</td>
+        <td class="xl74" align="right">0</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_DELIVERY_CHK_MINIMUM_BATCH_SIZE_ENABLE</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >Minimum batch quantity verification switch</td>
+        <td class="xl65" >一致</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_XFER_STAY_ON_PORT_WITH_NO_DESTINATION</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >不清楚环境变量的含义</td>
+        <td class="xl74"></td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74" align="right">1</td>
+        <td class="xl74" align="right">0</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >OM_INSTANCE_ID</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl91" >1. 添加备注-代码-sql<br/>2. </span>sql中缺失环境变量，新增</td>
+        <td class="xl91" >instance id</td>
+        <td class="xl67" colspan="3" style='mso-ignore:colspan;'></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_DRBL_CHK_FOR_EMPTY_CARRIER</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >check drbl empty carrier</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74" align="right">1</td>
+        <td class="xl74" align="right">0</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >OM_DRBL_CHK_FOR_EMPTY_POD</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl91" >1. 添加备注-代码-sql<br/>2. </span>sql中缺失环境变量，新增</td>
+        <td class="xl91" >check drbl empty pod</td>
+        <td class="xl67"></td>
+        <td class="xl74" align="right">1</td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >OM_RETICLE_RETRIEVE_WHEN_LOT_PROCESS</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl91" >1. </span>sql中缺失环境变量，新增</td>
+        <td class="xl91" >If this value is set ‘1’, reticle can retrieve during lot process.</span></td>
+        <td class="xl67" colspan="3" style='mso-ignore:colspan;'></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >OM_STEP_EQP_LIST_INQ</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >Whether to view the corresponding equipment list in the step</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74" align="right">0</td>
+        <td class="xl74" align="right">1</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_PROC_MON_WAIT_HOLD_LOGIC</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >不清楚环境变量的含义</td>
+        <td class="xl91" >Whether the monitor waits for the hold flag</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74" align="right">0</td>
+        <td class="xl74" align="right">1</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >OM_NOLOTOPENOTE_FOR_CHILDLOT</td>
+        <td class="xl67"></td>
+        <td class="xl65"></td>
+        <td class="xl91" >1. </span>不清楚环境变量的含义<br/>2. </span>系统中未使用，sql中也不存在， 新增</td>
+        <td class="xl94"></td>
+        <td class="xl67" colspan="3" style='mso-ignore:colspan;'></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="88" style='height:66.00pt;'>
+        <td class="xl65" >OM_RELATED_OBJ_MSG_COUNT</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td class="xl91" >新增</td>
+        <td class="xl91" >It is used when MDS call OMS when asking for related object report in production. it's used in code to limition the results max quantity of response</td>
+        <td class="xl67"></td>
+        <td class="xl74" align="right">10</td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >SP_CHECK_FLAG_OFF</td>
+        <td class="xl65" >OM_CHECK_FLAG_OFF</td>
+        <td class="xl67"></td>
+        <td class="xl91" >1. </span>不清楚环境变量的含义<br/>2. </span>新增</td>
+        <td class="xl94"></td>
+        <td class="xl67" colspan="3" style='mso-ignore:colspan;'></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >ENV_DISABLE</td>
+        <td class="xl65" >OM_ENV_DISABLE</td>
+        <td class="xl67"></td>
+        <td class="xl91" >新增</td>
+        <td class="xl91" >Disable environment variable identification</td>
+        <td class="xl67" colspan="3" style='mso-ignore:colspan;'></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="352" style='height:264.00pt;'>
+        <td class="xl65" >OM_LATE_DELETE_MAIN_POS</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td class="xl91" ><br/>1. </span>系统中未使用，sql中也不存在</td>
+        <td class="xl91" >&quot;MainPOS is created as ope info specified by Main Process Flow. It had been deleted as soon as the corresponding ModPOS is deleted from Route Flow, or when Route Flow is deleted from Main Process Flow. But it was early deletion for Lot that uses it at current operation or may use it in the future. <br/>Specify 1 and MainPOS is deleted when the corresponding ModPOS that had been deleted before is revived to Route flow or Route flow that had been deleted before is revived to Main Process Flow, so Lot can use it till it is revived. By making the deletion timing delay, Lot can make use of it as long as possible. The default value is 0.<br/>&quot;</td>
+        <td class="xl67" colspan="3" style='mso-ignore:colspan;'></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >OM_DISP_DEFAULT_RULE_MODE</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td class="xl91" >1. </span>不清楚环境变量的含义<br/>2. </span>系统中未使用，sql中也不存在</td>
+        <td class="xl94"></td>
+        <td class="xl67" colspan="3" style='mso-ignore:colspan;'></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >OM_QT_REPLACE_TRIGGER_MAINFLOW_PRIORITY</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td class="xl91" >1. </span>不清楚环境变量的含义<br/>2. </span>系统中未使用，sql中也不存在</td>
+        <td class="xl94"></td>
+        <td class="xl67" colspan="3" style='mso-ignore:colspan;'></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_EDC_SCREEN_LIMIT_OVER_NO_CALC</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >不清楚环境变量的含义</td>
+        <td class="xl91"></td>
+        <td class="xl65" >一致</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_E10_ORDER_FOR_STATUS_CHG</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >E10 state priority rules</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl65"></td>
+        <td class="xl65" colspan="3" style='mso-ignore:colspan;' >PRD,SBY,ENG,UDT,SDT,NST</td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_OWNER_CHG_MAX_COMMIT_COUNT</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >OWNER change MAX COMMIT COUNT</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74" align="right">1</td>
+        <td class="xl74" align="right">0</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >PPT_TRACE_INCOMING</td>
+        <td class="xl65" >OM_TRACE_INCOMING</td>
+        <td class="xl67"></td>
+        <td class="xl91" >1. </span>不清楚环境变量的含义<br/>2. </span>系统中未使用，sql中存在</td>
+        <td class="xl94"></td>
+        <td class="xl65" >不一致</td>
+        <td class="xl67"></td>
+        <td class="xl74" align="right">1</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_XFER_REROUTE_FLAG</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >reroute </span>xfer flag</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74" align="right">0</td>
+        <td class="xl74" align="right">1</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_CARRIER_STORE_SIZE</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >carrier store size</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74" align="right">0</td>
+        <td class="xl74" align="right">25</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_CARRIER_ADMIN</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >carrier administrator</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_CARRIER_WAFER_SIZE</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >CARRIER WAFER SIZE</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl67"></td>
+        <td class="xl74" align="right">12</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_RTCLPOD_ADMIN</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >RTCL POD administrator</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_SPLIT_LOT_SUFFIX_PROHIBIT_CHAR</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >Unbatch lot suffix rules</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74" align="right">0</td>
+        <td class="xl65" >IO</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="176" style='height:132.00pt;'>
+        <td class="xl65" >OM_STEP_CONTENT_RESET_LEVEL_FOR_LOT</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >The step info for the selected lot(s) will get updated based on the update level. The update level can be specified in the input parameter of the tx or if -1 is specified, the value defined by the env will be used. <br/><br/>If </span>&quot;0&quot; to update dispatching equipment only. <br/><br/>If &quot;1&quot; to update dispatching equipment, required carrier category and step id.</td>
+        <td class="xl67" colspan="3" style='mso-ignore:colspan;'></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >OM_APC_USER</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td class="xl91" >1. 添加备注-代码-sql<br/>2. </span>系统中未使用，sql中也不存在</td>
+        <td class="xl91" >APC USER</td>
+        <td class="xl67" colspan="3" style='mso-ignore:colspan;'></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >OM_APC_USER_PASSWORD</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td class="xl91" >1. 添加备注-代码-sql<br/>2. </span>系统中未使用，sql中也不存在</td>
+        <td class="xl91" >APC USER PASSWORD</td>
+        <td class="xl67" colspan="3" style='mso-ignore:colspan;'></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >OM_SYSTEM_NAME</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl91" >1. 添加备注-代码-sql<br/>2. </span>sql中缺失环境变量，新增</td>
+        <td class="xl91" >Send APC functions</td>
+        <td class="xl67" colspan="3" style='mso-ignore:colspan;'></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >OM_APC_SERVER</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl91" >1. 添加备注-代码-sql<br/>2. </span>sql中缺失环境变量，新增</td>
+        <td class="xl91" >APC SERVER </span>Name</td>
+        <td class="xl67" colspan="3" style='mso-ignore:colspan;'></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >OM_APC_HOST</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl91" >1. 添加备注-代码-sql<br/>2. </span>sql中缺失环境变量，新增</td>
+        <td class="xl91" >APC HOST Address</td>
+        <td class="xl67" colspan="3" style='mso-ignore:colspan;'></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="110" style='height:82.50pt;'>
+        <td class="xl65" >OM_CONSTRAINT_APC_INTERFACE_MODIFY</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >Specify 1, when you want to enable Equipment Entity Inhibit during APC-I/F setup (newly created or modified). <br/><br/>It will prevent the lot to be processed by the equipment during the APC I/F change.</span></td>
+        <td class="xl65" >一致</td>
+        <td class="xl74" align="right">0</td>
+        <td class="xl65" align="right">0</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="88" style='height:66.00pt;'>
+        <td class="xl65" >OM_EAP_SEND_IN_OFFLINE</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >Specify 1 to enable function to report data to TCS, even if mode is offline at Operation Start/Operation Completion/Operation Start Reserve/Load/Unload.</span></td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74" align="right">1</td>
+        <td class="xl74" align="right">0</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >SP_MAIL_SENDER</td>
+        <td class="xl65" >OM_MAIL_SENDER</td>
+        <td class="xl65" >OMS</td>
+        <td class="xl91" >1. </span>sql中缺失环境变量，新增</td>
+        <td class="xl91" >EMAIL_CONFIG</td>
+        <td class="xl67" colspan="3" style='mso-ignore:colspan;'></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >SP_SENTMESSAGECHECKTIME</td>
+        <td class="xl65" >OM_SENTMESSAGECHECKTIME</td>
+        <td class="xl67"></td>
+        <td class="xl91" >1. </span>系统中未使用，sql中不存在</td>
+        <td class="xl91" >Sent message check time</td>
+        <td class="xl67" colspan="3" style='mso-ignore:colspan;'></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="66" style='height:49.50pt;'>
+        <td class="xl65" >OM_MAIL_SENTINEL_EMAIL_ID</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl91" >1. </span>sql中缺失环境变量，新增<br/>2. 添加备注-代码-sql<br/></td>
+        <td class="xl91" >Administrator Mail Address</td>
+        <td class="xl67" colspan="3" style='mso-ignore:colspan;'></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >OM_MAIL_SENTINEL_MAX_SEND_COUNT</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td class="xl91" >1. 添加备注-代码-sql<br/>2. </span>sql中缺失环境变量，新增</td>
+        <td class="xl91" >This is used in Mail Sentinel but not use in OMS</td>
+        <td class="xl67" colspan="3" style='mso-ignore:colspan;'></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >SP_TEMPLATEFILEPATH</td>
+        <td class="xl65" >OM_TEMPLATEFILEPATH</td>
+        <td class="xl65" >OMS</td>
+        <td class="xl91" >新增</td>
+        <td class="xl91" >Template file storage path</td>
+        <td class="xl67" colspan="3" style='mso-ignore:colspan;'></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_DISABLE_PSM</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >Whether to disable PSM</td>
+        <td class="xl65" >一致</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_DISABLE_DOC</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >Whether to disable DOC</td>
+        <td class="xl65" >一致</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_DISABLE_RUNCARD</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65"></td>
+        <td class="xl91" >Whether to disable RUNCARD</td>
+        <td class="xl65" >一致</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_RUNCARD_EXT_APROVAL_FLAG</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >RunCard ext Approval Flag</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74" align="right">1</td>
+        <td class="xl74" align="right">0</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="132" style='height:99.00pt;'>
+        <td class="xl65" >OM_STEP_DELETION_WITH_PAST_PO_CHK</td>
+        <td class="xl67"></td>
+        <td class="xl65" >CORE</td>
+        <td class="xl91" >1. 添加备注-代码-sql<br/>2. </span>sql中缺失环境变量，新增</td>
+        <td class="xl91" >This is for consistency check of Step deletion. Specify 1 to check the relation of Step with past_PO. However, the checking take very long time and it will greatly affect the step deletion. <br/><br/>The default value is 0. <br/><br/></td>
+        <td class="xl67" colspan="3" style='mso-ignore:colspan;'></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >SP_RTD_FUNCTION_CODE_RETICLEACTIONLISTINQ</td>
+        <td class="xl65" >OM_RTD_FUNCTION_CODE_RETICLEACTIONLISTINQ</td>
+        <td class="xl65" >OMS</td>
+        <td class="xl91" >1. 添加备注-代码-sql<br/>2. </span>sql中缺失环境变量，新增</td>
+        <td class="xl91" >RTD function RETICLEACTIONLISTINQ interface function code</td>
+        <td class="xl67" colspan="3" style='mso-ignore:colspan;'></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_RTCLPOD_ON_PORT_CHECK</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >Whether to Check RSPport status validity.</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl65" align="right">0</td>
+        <td class="xl74" align="right">1</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >OM_LOTIDASSIGEN_SWITCH</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >sql中缺失环境变量，新增</td>
+        <td class="xl91" >Determine if use the customize lot id generation rule</td>
+        <td class="xl67" colspan="3" style='mso-ignore:colspan;'></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >OM_FAB_WAFER_STD_SIZE</td>
+        <td class="xl67"></td>
+        <td class="xl65" >CORE</td>
+        <td class="xl67"></td>
+        <td class="xl91" >Specify wafer nominal size (inch).</span></td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74" align="right">200</td>
+        <td class="xl74" align="right">12</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >OM_RETICLE_EXTLEN_FOR_OPE_HISTORY_INQ</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl94" >Set no of avg reticle count for each OpeHistory record. Default value is 10.</span></td>
+        <td class="xl65" >不一致</td>
+        <td class="xl67"></td>
+        <td class="xl74" align="right">10</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >OM_FIXTURE_EXTLEN_FOR_OPE_HISTORY_INQ</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >Set no. of avg fixture count for each hist record</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl67"></td>
+        <td class="xl74" align="right">10</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="54" style='height:40.50pt;'>
+        <td class="xl65" >OM_OPEHIST_RCPPARM_EXTLEN_FOR_INQ</td>
+        <td class="xl74" >SP_SEASON_PM_STATUS</td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl95" >Set number of average Recipe Parameter  count for each Ope History record. Default value is 10.</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl67"></td>
+        <td class="xl74" align="right">10</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="110" style='height:82.50pt;'>
+        <td class="xl65" >OM_STK_ZONE_TYPE_FLAG</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >Set &quot;1&quot; to use zone within stocker according to the order that is described in zone_type.ini, when a carrier is stocked in. When &quot;0&quot; is specified, stocker controller decides location. The default is 0.</span></td>
+        <td class="xl65" >一致</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="22" style='height:16.50pt;'>
+        <td class="xl65" >SP_SEASON_PM_STATUS</td>
+        <td class="xl65" >OM_SEASON_PM_STATUS</td>
+        <td class="xl65" >OMS</td>
+        <td class="xl91" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >Specific equipment PM status</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl67"></td>
+        <td class="xl65" >NUll</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >OM_EDC_PLAN_EXTLEN_IN_EDC_HIST_INQ</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl91" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >Control the length of EDC history DC EDC_PLAN response array</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl67"></td>
+        <td class="xl74" align="right">20</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >OM_EDC_ITEM_EXTLEN_IN_EDC_HIST_INQ</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl96" >1. 添加备注-代码-sql</td>
+        <td class="xl94" >Control the length of the EDC history DC item response array</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl67"></td>
+        <td class="xl74" align="right">20</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="132" style='height:99.00pt;'>
+        <td class="xl65" >OM_OPEHIST_EXTLEN_FOR_INQ_WITH_PIN_POINT</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >&quot;Specify number of average record count for specified pinpoint operation. <br/>This value is only used when input parameter’s pinPointFlag = TRUE during Operation History Inquiry. Default value is 10. <br/>&quot;</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74"></td>
+        <td class="xl74" align="right">20</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="110" style='height:82.50pt;'>
+        <td class="xl65" >OM_OPEHIST_EXTLEN_FOR_INQ</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >Specify number of average record count after a specified operation. This value is only used when input parameter’s pinPointFlag = FALSE during Operation History Inquiry. Default value is 10.</span></td>
+        <td class="xl65" >不一致</td>
+        <td class="xl74"></td>
+        <td class="xl74" align="right">200</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >OM_CTRL_LOT_PRIORITY</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl91" >1. 添加备注-代码-sql<br/>2. </span>sql中缺失环境变量，新增</td>
+        <td class="xl83" >Specify the priority class of control lot between 1 and 5.</td>
+        <td class="xl67" colspan="3" style='mso-ignore:colspan;'></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >OM_OPEHIST_MAX_COUNT_FOR_INQ</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >Specify max record count to return from Ope </span>Hist Inq. Default value is 100.</span></td>
+        <td class="xl65" >一致</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >OM_SENTINEL_HISTORY_EVENT_DIST</td>
+        <td class="xl67"></td>
+        <td class="xl65" >CORE</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >adding watchdog name into fifo list of event is allowed to change the name</td>
+        <td class="xl65" >一致</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="286" style='height:214.50pt;'>
+        <td class="xl65" >OM_CJ_STATUS_HISTORY_SET</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl91" >&quot;This variable enables or disables five Control Job statuses to be recorded in the history. History tables are called CJSCHS and CJSCHS_LOTS. In order to record the specific Control Job status, specify 1 to the value which corresponds to the Control Job status. Default setting is 00000, which means that all five statuses are not recorded in the history. Two more Control Job statuses, Stopped, Aborted, and a Control Job Action, Priority, will be recorded regardless of the setting of this variable. <br/>&quot;</td>
+        <td class="xl65" >不一致</td>
+        <td class="xl65" >&quot;00000&quot;</td>
+        <td class="xl74" align="right">0</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="44" style='height:33.00pt;'>
+        <td class="xl65" >OM_CONSTRAINT_THRESHOLD_COUNT</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+        <td class="xl91" >1. </span>不清楚环境变量的含义<br/>2. </span>系统中没有使用</td>
+        <td class="xl94"></td>
+        <td class="xl65" >不一致</td>
+        <td class="xl65" align="right">0</td>
+        <td class="xl74" align="right">1</td>
+        <td colspan="2" style='mso-ignore:colspan;'></td>
+    </tr>
+    <tr height="306" style='height:229.50pt;'>
+        <td class="xl65" >OM_EDC_MULTI_CORRESPOND_MULTI_MERGE_FLAG</td>
+        <td class="xl67"></td>
+        <td class="xl65" >OMS, CORE</td>
+        <td class="xl65" >1. 添加备注-代码-sql</td>
+        <td class="xl83" >Specify a multiple corresponding operation merge rule in case that corresponding operations are defined in both Main Process Flow and Route<br/>If “1” , both the definition of Main Process Flow and Route Flow are available. Both specified corresponding operation information is merged. <br/>If “0”,  the definition of Main Process Flow is prior to one of Route. When corresponding operation information is defined in both Main Process Flow and Route, the definition of Main Process Flow is used.</td>
+        <td class="xl65" >一致</td>
+        <td class="xl67"></td>
+        <td class="xl67"></td>
+    </tr>
+</table>
+</body>

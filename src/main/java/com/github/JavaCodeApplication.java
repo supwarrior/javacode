@@ -1,17 +1,21 @@
 package com.github;
 
-import com.alibaba.nacos.spring.context.annotation.discovery.EnableNacosDiscovery;
+import com.github.ddd.BaseCore;
+import com.github.ddd.SnowflakeIDWorker;
+import com.github.env.core.EnvironmentVariableDO;
 import com.github.esec.core.BaseRepositoryImpl;
 import com.github.mock.UnitTestGeneratorUtil;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.io.InputStream;
 
@@ -23,7 +27,12 @@ import java.io.InputStream;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableJpaRepositories(repositoryBaseClass = BaseRepositoryImpl.class)
+@EnableScheduling
 public class JavaCodeApplication implements ApplicationRunner {
+
+    @Autowired
+    private BaseCore baseCore;
+
     public static void main(String[] args) {
         SpringApplication.run(JavaCodeApplication.class,args);
     }
@@ -43,5 +52,10 @@ public class JavaCodeApplication implements ApplicationRunner {
                 UnitTestGeneratorUtil.generatorUnitTest(scanPath);
             }
         }
+
+        String sql = "insert into ENV (ID, ENV_ID, ENV_VALUE, DESCRIPTION) values (?, ?, ?, ?)";
+        String id = SnowflakeIDWorker.getInstance().generateId(EnvironmentVariableDO.class);
+        Object[] params = new Object[]{id, "OM_PROC_MON_WAIT_HOLD_LOGIC", "0", ""};
+        baseCore.insert(sql, params);
     }
 }
